@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-//import './App.css';
-import TangkwaMyWithDrawHistory from './components/tangkwaMyWithDrawHistory';
+import './App.css';
+// import TangkwaMyWithDrawHistory from './components/tangkwaMyWithDrawHistory';
+import GunHeader from './components/gunHeader';
 
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <TangkwaMyWithDrawHistory />
+        <GunHeader />
       </div>
     );
   }
