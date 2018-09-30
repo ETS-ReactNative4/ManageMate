@@ -100,3 +100,52 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+
+html {
+  background-color: #fff;
+  color:#555;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 300;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+
+.row {
+  max-width: 1980px;
+  margin: 0 auto ;  
+}
+
+.background {
+background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../src/Image/hero.jpg);
+background-size: cover;
+background-position: center;
+height: 100vh;
+}
+
+.hero-logo {
+  font-weight: lighter;
+  font-size: 200%;
+  color: #fff;
+  position: absolute;
+  left: 38%;
+  top: 15px
+  
+}
+.mini-background{
+  position: absolute;
+  left:78px;
+  right:78px ;
+  top:150px;
+  width: 1300px;
+  height: 75vh;
+  background-color:rgba(234, 232, 232, 0.85);
+  border-radius: 41px;
+  opacity: 0.8;
+}
