@@ -24,6 +24,8 @@ class TangkwaLeaveDetail extends Component {
 
 
     }
+
+
     render() {
         return (
             <div className="App">
@@ -42,6 +44,7 @@ class TangkwaLeaveDetail extends Component {
 
                 <p>Note/Comments : {this.state.note}</p>
                 <p>File : </p>
+
 
 
             </div>
