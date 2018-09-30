@@ -22,6 +22,80 @@
   font-size: large;
 }
 
+
+.tangkwaSetMargin{
+  margin-top : 100px; 
+}
+
+.tangkwaSetTable{
+ margin-left: 100px;
+   text-align: center;
+   border-style: solid;
+   border-color:#FEC600;
+   background-color: #FEC600;
+   
+   height:  50px;
+   width:1200px;
+   border-width: 0.5px;
+}
+
+.tangkwaSetData{
+  margin-left: 100px;
+  text-align: center;
+  border-style: solid;
+  border-color:#D8D8D8;
+  background-color: #FFFFFF;
+  
+  height:  50px;
+  width:1200px;
+  border-width: 0.5px;
+}
+
+.tangkwaSetPending{
+  margin-top : 10px;
+  margin-left : 30px;
+  border-style: solid;
+  border-color:#EAE8E8;
+  border-radius: 20px;
+  background-color: #EAE8E8;
+  height:  25px;
+  width: 90px;
+  
+  border-width: 0.5px;
+  
+}
+
+.tangkwaSetApprove{
+  margin-top : 10px;
+  margin-left : 30px;
+  border-style: solid;
+  border-color:#16CA63;
+  border-radius: 20px;
+  background-color: #16CA63;
+  height:  25px;
+  width: 90px;
+  
+  border-width: 0.5px;
+  
+}
+
+.tangkwaSetReject{
+  margin-top : 10px;
+  margin-left : 30px;
+  border-style: solid;
+  border-color:#FF4949;
+  border-radius: 20px;
+  background-color: #FF4949;
+  height:  25px;
+  width: 90px;
+  
+  border-width: 0.5px;
+  
+}
+
+.tangkwaSetOneday{
+  margin-left: 100px; 
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
