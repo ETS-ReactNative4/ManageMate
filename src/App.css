@@ -133,16 +133,12 @@ height: 100vh;
   font-weight: lighter;
   font-size: 200%;
   color: #fff;
-  position: absolute;
-  left: 38%;
-  top: 15px
+  padding-top: 20px;
+
   
 }
 .mini-background{
-  position: absolute;
-  left:78px;
-  right:78px ;
-  top:150px;
+  margin-top: 20px;
   width: 1300px;
   height: 75vh;
   background-color:rgba(234, 232, 232, 0.85);
