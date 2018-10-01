@@ -11,6 +11,7 @@ class GunHeader extends Component {
         </h1>
                 <div className="mini-background">
 
+
                 </div>
             </header>
 
