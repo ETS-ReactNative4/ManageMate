@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-
+import React, { Component } from 'react'
 import '../App.css';
 
 class GunHeader extends Component {
@@ -8,7 +7,7 @@ class GunHeader extends Component {
             <header className="background">
                 <h1 className="hero-logo">
                     M A N A G E M A T E
-        </h1>
+                </h1>
                 <div className="mini-background">
 
                 </div>

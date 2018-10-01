@@ -133,12 +133,14 @@ height: 100vh;
   font-weight: lighter;
   font-size: 200%;
   color: #fff;
-  padding-top: 20px;kldfjgldj
+  padding-top: 20px;
 
   
 }
 .mini-background{
-  margin-top: 20px;
+  margin-top: 84px;
+  margin-left: 74px;
+  margin-right: 74px;
   width: 1300px;
   height: 75vh;
   background-color:rgba(234, 232, 232, 0.85);
