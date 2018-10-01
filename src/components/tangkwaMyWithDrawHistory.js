@@ -25,6 +25,7 @@ class TangkwaMyWithDrawHistory extends Component {
 
             <div className="App">
                 <div className="tangkwaSetMargin">
+                    <h3>My Withdraw</h3>
                     <div className="row tangkwaSetTable">
                         <div className="col-md-2">STATUS</div>
                         <div className="col-md-2">Withdraw ID</div>

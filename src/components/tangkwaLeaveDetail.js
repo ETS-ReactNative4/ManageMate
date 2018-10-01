@@ -29,7 +29,7 @@ class TangkwaLeaveDetail extends Component {
     render() {
         return (
             <div className="App">
-                <h1>LEAVE DETAIL</h1>
+                <h2>LEAVE DETAIL</h2>
                 <p>LEAVE ID : {this.state.leaveID} LEAVE TYPE : {this.state.leaveType}</p>
 
                 {!this.state.setDay && <div>
