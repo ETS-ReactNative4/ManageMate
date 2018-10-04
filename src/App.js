@@ -10,12 +10,22 @@ class App extends Component {
       <div className="App">
         <header className="background">
           <h1 className="hero-logo">
-            M A N A G E M A T E
-        </h1>
+            MANAGEMATE
+          </h1>
+          <ul className="main-nav">
+            <li><a href='#'>leave</a></li>
+            <li><a href='#'>calendar</a></li>
+            <li><a href='#'>withdraw</a></li>
+            <li><a href='#'>attendance</a></li>
+            <li><a href='#'>projects</a></li>
+            <li><a href='#'>statistics</a></li>
+          </ul>
           <div className="mini-background">
-            <TangkwaLeaveHistory />
 
           </div>
+        </header>
+        <header className="background">
+
         </header>
 
       </div>
