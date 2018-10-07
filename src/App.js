@@ -21,7 +21,6 @@ class App extends Component {
             <li><a href='#'>statistics</a></li>
           </ul>
           <div className="mini-background">
-
           </div>
         </header>
         <header className="background">
