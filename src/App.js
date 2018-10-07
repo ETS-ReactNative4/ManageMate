@@ -13,7 +13,12 @@ class App extends Component {
             MANAGEMATE
           </h1>
           <ul className="main-nav">
-            <li><a href='#'>leave</a></li>
+            <li className="ggg"><a href='#'>leave</a></li>
+            <div class="dropdown-content">
+              <a href="#">Link 1</a>
+              <a href="#">Link 2</a>
+              <a href="#">Link 3</a>
+            </div>
             <li><a href='#'>calendar</a></li>
             <li><a href='#'>withdraw</a></li>
             <li><a href='#'>attendance</a></li>
@@ -21,6 +26,7 @@ class App extends Component {
             <li><a href='#'>statistics</a></li>
           </ul>
           <div className="mini-background">
+
           </div>
         </header>
         <header className="background">
