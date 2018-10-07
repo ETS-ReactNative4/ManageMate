@@ -32,11 +32,13 @@
    text-align: center;
    border-style: solid;
    border-color:#FEC600;
+
    background-color: #FEC600;
    
    height:  95%;
    width:95%;
    
+
    border-width: 0.5px;
 }
 
@@ -46,8 +48,10 @@
   border-style: solid;
   border-color:#D8D8D8;
   background-color: #FFFFFF;
+
   height:  95%;
   width:95%;
+
   border-width: 0.5px;
   
 }
@@ -58,9 +62,11 @@
   border-color:#EAE8E8;
   border-radius: 20px;
   background-color: #EAE8E8;
+
  border-width: 0.5px;
  margin: 5px 8%;
   
+
 }
 
 .tangkwaSetApprove{
@@ -97,6 +103,8 @@
   box-sizing: border-box
 }
 
+
+/* -----------setup My html------------ */
 html {
   background-color: #fff;
   color:#555;
@@ -111,6 +119,8 @@ html {
   margin: 0 auto ;  
 }
 
+
+/* --------------background------------ */
 .background {
 background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../src/Image/hero.jpg);
 background-size: cover;
@@ -118,24 +128,29 @@ background-position: center;
 height: 100vh;
 }
 
+/*-------------- LOGO ---------------*/
 .hero-logo {
-  font-weight: lighter;
+  font-family: 'Roboto';
   font-size: 200%;
+  letter-spacing: 8px;
   color: #fff;
   padding-top: 20px;
-
-  
 }
+
+/* -----------------mini-background -------------------*/
 .mini-background{
+
   margin-top: 84px;
   margin-left: 74px;
   margin-right: 74px;
  
   height: 75vh;
+
   background-color:rgba(234, 232, 232, 0.85);
   border-radius: 41px;
   opacity: 0.8;
 }
+
 
 .tangkwa1 {
   margin-left : 80px;
@@ -289,3 +304,32 @@ height : 20%;
   display: flex;
   flex-direction: row;
 }
+
+.main-nav {
+  margin-top:28px;
+  list-style: none;
+  font-family: 'Roboto';
+}
+
+.main-nav li {
+  display: inline-block;
+  margin-left: 40px;
+}
+
+.main-nav li a:link,
+.main-nav li a:visited{
+  padding: 6px 0;
+  color:white;
+  text-decoration: none;
+  text-transform:  uppercase;
+  letter-spacing: 1px;
+  font-size: 110%;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.2s;
+}
+
+.main-nav li a:hover,
+.main-nav li a:active{
+  border-bottom: 2px solid #e67e22
+}
+

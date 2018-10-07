@@ -4,17 +4,21 @@ import '../App.css';
 class GunHeader extends Component {
     render() {
         return (
-            <header className="background">
-                <h1 className="hero-logo">
-                    M A N A G E M A T E
+            <div>
+                <header className="background">
+                    <h1 className="hero-logo">
+                        M A N A G E M A T E
                 </h1>
-                <div className="mini-background">
+                    <ul className="main-nav">
 
+                    </ul>
+                    <div className="mini-background">
+                    </div>
+                </header>
+                <header className="background">
+                </header>
 
-                </div>
-            </header>
-
-
+            </div>
         );
     }
 }
