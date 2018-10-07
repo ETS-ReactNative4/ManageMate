@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family : Roboto;
 }
 
 .App-logo {
@@ -21,76 +22,64 @@
 .App-intro {
   font-size: large;
 }
-
-
 .tangkwaSetMargin{
-  margin-top : 100px; 
+  padding-top : 80px; 
+
 }
 
 .tangkwaSetTable{
- margin-left: 100px;
+
    text-align: center;
    border-style: solid;
    border-color:#FEC600;
    background-color: #FEC600;
    
-   height:  50px;
-   width:1200px;
+   height:  95%;
+   width:95%;
+   
    border-width: 0.5px;
 }
 
 .tangkwaSetData{
-  margin-left: 100px;
+
   text-align: center;
   border-style: solid;
   border-color:#D8D8D8;
   background-color: #FFFFFF;
-  
-  height:  60px;
-  width:1200px;
+  height:  95%;
+  width:95%;
   border-width: 0.5px;
+  
 }
 
 .tangkwaSetPending{
-  margin-top : 10px;
-  margin-left : 30px;
+  
   border-style: solid;
   border-color:#EAE8E8;
   border-radius: 20px;
   background-color: #EAE8E8;
-  height:  25px;
-  width: 90px;
-  
-  border-width: 0.5px;
+ border-width: 0.5px;
+ margin: 5px 8%;
   
 }
 
 .tangkwaSetApprove{
-  margin-top : 10px;
-  margin-left : 30px;
+  
   border-style: solid;
   border-color:#16CA63;
   border-radius: 20px;
   background-color: #16CA63;
-  height:  25px;
-  width: 90px;
-  
   border-width: 0.5px;
-  
+  margin: 5px 8%;
 }
 
 .tangkwaSetReject{
-  margin-top : 10px;
-  margin-left : 30px;
   border-style: solid;
   border-color:#FF4949;
   border-radius: 20px;
   background-color: #FF4949;
-  height:  25px;
-  width: 90px;
-  
   border-width: 0.5px;
-  
+  margin: 10px 10px;
 }
 
 .tangkwaSetOneday{
@@ -141,9 +130,162 @@ height: 100vh;
   margin-top: 84px;
   margin-left: 74px;
   margin-right: 74px;
-  width: 1300px;
+ 
   height: 75vh;
   background-color:rgba(234, 232, 232, 0.85);
   border-radius: 41px;
   opacity: 0.8;
+}
+
+.tangkwa1 {
+  margin-left : 80px;
+  margin-right : 50px;
+}
+.tangkwa2 {
+  padding-top : 20px;
+}
+.tangkwa3 {
+  margin-left : 50px;
+  margin-right : 50px;
+}
+.tangkwaStatusData{
+  margin-left : 10px;
+}
+.tangkwaLeaveIdData{
+  margin-left :100px;
+}
+.tangkwaNameData{
+  margin-left : 120px;
+}
+.tangkwaLeaveDateData{
+  margin-left: 130px;
+}
+.tangkwaManageData{
+  margin-left : 100px;
+}
+.tangkwaStatus{
+  margin-left : 50px;
+  margin-right : 0px;
+}
+.tangkwaLeaveId{
+  margin-left : 100px;
+}
+.tangkwaName{
+  margin-left : 200px;
+}
+.tangkwaLeaveDate{
+  margin-left: 220px;
+}
+.tangkwaManage{
+  margin-left : 100px;
+}
+.tangkwaSTATUS{
+  margin-left : 50px;
+  margin-right : 0px;
+}
+.tangkwaWDID{
+  margin-left : 100px;
+}
+.tangkwaNAME{
+  margin-left : 200px;
+}
+.tangkwaAMOUNT{
+  margin-left : 200px;
+}
+.tangkwaMANAGE{
+  margin-left : 200px;
+}
+.tangkwaSTATUSDATA{
+  margin-left : 50px;
+}
+.tangkwaWDIDDATA{
+  margin-left : 80px;
+}
+.tangkwaNAMEDATA{
+  margin-left : 150px;
+}
+.tangkwaAMOUNTDATA{
+  margin-left : 150px;
+}
+.tangkwaMANAGEDATA{
+  margin-left : 270px;
+}
+.tangkwaSetProjectTable{
+
+  text-align: center;
+  
+  border-style:  solid #FEC600;
+  background-color: #FEC600;
+  height:  80%;
+  width:90%;
+  margin-left : 60px;
+  border-width: 0.5px;
+}
+
+.tangkwaPJID{
+  margin-left : 100PX;
+}
+.tangkwaPJNAME{
+  margin-left : 300px;
+}
+.tangkwaPJSTATUS{
+  margin-left : 300px;
+}
+.tangkwaSetProjectData{
+  text-align: center;
+  
+  border-bottom: 0.5px solid #708090;
+  background-color: #FFFFFF;
+  height:  80%;
+  width:90%;
+  margin-left : 60px;
+  border-width: 0.5px;
+}
+.tangkwaPJIDDATA{
+  margin-left : 120PX;
+}
+.tangkwaPJNAMEDATA{
+  margin-left : 320px
+}
+.tangkwaPJSTATUSDATA{
+  margin-left : 310px;
+}
+.PJDT1{
+  margin-left : 70px;
+  margin-top : 20px;
+  
+}
+.PJDT2{
+  margin-left : 58px;
+  
+}
+.PJDT3{
+  margin-left : 64px;
+  
+}
+.PJDT4{
+  margin-left : 2px;
+  
+}
+.pjFrame{
+  border-style: solid;
+  border-color: #FEC600;
+  border-radius: 20px;
+align-self: left;
+margin-top : -2%;
+margin-right : 3%;
+height : 20%;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-2 {
+  flex: 2;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
 }

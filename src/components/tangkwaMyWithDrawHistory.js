@@ -1,51 +1,31 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
-
-
-
 class TangkwaMyWithDrawHistory extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
-
-
-
-
         }
-
-
     }
-
-
     render() {
         return (
-
-
             <div className="App">
-                <div className="tangkwaSetMargin">
+                <div>
                     <h3>My Withdraw</h3>
                     <div className="row tangkwaSetTable">
-                        <div className="col-md-2">STATUS</div>
-                        <div className="col-md-2">Withdraw ID</div>
-                        <div className="col-md-4">NAME</div>
-                        <div className="col-md-2">AMOUNT</div>
-                        <div className="col-md-2">MANAGE BY</div>
+                        <div className="tangkwaSTATUS">STATUS</div>
+                        <div className="tangkwaWDID">Withdraw ID</div>
+                        <div className="tangkwaNAME">NAME</div>
+                        <div className="tangkwaAMOUNT">AMOUNT</div>
+                        <div className="tangkwaMANAGE">MANAGE BY</div>
                     </div>
-
                     <div className="row tangkwaSetData">
-
-                        <div className="col-md-2 "><div className="tangkwaSetReject">Rejected</div></div>
-                        <div className="col-md-2"><td>WD00001</td></div>
-
-                        <div className="col-md-4">Putthachart Srisuwankun</div>
-                        <div className="col-md-2">500</div>
-                        <div className="col-md-2">ID000001</div>
+                        <div className="tangkwaSTATUSDATA"><div className="tangkwaSetReject">Rejected</div></div>
+                        <div className="tangkwaWDIDDATA"><td>WD00001</td></div>
+                        <div className="tangkwaNAMEDATA">Putthachart Srisuwankun</div>
+                        <div className="tangkwaAMOUNTDATA">500</div>
+                        <div className="tangkwaMANAGEDATA">ID000001</div>
                     </div>
-
-
-
                 </div>
             </div>
         );
