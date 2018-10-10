@@ -6,6 +6,7 @@ import TangkwaMyWithDrawHistory from './components/tangkwaMyWithDrawHistory';
 import TangkwaMyProject from './components/tangkwaMyProject';
 import TangkwaLeaveDetail from './components/tangkwaLeaveDetail';
 import TangkwaProjectDetail from './components/tangkwaWithDrawDetail'
+import TangkwaStatistics from './components/tangkwaStatistics'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import GunHeader from './components/gunHeader';
 
@@ -56,7 +57,7 @@ class MainLayout extends Component {
               <div className="dropdown5">
                 <button className="dropbtn5">STATISTICS</button>
                 <div className="dropdown-content5">
-                  <a href="#">STATISTICS</a>
+                  <a href="Statistics">STATISTICS</a>
                   <a href="#">ADD USERS</a>
                 </div>
               </div>
@@ -96,6 +97,7 @@ class App extends Component {
           <Route path='Myprojects' component={TangkwaMyProject} />
           <Route path='TangkwaLeaveDetail' component={TangkwaLeaveDetail} />
           <Route path='ProjectDetail' component={TangkwaProjectDetail} />
+          <Route path='Statistics' component={TangkwaStatistics} />
 
         </Route>
       </Router>
