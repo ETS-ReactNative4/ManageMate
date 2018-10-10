@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TangkwaLeaveHistory from './components/tangkwaLeaveHistory';
+import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import GunHeader from './components/gunHeader';
 
 
@@ -68,6 +68,7 @@ class App extends Component {
             </div>
           </div>
           <div className="mini-background">
+            <TangkwaWithDrawDetail />
 
           </div>
         </header>
