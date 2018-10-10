@@ -1,10 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import TangkwaMyLeaveHistory from './components/tangkwaMyLeaveHistory';
+import TangkwaMyWithDrawHistory from './components/tangkwaMyWithDrawHistory';
+import TangkwaMyProject from './components/tangkwaMyProject';
+import TangkwaLeaveDetail from './components/tangkwaLeaveDetail';
+import TangkwaProjectDetail from './components/tangkwaWithDrawDetail'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import GunHeader from './components/gunHeader';
 
-
-class App extends Component {
+class MainLayout extends Component {
   render() {
     return (
       <div className="App">
@@ -18,7 +23,7 @@ class App extends Component {
                 <button className="dropbtn">LEAVE</button>
                 <div className="dropdown-content">
                   <a href="#">LEAVE</a>
-                  <a href="#">MY HISTORY</a>
+                  <a href="/MyleaveHistory">MY LEAVE</a>
                   <a href="#">APPROVE</a>
                 </div>
               </div>
@@ -34,7 +39,7 @@ class App extends Component {
                 <button className="dropbtn3">WITHDRAW</button>
                 <div className="dropdown-content3">
                   <a href="#">WITHDRAW</a>
-                  <a href="#">MY WITHDRAW</a>
+                  <a href="MywithdrawHistory">MY WITHDRAW</a>
                   <a href="#">APPROVE</a>
                 </div>
               </div>
@@ -60,7 +65,7 @@ class App extends Component {
                 <button className="dropbtn6">PROJECTS</button>
                 <div className="dropdown-content6">
                   <a href="#">ALL PROJECTS</a>
-                  <a href="#">MY PROJECTS</a>
+                  <a href="Myprojects">MY PROJECTS</a>
                   <a href="#">CREATE PROJECTS</a>
                 </div>
               </div>
@@ -68,7 +73,7 @@ class App extends Component {
             </div>
           </div>
           <div className="mini-background">
-            <TangkwaWithDrawDetail />
+            {this.props.children}
 
           </div>
         </header>
@@ -77,6 +82,23 @@ class App extends Component {
         </header>
 
       </div>
+    );
+  }
+}
+
+class App extends Component {
+  render() {
+    return (
+      <Router history={browserHistory}>
+        <Route path='/' component={MainLayout} >
+          <Route path='MyleaveHistory' component={TangkwaMyLeaveHistory} />
+          <Route path='MywithdrawHistory' component={TangkwaMyWithDrawHistory} />
+          <Route path='Myprojects' component={TangkwaMyProject} />
+          <Route path='TangkwaLeaveDetail' component={TangkwaLeaveDetail} />
+          <Route path='ProjectDetail' component={TangkwaProjectDetail} />
+
+        </Route>
+      </Router>
     );
   }
 }
