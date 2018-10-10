@@ -167,8 +167,9 @@ height: 100vh;
 }
 .tangkwaNameData{
   margin-left : 120px;
-
 }
+/* ------------dropdown content---------------- */
+
 .main-nav {
   margin-top:28px;
   display: inline-flex;
@@ -205,9 +206,9 @@ height: 100vh;
   z-index: 1;
   opacity: 0.8;
   border-radius: 15px;
+   flex:1;
 }
-
-  flex:1;
+ 
 
 .tangkwaSetProjectTable{
 
@@ -447,8 +448,6 @@ height: 100vh;
 
 
 /* -------------------------------5---------------------------- */
-
-
 .dropbtn5 {
   background-color: transparent;
   font-size: 50px;
@@ -463,6 +462,7 @@ height: 100vh;
   cursor: pointer;
   border-radius: 15px;
   letter-spacing: 2px;
+
 }
 
 .dropdown5 {
@@ -501,15 +501,12 @@ height: 100vh;
 .dropdown5:hover .dropbtn5 {
   background-color: #FEC600;
   color:black;
-
-  
-  border-bottom: 0.5px solid #708090;
-  background-color: #FFFFFF;
-  height:  80%;
-  width:90%;
-  margin-left : 60px;
-  border-width: 0.5px;
 }
+.dropbtn5:focus { 
+  background-color: #FEC600;
+  color:black;
+}
+
 .tangkwaPJIDDATA{
   margin-left : 120PX;
 }
