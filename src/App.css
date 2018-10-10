@@ -97,6 +97,8 @@
   box-sizing: border-box
 }
 
+
+/* -----------setup My html------------ */
 html {
   background-color: #fff;
   color:#555;
@@ -111,6 +113,8 @@ html {
   margin: 0 auto ;  
 }
 
+
+/* --------------background------------ */
 .background {
 background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../src/Image/hero.jpg);
 background-size: cover;
@@ -118,14 +122,16 @@ background-position: center;
 height: 100vh;
 }
 
+/*-------------- LOGO ---------------*/
 .hero-logo {
-  font-weight: lighter;
+  font-family: 'Roboto';
   font-size: 200%;
+  letter-spacing: 8px;
   color: #fff;
   padding-top: 20px;
-
-  
 }
+
+/* -----------------mini-background -------------------*/
 .mini-background{
   margin-top: 84px;
   margin-left: 74px;

@@ -10,22 +10,34 @@ class TangkwaMyWithDrawHistory extends Component {
     render() {
         return (
             <div className="App">
-                <div>
-                    <h3>My Withdraw</h3>
-                    <div className="row tangkwaSetTable">
-                        <div className="tangkwaSTATUS">STATUS</div>
-                        <div className="tangkwaWDID">Withdraw ID</div>
-                        <div className="tangkwaNAME">NAME</div>
-                        <div className="tangkwaAMOUNT">AMOUNT</div>
-                        <div className="tangkwaMANAGE">MANAGE BY</div>
-                    </div>
-                    <div className="row tangkwaSetData">
-                        <div className="tangkwaSTATUSDATA"><div className="tangkwaSetReject">Rejected</div></div>
-                        <div className="tangkwaWDIDDATA"><td>WD00001</td></div>
-                        <div className="tangkwaNAMEDATA">Putthachart Srisuwankun</div>
-                        <div className="tangkwaAMOUNTDATA">500</div>
-                        <div className="tangkwaMANAGEDATA">ID000001</div>
-                    </div>
+                <div className="tangkwaTitle"><h4>MY WITHDRAW</h4></div>
+                <div className="row flex-container tangkwaSetTable">
+                    <div className="tkflex-1"><p><b>STATUS</b></p></div>
+                    <div className="tkflex-1"><p><b>WITHDRAW ID</b></p></div>
+                    <div className="tkflex-2"><p><b>NAME</b></p></div>
+                    <div className="tkflex-1"><p><b>AMOUNT</b></p></div>
+                    <div className="tkflex-1"><p><b>MANAGE BY</b></p></div>
+                </div>
+                <div className="row flex-container tangkwaSetData">
+                    <div className="tkflex-1 tangkwaSetApprove"><p><b>APPROVED</b></p></div>
+                    <div className="tkflex-1"><p><b>WTHDRW00001</b></p></div>
+                    <div className="tkflex-2"><p><b>Putthachart Srisuwankun</b></p></div>
+                    <div className="tkflex-1"><p><b>5000</b></p></div>
+                    <div className="tkflex-1"><p><b>000001</b></p></div>
+                </div>
+                <div className="row flex-container tangkwaSetData">
+                    <div className="tkflex-1 tangkwaSetReject"><p><b>Rejected</b></p></div>
+                    <div className="tkflex-1"><p><b>WTHDRW00001</b></p></div>
+                    <div className="tkflex-2"><p><b>Putthachart Srisuwankun</b></p></div>
+                    <div className="tkflex-1"><p><b>5000</b></p></div>
+                    <div className="tkflex-1"><p><b>000001</b></p></div>
+                </div>
+                <div className="row flex-container tangkwaSetData">
+                    <div className="tkflex-1 tangkwaSetPending"><p><b>Pending</b></p></div>
+                    <div className="tkflex-1"><p><b>WTHDRW00001</b></p></div>
+                    <div className="tkflex-2"><p><b>Putthachart Srisuwankun</b></p></div>
+                    <div className="tkflex-1"><p><b>5000</b></p></div>
+                    <div className="tkflex-1"><p><b>000001</b></p></div>
                 </div>
             </div>
         );

@@ -10,19 +10,63 @@ class TangkwaMyProject extends Component {
     render() {
         return (
             <div className="App">
-                <h4>My Project</h4>
-                <div className="tangkwaSetProjectTable">
-                    <div className="row">
-                        <div className="tangkwaPJID"><p>PROJECT ID</p></div>
-                        <div className="tangkwaPJNAME"><p>PROJECT NAME</p></div>
-                        <div className="tangkwaPJSTATUS"><p>STATUS</p></div>
-                    </div></div>
-                <div className="tangkwaSetProjectData">
-                    <div className="row">
-                        <div className="tangkwaPJIDDATA"><p>PJ00001</p></div>
-                        <div className="tangkwaPJNAMEDATA"><p>Leave Management</p></div>
-                        <div className="tangkwaPJSTATUSDATA"><p>Done</p></div>
-                    </div></div>
+                <div className="tangkwaTitle"><h4>My Project</h4></div>
+
+                <div className="flex-container">
+                    <div className="tangkwaSetProjectTable row">
+                        <div className="tkflex-1">
+                            <p>PROJECT ID</p>
+                        </div>
+                        <div className="tkflex-2">
+                            <p>PROJECT NAME</p>
+                        </div>
+                        <div className="tkflex-1">
+                            <p>STATUS</p>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div className="flex-container">
+                    <div className="tangkwaSetProjectData row">
+                        <div className="tkflex-1">
+                            <p>PROJ000001</p>
+                        </div>
+                        <div className="tkflex-2">
+                            <p>Leave Management</p>
+                        </div>
+                        <div className="tkflex-1">
+                            <p>In Process</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex-container">
+                    <div className="tangkwaSetProjectData row">
+                        <div className="tkflex-1">
+                            <p>PROJ000002</p>
+                        </div>
+                        <div className="tkflex-2">
+                            <p>SCB</p>
+                        </div>
+                        <div className="tkflex-1">
+                            <p>In Process</p>
+                        </div>
+                    </div>
+                </div>
+                <div className="flex-container">
+                    <div className="tangkwaSetProjectData row">
+                        <div className="tkflex-1">
+                            <p>PROJ000003</p>
+                        </div>
+                        <div className="tkflex-2">
+                            <p>Leave Management APPMAN.co.ltd</p>
+                        </div>
+                        <div className="tkflex-1">
+                            <p>In Process</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
     }

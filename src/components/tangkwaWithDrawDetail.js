@@ -9,8 +9,8 @@ class TangkwaWithDrawDetail extends Component {
         super(props);
         this.state = {
             iD: 'WD00001',
-            firstname: 'สิรภพ',
-            lastname: 'มีชูเวท',
+            firstname: 'Sirapob',
+            lastname: 'Meechuvet',
             position: 'Normal user',
             amount: '500',
             bankNo: '029930382823',
@@ -23,20 +23,36 @@ class TangkwaWithDrawDetail extends Component {
     render() {
         return (
             <div className="App">
-                <div className="tangkwa2"><h4><b>Withdraw Detail</b></h4></div>
-                <div className="row">
-                    <div className="tangkwa1"><p>Firstname : {this.state.firstname}</p></div>
-                    <div className="tangkwa1"><p>Lastname : {this.state.lastname}</p></div>
-                    <div className="tangkwa1"><p>Position : {this.state.position}</p></div>
+                <div className="tangkwaTitle"><h4>WITHDRAW DETAIL</h4></div>
+                <div className="row flex-container">
+                    <div className="tkflex-1"><div><p><b>WITHDRAW NO. : {this.state.iD}</b></p></div></div>
+                    <div className="tkflex-1"></div>
+                    <div className="tkflex-1"></div>
+                    <div className="tkflex-1"></div>
+
                 </div>
-                <div className="row tangkwa1"><div><p>จำนวนเงิน : {this.state.amount}</p></div></div>
-                <div className="row tangkwa1"><div><p>เลขที่บัญชี : {this.state.bankNo}</p></div></div>
-                <div className="row tangkwa1"><div><p>ธนาคาร : {this.state.bankName}</p></div></div>
-                <div className="row tangkwa1"><div><p>Comment : {this.state.comment}</p></div></div>
-                <div className="row tangkwa1"><div><p>File :</p></div></div>
-                <div className="row tangkwa1"><div><p>status : {this.state.status}</p></div></div>
-                <div className="row tangkwa1"><div><p>Manage by : {this.state.manageBy}</p></div></div>
-            </div>
+
+                <div className="row flex-container">
+                    <div className="tkflex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
+                    <div className="tkflex-1"><p>LASTNAME : {this.state.lastname}</p></div>
+                    <div className="tkflex-1"><p>POSITION : {this.state.position}</p></div>
+                    <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.status}</div>
+                        <div>MANAGE BY : {this.state.manageBy}</div>
+                    </div>
+                </div>
+                <div className="row flex-container">
+                    <div className="tk1flex-1"><div><p>AMOUNT : {this.state.amount}</p></div>
+                        <div><p>BANK NO. : {this.state.bankNo}</p></div>
+                        <div><p>BANK NAME : {this.state.bankName}</p></div>
+                        <div><p>COMMENT : {this.state.comment}</p></div>
+                        <div> <p>FILE : </p></div>
+                    </div>
+                    <div className="tk1flex-1"></div>
+                    <div className="tk1flex-1"></div>
+                    <div className="tk1flex-1">
+                    </div>
+                </div>
+            </div >
         );
     }
 }
