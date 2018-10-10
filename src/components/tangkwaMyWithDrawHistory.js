@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 class TangkwaMyWithDrawHistory extends Component {
     constructor(props) {
         super(props);
@@ -20,7 +21,7 @@ class TangkwaMyWithDrawHistory extends Component {
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1 tangkwaSetApprove"><p><b>APPROVED</b></p></div>
-                    <div className="tkflex-1"><p><b>WTHDRW00001</b></p></div>
+                    <Link to='ProjectDetail'><div className="tkflex-1"><p><b>WTHDRW00001</b></p></div></Link>
                     <div className="tkflex-2"><p><b>Putthachart Srisuwankun</b></p></div>
                     <div className="tkflex-1"><p><b>5000</b></p></div>
                     <div className="tkflex-1"><p><b>000001</b></p></div>
