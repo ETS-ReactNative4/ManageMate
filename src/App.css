@@ -575,7 +575,8 @@ text-align: left;
 text-align: left;
 }
 .tangkwaTitle{
-  margin-top : 50px;
+  padding-top : 20px;
+  margin-bottom : 20px;
 }
 .tk1flex-1{
   flex: 1;
@@ -671,3 +672,11 @@ height : 20%;
 }
 
 
+.tangkwaSetProjectData {
+ background-color: #FFFFFF;
+  text-align: center;
+  height:  80%;
+  width:90%;
+  margin-left : 60px;
+  border-bottom : 0.3px solid #D8D8D8;
+}
