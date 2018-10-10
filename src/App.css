@@ -168,7 +168,7 @@ height: 100vh;
 .tangkwaNameData{
   margin-left : 120px;
 
-/* ------------dropdown content---------------- */
+}
 .main-nav {
   margin-top:28px;
   display: inline-flex;
@@ -206,6 +206,7 @@ height: 100vh;
   margin-left:40px;
   opacity: 0.8;
   border-radius: 15px;
+}
 
 .tangkwaSetProjectTable{
 
@@ -230,6 +231,7 @@ height: 100vh;
 }
 .tangkwaSetProjectData{
   text-align: center;
+}
 
 .dropdown-content a {
   font-weight: lighter;
