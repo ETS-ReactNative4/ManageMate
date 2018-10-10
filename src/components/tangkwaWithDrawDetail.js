@@ -24,8 +24,9 @@ class TangkwaWithDrawDetail extends Component {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4>WITHDRAW DETAIL</h4></div>
-                <div className="row flex-container">
-                    <div className="tkflex-1"><div><p><b>WITHDRAW NO. : {this.state.iD}</b></p></div></div>
+                <div className="flex-container">
+                    <div className="tk1flex-0"></div>
+                    <div className="tk1flex-1"><div><p><b>WITHDRAW NO. : {this.state.iD}</b></p></div></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
@@ -33,14 +34,16 @@ class TangkwaWithDrawDetail extends Component {
                 </div>
 
                 <div className="row flex-container">
-                    <div className="tkflex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
-                    <div className="tkflex-1"><p>LASTNAME : {this.state.lastname}</p></div>
-                    <div className="tkflex-1"><p>POSITION : {this.state.position}</p></div>
+                    <div className="tk1flex-0"></div>
+                    <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
+                    <div className="tk1flex-1"><p>LASTNAME : {this.state.lastname}</p></div>
+                    <div className="tk1flex-1"><p>POSITION : {this.state.position}</p></div>
                     <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.status}</div>
                         <div>MANAGE BY : {this.state.manageBy}</div>
                     </div>
                 </div>
-                <div className="row flex-container">
+                <div className="flex-container">
+                    <div className="tk1flex-0"></div>
                     <div className="tk1flex-1"><div><p>AMOUNT : {this.state.amount}</p></div>
                         <div><p>BANK NO. : {this.state.bankNo}</p></div>
                         <div><p>BANK NAME : {this.state.bankName}</p></div>

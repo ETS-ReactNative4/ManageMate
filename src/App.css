@@ -49,6 +49,7 @@
   height:  95%;
   width:95%;
   border-width: 0.5px;
+  height:50px;
   
 }
 
@@ -59,7 +60,8 @@
   border-radius: 20px;
   background-color: #EAE8E8;
  border-width: 0.5px;
- margin: 5px 8%;
+ height:30px;
+ margin: 8px 8px;
   
 }
 
@@ -70,7 +72,8 @@
   border-radius: 20px;
   background-color: #16CA63;
   border-width: 0.5px;
-  margin: 5px 8%;
+  height:30px;
+  margin: 8px 8px;
 }
 
 .tangkwaSetReject{
@@ -79,7 +82,8 @@
   border-radius: 20px;
   background-color: #FF4949;
   border-width: 0.5px;
-  margin: 10px 10px;
+  height:30px;
+  margin: 8px 8px;
 }
 
 .tangkwaSetOneday{
@@ -294,4 +298,49 @@ height : 20%;
 .flex-container {
   display: flex;
   flex-direction: row;
+}
+
+.tk1flex-0{
+flex: 0.3;
+text-align: left;
+}
+.tkflex-1{
+  flex: 1;
+  text-align: center;  
+}
+.tkflex-2{
+  flex: 2;
+  text-align: center;  
+}
+
+.tk1flex-2{
+  flex: 2;
+text-align: left;
+}
+.tangkwaTitle{
+  margin-top : 50px;
+}
+.tk1flex-1{
+  flex: 1;
+  text-align: left;  
+}
+
+.tangkwaLeaveFrame{
+  border-style: solid;
+  border-color: #FEC600;
+  border-radius: 20px;
+align-self: left;
+margin-top : -2%;
+margin-right : 3%;
+height : 20%;
+}
+
+.tangkwaWDFrame{
+  border-style: solid;
+  border-color: #FEC600;
+  border-radius: 20px;
+align-self: left;
+margin-top : -2%;
+margin-right : 3%;
+height : 20%;
 }

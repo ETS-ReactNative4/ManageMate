@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import TangkwaProjectDetail from './components/tangkwaProjectDetail';
+import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import GunHeader from './components/gunHeader';
 
 
@@ -26,7 +26,7 @@ class App extends Component {
             <li><a href='#'>statistics</a></li>
           </ul>
           <div className="mini-background">
-            <TangkwaProjectDetail />
+            <TangkwaWithDrawDetail />
 
           </div>
         </header>
