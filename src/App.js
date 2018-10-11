@@ -9,6 +9,7 @@ import TangkwaProjectDetail from './components/tangkwaWithDrawDetail'
 import TangkwaStatistics from './components/tangkwaStatistics'
 import TangkwaStatisticsDetail from './components/tangkwaStatisticsDetial'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
+import RequestForm from './components/leave-form-request';
 import GunHeader from './components/gunHeader';
 
 class MainLayout extends Component {
@@ -24,7 +25,7 @@ class MainLayout extends Component {
               <div className="dropdown">
                 <button className="dropbtn">LEAVE</button>
                 <div className="dropdown-content">
-                  <a href="#">LEAVE</a>
+                  <a href="requestform">LEAVE</a>
                   <a href="/MyleaveHistory">MY LEAVE</a>
                   <a href="#">APPROVE</a>
                 </div>
@@ -98,8 +99,12 @@ class App extends Component {
           <Route path='Myprojects' component={TangkwaMyProject} />
           <Route path='TangkwaLeaveDetail' component={TangkwaLeaveDetail} />
           <Route path='ProjectDetail' component={TangkwaProjectDetail} />
+
+          <Route path='requestform' component={RequestForm}></Route>
+
           <Route path='Statistics' component={TangkwaStatistics} />
           <Route path='StatisticsDetail' component={TangkwaStatisticsDetail} />
+
 
         </Route>
       </Router>
