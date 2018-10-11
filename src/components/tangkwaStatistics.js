@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 class TangkwaStatistics extends Component {
     constructor(props) {
         super(props);
@@ -18,7 +19,7 @@ class TangkwaStatistics extends Component {
                 </div>
 
                 <div className="row flex-container tangkwaSetData">
-                    <div className="tkflex-1"><p>000001</p></div>
+                    <Link to='StatisticsDetail'><div className="tkflex-1"><p>000001</p></div></Link>
                     <div className="tkflex-2"><p>Putthachart Srisuwankun</p></div>
                     <div className="tkflex-1"><p>HR</p></div>
                 </div>
