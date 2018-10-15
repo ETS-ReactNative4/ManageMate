@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
+import b1 from '../Image/b1.jpg';
+import b2 from '../Image/b2.jpg';
+import b3 from '../Image/b3.jpg';
 class TangkwaLeaveDetail extends Component {
     constructor(props) {
         super(props);

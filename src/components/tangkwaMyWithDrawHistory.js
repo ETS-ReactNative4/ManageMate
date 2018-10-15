@@ -21,7 +21,7 @@ class TangkwaMyWithDrawHistory extends Component {
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1 tangkwaSetApprove"><p><b>APPROVED</b></p></div>
-                    <Link to='ProjectDetail'><div className="tkflex-1"><p><b>WTHDRW00001</b></p></div></Link>
+                    <Link to='ProjectDetail' className="tkflex-1" ><div><p><b>WTHDRW00001</b></p></div></Link>
                     <div className="tkflex-2"><p><b>Putthachart Srisuwankun</b></p></div>
                     <div className="tkflex-1"><p><b>5000</b></p></div>
                     <div className="tkflex-1"><p><b>000001</b></p></div>

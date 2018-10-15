@@ -16,7 +16,7 @@ class TangkwaMyLeaveHistory extends Component {
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1 tangkwaSetApprove"><p>Approved</p></div>
-                    <Link to='TangkwaLeaveDetail'><div className="tkflex-1"><p>LEAV00001</p></div></Link>
+                    <Link to='TangkwaLeaveDetail' className="tkflex-1"><div><p>LEAV00001</p></div></Link>
                     <div className="tkflex-2"><p>Putthachart Srisuwankun</p></div>
                     <div className="tkflex-2"><p>28/12/2018-30/12/2018</p></div>
                     <div className="tkflex-1"><p>000000002</p></div>

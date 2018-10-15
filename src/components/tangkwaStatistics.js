@@ -19,7 +19,7 @@ class TangkwaStatistics extends Component {
                 </div>
 
                 <div className="row flex-container tangkwaSetData">
-                    <Link to='StatisticsDetail'><div className="tkflex-1"><p>000001</p></div></Link>
+                    <Link to='StatisticsDetail' className="tkflex-1" ><div><p>000001</p></div></Link>
                     <div className="tkflex-2"><p>Putthachart Srisuwankun</p></div>
                     <div className="tkflex-1"><p>HR</p></div>
                 </div>
