@@ -581,7 +581,11 @@ text-align: left;
   flex: 1;
   text-align: left;  
 }
-
+.tk1flex-8{
+  flex: 8;
+  text-align: left;
+  
+}
 .tangkwaLeaveFrame{
   border-style: solid;
   border-color: #FEC600;
@@ -719,8 +723,7 @@ h5 {
 text-align: left;
 margin-left:35px;
 }
-.dayquestion{
-}
+
 .radio {
   margin-left:20px;
 }
@@ -740,4 +743,52 @@ margin-left:35px;
 
 .RangeExample{
   margin-top:50px;
+}
+.amount {
+border-width: 0px; 
+border-radius : 10px;
+
+
+}
+.setLeft{
+ text-align: left;
+ margin-left:50px;
+ 
+}
+.bookname{
+  border-width : 0px;
+  border-radius : 10px;
+ 
+ 
+}
+.bookno{
+  border-width : 0px;
+  border-radius : 10px;
+ 
+ 
+}
+.textarea{
+  border-width : 0px;
+  border-radius : 10px;
+width:50%;
+height:150px;
+}
+
+.tangkwaFile{
+  margin-top: 140px;
+}
+.Submit{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 10%;
+  height:30px;
+ margin-right:10%;
+ background-color : #00CC00;
+}
+.Cancel{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 10%;
+  height:30px;
+  background-color : #FF0000;
 }
