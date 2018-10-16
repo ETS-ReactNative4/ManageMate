@@ -145,7 +145,7 @@ height: 100vh;
   margin-left: 25px;
   margin-right: 25px;
  
-  height: 75vh;
+  height: 100%vh;
   background-color:rgba(234, 232, 232, 0.85);
   border-radius: 41px;
   opacity: 0.8;
@@ -561,7 +561,6 @@ height : 20%;
   flex-direction: row;
 }
 
-
 .tk1flex-0{
 flex: 0.3;
 text-align: left;
@@ -705,4 +704,45 @@ height : 20%;
   width:90%;
   margin-left : 60px;
   border-bottom : 0.3px solid #D8D8D8;
+}
+
+.border-header {
+  background-image: linear-gradient(-90deg, red, yellow);
+  border-bottom:solid orange 15px;;
+  border-radius: 15px;
+padding-bottom:20px;
+}
+
+
+h5 {
+ margin-left:50px;
+ text-align: left;
+ margin-top:20px;
+}
+
+.container{
+text-align: left;
+margin-left:35px;
+}
+.dayquestion{
+}
+.radio {
+  margin-left:20px;
+}
+.radio1 {
+  margin-left:37.0px;
+}
+
+.dropdown-custom {
+  text-align: left;
+}
+.h5-config{
+  display:inline-block
+}
+.dropbut {
+  margin-left:25px;
+}
+
+.RangeExample{
+  margin-top:50px;
 }
