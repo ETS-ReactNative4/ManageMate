@@ -34,7 +34,7 @@ class TangkwaWithdrawReq extends Component {
                         <div className="tangkwaFile"><p>FILE :</p></div>
                     </div>
                     <div className="tk1flex-8">
-                        <div className="tangkwaTitle"><input type="text" name="amount" className="proj" /></div>
+                        <div className="tangkwaTitle"><input type="text" name="amount" className="amount" /></div>
                         <div className="tangkwaTitle" ><input type="text" name="amount" className="bookname" /></div>
                         <div className="tangkwaTitle"><input type="text" name="amount" className="bookno" /></div>
                         <div className="tangkwaTitle"><textarea className="textarea" maxLength="255" type="text" /></div>
