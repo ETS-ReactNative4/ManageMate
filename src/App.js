@@ -11,6 +11,8 @@ import TangkwaStatisticsDetail from './components/tangkwaStatisticsDetial'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import RequestForm from './components/leave-form-request';
 import GunHeader from './components/gunHeader';
+import TangkwaWithdrawReq from './components/tangkwaWithdrawReq'
+import TangkwaCreateProj from './components/tangkwaCreateProj'
 
 class MainLayout extends Component {
   render() {
@@ -41,7 +43,7 @@ class MainLayout extends Component {
               <div className="dropdown3">
                 <button className="dropbtn3">WITHDRAW</button>
                 <div className="dropdown-content3">
-                  <a href="#">WITHDRAW</a>
+                  <a href="WithdrawRequest">WITHDRAW</a>
                   <a href="MywithdrawHistory">MY WITHDRAW</a>
                   <a href="#">APPROVE</a>
                 </div>
@@ -69,7 +71,7 @@ class MainLayout extends Component {
                 <div className="dropdown-content6">
                   <a href="#">ALL PROJECTS</a>
                   <a href="Myprojects">MY PROJECTS</a>
-                  <a href="#">CREATE PROJECTS</a>
+                  <a href="createProject">CREATE PROJECTS</a>
                 </div>
               </div>
 
@@ -104,6 +106,8 @@ class App extends Component {
 
           <Route path='Statistics' component={TangkwaStatistics} />
           <Route path='StatisticsDetail' component={TangkwaStatisticsDetail} />
+          <Route path='WithdrawRequest' component={TangkwaWithdrawReq} />
+          <Route path='createProject' component={TangkwaCreateProj} />
 
 
         </Route>

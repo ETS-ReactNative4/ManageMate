@@ -560,6 +560,14 @@ height : 20%;
 flex: 0.3;
 text-align: left;
 }
+.tk1flex-01{
+  flex: 0.8;
+  text-align: left;
+  }
+  .tk1flex-02{
+    flex: 0.1;
+    text-align: left;
+    }
 .tkflex-1{
   flex: 1;
   text-align: center;  
@@ -577,11 +585,22 @@ text-align: left;
   padding-top : 20px;
   margin-bottom : 20px;
 }
+.tangkwaTitle2{
+  padding-top : 20px;
+  margin-bottom : 20px;
+}
 .tk1flex-1{
   flex: 1;
   text-align: left;  
 }
-
+.tk1flex-8{
+  flex: 8;
+  text-align: left;
+  }
+  .tk1flex-9{
+    flex: 13;
+  text-align: left;
+  }
 .tangkwaLeaveFrame{
   border-style: solid;
   border-color: #FEC600;
@@ -590,6 +609,10 @@ align-self: left;
 margin-top : -2%;
 margin-right : 3%;
 height : 20%;
+}
+.addpng{
+  margin-left : 1%;
+  
 }
 
 .tangkwaWDFrame{
@@ -719,8 +742,7 @@ h5 {
 text-align: left;
 margin-left:35px;
 }
-.dayquestion{
-}
+
 .radio {
   margin-left:20px;
 }
@@ -741,7 +763,6 @@ margin-left:35px;
 .RangeExample{
   margin-top:50px;
 }
-
 
 .RangeExample {
   border : 1px solid black;
@@ -769,4 +790,74 @@ margin-right:20px;
   border-radius: 15px;
   padding: 12px 20px;
   outline: none;
+
+.amount {
+border-width: 0px; 
+border-radius : 10px;
+
+
+}
+.setLeft{
+ text-align: left;
+ margin-left:50px;
+ 
+}
+.bookname{
+  border-width : 0px;
+  border-radius : 10px;
+ }
+ .memid{
+  border-width : 0px;
+  border-radius : 10px;
+  margin-left:5%;
+ }
+ .memid1{
+  border-width : 0px;
+  border-radius : 10px;
+  margin-left:17.2%;
+ }
+ .proj{
+  border-width : 0px;
+  border-radius : 10px;
+  margin-left : 2%;
+ }
+.bookno{
+  border-width : 0px;
+  border-radius : 10px;
+ 
+ 
+}
+.textarea{
+  border-width : 0px;
+  border-radius : 10px;
+width:50%;
+height:150px;
+}
+.textarea1{
+  border-width : 0px;
+  border-radius : 10px;
+width:50%;
+height:150px;
+margin-left:14.3%;
+margin-top:-4%;
+
+}
+
+.tangkwaFile{
+  margin-top: 140px;
+}
+.Submit{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 10%;
+  height:30px;
+ margin-right:10%;
+ background-color : #00CC00;
+}
+.Cancel{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 10%;
+  height:30px;
+  background-color : #FF0000;
 }
