@@ -741,6 +741,7 @@ h5 {
 .container{
 text-align: left;
 margin-left:35px;
+margin-top:20px;
 }
 
 .radio {
@@ -781,7 +782,7 @@ margin-right:20px;
 .comment{
   text-align: left;
   margin-left: 20px;
-  margin-top :10px;
+  margin-top :20px;
 }
 
 .textarea {
@@ -790,7 +791,7 @@ margin-right:20px;
   border-radius: 15px;
   padding: 12px 20px;
   outline: none;
-
+}
 .amount {
 border-width: 0px; 
 border-radius : 10px;
@@ -860,4 +861,9 @@ margin-top:-4%;
   width : 10%;
   height:30px;
   background-color : #FF0000;
+}
+
+.select-types{
+  text-align: left;
+  margin-left:20px;
 }

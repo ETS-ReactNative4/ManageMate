@@ -12,6 +12,13 @@ import Helmet from 'react-helmet';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 
+import 'filepond/dist/filepond.min.css';
+import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
+import { FilePond, registerPlugin } from 'react-filepond';
+registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+
 const FormHeader = props => {
     return (
 
@@ -111,6 +118,7 @@ class RequestForm extends Component {
         super(props);
         this.state = {
             isOneday: true,
+            files: ['index.html'],
         };
     }
     isOnedayQuestion = (isOneday) => {
@@ -129,6 +137,15 @@ class RequestForm extends Component {
                 </div>
                 <div className="dayquestion">
                     <h5>Select your leave types</h5>
+                    <div className="select-types">
+                        <select >
+                            <option value={0}>select type</option>
+                            <option value={2}>type1</option>
+                            <option value={4}>type2</option>
+                            <option value={6}>type3</option>
+                            <option value={8}>type4</option>
+                        </select>
+                    </div>
                     <label className="container">DAYS
   <input type="radio" className="radio1" onChange={() => this.isOnedayQuestion(true)} checked={this.state.isOneday == true} />
                         <span class="checkmark"></span>
@@ -155,6 +172,21 @@ class RequestForm extends Component {
 
                 <div className="comment">
                     <p className="tp">Comment :</p><textarea className="textarea" maxLength="255" type="text" />
+                </div>
+                <div className="filepond-react">
+                    {/* Pass FilePond properties as attributes */}
+                    <FilePond ref={ref => this.pond = ref}
+                        allowMultiple={true}
+                        maxFiles={3}
+                        server="/api"
+                        onupdatefiles={(fileItems) => {
+                            // Set current file objects to this.state
+                            this.setState({
+                                files: fileItems.map(fileItem => fileItem.file)
+                            });
+                        }}>
+                    </FilePond>
+
                 </div>
             </div>
         );
