@@ -104,9 +104,7 @@ class Example extends React.Component {
     }
 }
 
-const isOnedayQuestion = () => {
 
-}
 
 class RequestForm extends Component {
     constructor(props) {
@@ -114,6 +112,13 @@ class RequestForm extends Component {
         this.state = {
             isOneday: true,
         };
+    }
+    isOnedayQuestion = (isOneday) => {
+        this.setState({
+            isOneday
+        })
+
+
     }
 
     render() {
@@ -125,16 +130,16 @@ class RequestForm extends Component {
                 <div className="dayquestion">
                     <h5>Select your leave types</h5>
                     <label className="container">DAYS
-  <input type="radio" checked="checked" className="radio1" onChange={() => this.isOnedayQuestion(true)} checked={this.state.isOneday} />
+  <input type="radio" className="radio1" onChange={() => this.isOnedayQuestion(true)} checked={this.state.isOneday == true} />
                         <span class="checkmark"></span>
                     </label>
                     <label class="container">HOURS
-  <input type="radio" className="radio" onChange={() => this.isOnedayQuestion(false)} checked={this.state.isOneday === false} />
+  <input type="radio" className="radio" onChange={() => this.isOnedayQuestion(false)} checked={this.state.isOneday == false} />
                         <span class="checkmark"></span>
                     </label>
                 </div>
-                <div className="dropdown-custom">
-                    <h5 className="h5-config">Select your leave types</h5>
+                {!this.state.isOneday && <div className="dropdown-custom">
+                    <h5 className="h5-config">Select hours</h5>
                     <select className="dropbut" >
                         <option value={0}>select hour</option>
                         <option value={2}>1 hour</option>
@@ -142,10 +147,14 @@ class RequestForm extends Component {
                         <option value={6}>3 hour</option>
                         <option value={8}>4 hour</option>
                     </select>
-                </div>
+                </div>}
 
-                <div>
+                {this.state.isOneday && <div>
                     <Example />
+                </div>}
+
+                <div className="comment">
+                    <p className="tp">Comment :</p><textarea className="textarea" maxLength="255" type="text" />
                 </div>
             </div>
         );
