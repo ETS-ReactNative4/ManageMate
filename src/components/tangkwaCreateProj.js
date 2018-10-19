@@ -48,6 +48,7 @@ AddFalse = (boo) => {
                             <input type="text" name="amount" className="memid1" />
                            
                             </div>}
+                            
                         <div className="tangkwaTitle"><p>FILE :</p></div>
                     </div>
                     

@@ -135,7 +135,10 @@ class RequestForm extends Component {
                 <div>
                     <FormHeader />
                 </div>
+
+
                 <div className="dayquestion">
+
                     <h5>Select your leave types</h5>
                     <div className="select-types">
                         <select >
@@ -146,15 +149,18 @@ class RequestForm extends Component {
                             <option value={8}>type4</option>
                         </select>
                     </div>
-                    <label className="container">DAYS
+                    <div className="selecttype">
+                        <label className="container">DAYS
   <input type="radio" className="radio1" onChange={() => this.isOnedayQuestion(true)} checked={this.state.isOneday == true} />
-                        <span class="checkmark"></span>
-                    </label>
-                    <label class="container">HOURS
+                            <span class="checkmark"></span>
+                        </label>
+                        <label class="container">HOURS
   <input type="radio" className="radio" onChange={() => this.isOnedayQuestion(false)} checked={this.state.isOneday == false} />
-                        <span class="checkmark"></span>
-                    </label>
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
                 </div>
+
                 {!this.state.isOneday && <div className="dropdown-custom">
                     <h5 className="h5-config">Select hours</h5>
                     <select className="dropbut" >
@@ -188,6 +194,14 @@ class RequestForm extends Component {
                     </FilePond>
 
                 </div>
+
+
+                <div className="button-confirm">
+                    <button>Submit</button>
+                    <button>Cancel</button>
+                </div>
+
+
             </div>
         );
     }
