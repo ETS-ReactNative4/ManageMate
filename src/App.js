@@ -10,10 +10,12 @@ import TangkwaStatistics from './components/tangkwaStatistics'
 import TangkwaStatisticsDetail from './components/tangkwaStatisticsDetial'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
 import RequestForm from './components/leave-form-request';
-import GunHeader from './components/gunHeader';
 import TangkwaWithdrawReq from './components/tangkwaWithdrawReq'
 import TangkwaCreateProj from './components/tangkwaCreateProj'
-
+import TangkwaApproveLeave from './components/tangkwaApproveLeave'
+import TangkwaApproveLeaveDetail from './components/tangkwaApproveLeaveDetail'
+import TangkwaApproveWithdraw from './components/tangkwaApproveWithdraw'
+import TangkwaApproveWithDrawDetail from './components/tangkwaApproveWithdrawDetail'
 class MainLayout extends Component {
   render() {
     return (
@@ -29,7 +31,7 @@ class MainLayout extends Component {
                 <div className="dropdown-content">
                   <a href="requestform">LEAVE</a>
                   <a href="/MyleaveHistory">MY LEAVE</a>
-                  <a href="#">APPROVE</a>
+                  <a href="leaveApprove">APPROVE</a>
                 </div>
               </div>
               <div className="dropdown2">
@@ -45,7 +47,7 @@ class MainLayout extends Component {
                 <div className="dropdown-content3">
                   <a href="WithdrawRequest">WITHDRAW</a>
                   <a href="MywithdrawHistory">MY WITHDRAW</a>
-                  <a href="#">APPROVE</a>
+                  <a href="withdrawApprove">APPROVE</a>
                 </div>
               </div>
 
@@ -108,6 +110,11 @@ class App extends Component {
           <Route path='StatisticsDetail' component={TangkwaStatisticsDetail} />
           <Route path='WithdrawRequest' component={TangkwaWithdrawReq} />
           <Route path='createProject' component={TangkwaCreateProj} />
+          <Route path='leaveApprove' component={TangkwaApproveLeave} />
+          <Route path='ApproveLeaveDetail' component={TangkwaApproveLeaveDetail} />
+          <Route path='withdrawApprove' component={TangkwaApproveWithdraw} />
+          <Route path='ApproveWithdrawDetail' component={TangkwaApproveWithDrawDetail} />
+
 
 
         </Route>
