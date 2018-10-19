@@ -87,6 +87,9 @@ class MainLayout extends Component {
         <header className="background">
 
         </header>
+        <header className="background">
+
+        </header>
 
       </div>
     );

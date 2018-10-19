@@ -140,7 +140,7 @@ height: 100vh;
   margin-left: 25px;
   margin-right: 25px;
  
-  height: 150vh;
+  height: 180vh;
   background-color:rgba(234, 232, 232, 0.85);
   border-radius: 41px;
   opacity: 0.8;
@@ -740,8 +740,8 @@ h5 {
 
 .container{
 text-align: left;
-margin-left:35px;
-margin-top:20px;
+margin-top:10px;
+margin-left:10px;
 }
 
 .radio {
@@ -866,4 +866,18 @@ margin-top:-4%;
 .select-types{
   text-align: left;
   margin-left:20px;
+}
+
+.filepond--wrapper{
+  width: 30%;
+  margin-left: 137px;
+}
+
+
+.button-confirm{
+  text-align: center;
+}
+
+.selecttype{
+  text-align: left;
 }
