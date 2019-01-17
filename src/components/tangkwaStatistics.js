@@ -6,6 +6,10 @@ class TangkwaStatistics extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            staffId : '000001',
+            firstName : 'Putthachart',
+            lastName : 'Srisuwankun',
+            position : 'Normal User'
         }
     }
     render() {
@@ -19,9 +23,9 @@ class TangkwaStatistics extends Component {
                 </div>
 
                 <div className="row flex-container tangkwaSetData">
-                    <Link to='StatisticsDetail' className="tkflex-1" ><div><p>000001</p></div></Link>
-                    <div className="tkflex-2"><p>Putthachart Srisuwankun</p></div>
-                    <div className="tkflex-1"><p>HR</p></div>
+                    <Link to='StatisticsDetail' className="tkflex-1" ><div><p>{this.state.staffId}</p></div></Link>
+                    <div className="tkflex-2"><p>{this.state.firstName} {this.state.lastName}</p></div>
+                    <div className="tkflex-1"><p>{this.state.position}</p></div>
                 </div>
 
             </div>

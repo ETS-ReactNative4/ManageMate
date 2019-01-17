@@ -19,7 +19,7 @@ class TangkwaProjectDetail extends Component {
     render() {
         return (
             <div className="App">
-                <div className="tangkwaTitle"><h4><b>Project Detail</b></h4></div>
+                <div className="tangkwaTitle"><h4><b>PROJECT DETAIL</b></h4></div>
                 <div className="tangkwaTitle flex-container">
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-2">

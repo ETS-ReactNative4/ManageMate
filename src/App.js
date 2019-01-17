@@ -5,7 +5,7 @@ import TangkwaMyLeaveHistory from './components/tangkwaMyLeaveHistory';
 import TangkwaMyWithDrawHistory from './components/tangkwaMyWithDrawHistory';
 import TangkwaMyProject from './components/tangkwaMyProject';
 import TangkwaLeaveDetail from './components/tangkwaLeaveDetail';
-import TangkwaProjectDetail from './components/tangkwaWithDrawDetail'
+import TangkwaProjectDetail from './components/tangkwaProjectDetail'
 import TangkwaStatistics from './components/tangkwaStatistics'
 import TangkwaStatisticsDetail from './components/tangkwaStatisticsDetial'
 import TangkwaWithDrawDetail from './components/tangkwaWithDrawDetail';
@@ -16,6 +16,9 @@ import TangkwaApproveLeave from './components/tangkwaApproveLeave'
 import TangkwaApproveLeaveDetail from './components/tangkwaApproveLeaveDetail'
 import TangkwaApproveWithdraw from './components/tangkwaApproveWithdraw'
 import TangkwaApproveWithDrawDetail from './components/tangkwaApproveWithdrawDetail'
+import TangkwaAllProject from './components/tangkwaAllProject'
+import TangkwaMyClockIn from './components/tangkwaMyClockIn'
+import TangkwaCheckIn from './components/tangkwaCheckIn'
 class MainLayout extends Component {
   render() {
     return (
@@ -52,11 +55,11 @@ class MainLayout extends Component {
               </div>
 
               <div className="dropdown4">
-                <button className="dropbtn4">ATTENDANCE</button>
+                <button className="dropbtn4">CLOCK IN</button>
                 <div className="dropdown-content4">
-                  <a href="#">Link 10</a>
-                  <a href="#">Link 11</a>
-                  <a href="#">Link 12</a>
+                  <a href="CheckIn">CLOCK IN,OUT</a>
+                  <a href="MyClockIn">MY CLOCK IN</a>
+                  
                 </div>
               </div>
 
@@ -71,7 +74,7 @@ class MainLayout extends Component {
               <div className="dropdown6">
                 <button className="dropbtn6">PROJECTS</button>
                 <div className="dropdown-content6">
-                  <a href="#">ALL PROJECTS</a>
+                  <a href="Allproject">ALL PROJECTS</a>
                   <a href="Myprojects">MY PROJECTS</a>
                   <a href="createProject">CREATE PROJECTS</a>
                 </div>
@@ -103,7 +106,9 @@ class App extends Component {
         <Route path='/' component={MainLayout} >
           <Route path='MyleaveHistory' component={TangkwaMyLeaveHistory} />
           <Route path='MywithdrawHistory' component={TangkwaMyWithDrawHistory} />
+          <Route path='withdrawDetail' component={TangkwaWithDrawDetail} />
           <Route path='Myprojects' component={TangkwaMyProject} />
+          <Route path='Allproject' component={TangkwaAllProject}/>
           <Route path='TangkwaLeaveDetail' component={TangkwaLeaveDetail} />
           <Route path='ProjectDetail' component={TangkwaProjectDetail} />
 
@@ -117,6 +122,8 @@ class App extends Component {
           <Route path='ApproveLeaveDetail' component={TangkwaApproveLeaveDetail} />
           <Route path='withdrawApprove' component={TangkwaApproveWithdraw} />
           <Route path='ApproveWithdrawDetail' component={TangkwaApproveWithDrawDetail} />
+          <Route path='MyClockIn' component={TangkwaMyClockIn} />
+          <Route path='CheckIn' component={TangkwaCheckIn} />
 
 
 
