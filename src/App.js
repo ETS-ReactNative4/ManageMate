@@ -19,6 +19,7 @@ import TangkwaApproveWithDrawDetail from './components/tangkwaApproveWithdrawDet
 import TangkwaAllProject from './components/tangkwaAllProject'
 import TangkwaMyClockIn from './components/tangkwaMyClockIn'
 import TangkwaCheckIn from './components/tangkwaCheckIn'
+import TangkwaAddUser from './components/tangkwaAddUser'
 class MainLayout extends Component {
   render() {
     return (
@@ -67,7 +68,7 @@ class MainLayout extends Component {
                 <button className="dropbtn5">STATISTICS</button>
                 <div className="dropdown-content5">
                   <a href="Statistics">STATISTICS</a>
-                  <a href="#">ADD USERS</a>
+                  <a href="AddUser">ADD USERS</a>
                 </div>
               </div>
 
@@ -124,6 +125,7 @@ class App extends Component {
           <Route path='ApproveWithdrawDetail' component={TangkwaApproveWithDrawDetail} />
           <Route path='MyClockIn' component={TangkwaMyClockIn} />
           <Route path='CheckIn' component={TangkwaCheckIn} />
+          <Route path='AddUser' component={TangkwaAddUser} />
 
 
 
