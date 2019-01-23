@@ -729,6 +729,7 @@ height : 20%;
   border-bottom:solid orange 15px;;
   border-radius: 15px;
 padding-bottom:20px;
+margin-bottom: 10px
 }
 
 
@@ -880,4 +881,73 @@ margin-top:-4%;
 
 .selecttype{
   text-align: left;
+}
+.flex2{
+  flex: 2;
+ 
+}
+
+.flex6 {
+  flex: 6;
+  text-align: left;
+}
+.form-check-label-Oneday {
+  margin-left: 10px;
+  margin-right: 20px;
+}
+
+.form-check-label-Moreday {
+  margin-left: 10px
+}
+
+.form-check-input1 {
+margin : 10px
+}
+
+.form-check-input2 {
+  margin : 10px
+}
+
+.row-DayQuestion {
+  margin-top : 50px
+}
+
+.select-livetype-text {
+  margin-left: 50px
+}
+.select-livetype-text.flex2 {
+  text-align: left
+}
+
+
+.dayrequest-text{
+  margin-left: 50px
+}
+
+.dayrequest-text.flex2 {
+  text-align: left
+}
+
+.row-calendar {
+  margin-top : 50px;
+}
+
+.text-date.flex2 {
+  text-align: left
+}
+
+.text-date {
+  margin-left: 50px;
+}
+
+.text-date.flex2 {
+  display: inline-flex;
+  margin-top: 50px;
+}
+.time-text.flex6 {
+  margin-top: 50px;
+}
+
+.react-datepicker__input-container {
+  margin-left: 10px;
 }

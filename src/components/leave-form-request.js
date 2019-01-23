@@ -11,13 +11,7 @@ import moment from 'moment';
 import Helmet from 'react-helmet';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
-
-import 'filepond/dist/filepond.min.css';
-import FilePondPluginImageExifOrientation from 'filepond-plugin-image-exif-orientation';
-import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
-import 'filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css';
-import { FilePond, registerPlugin } from 'react-filepond';
-registerPlugin(FilePondPluginImageExifOrientation, FilePondPluginImagePreview);
+import Calendar from './Calendar';
 
 const FormHeader = props => {
     return (
@@ -38,172 +32,127 @@ const FormHeader = props => {
     )
 }
 
-class Example extends React.Component {
-    static defaultProps = {
-        numberOfMonths: 2,
-    };
-    constructor(props) {
-        super(props);
-        this.handleDayClick = this.handleDayClick.bind(this);
-        this.handleResetClick = this.handleResetClick.bind(this);
-        this.state = this.getInitialState();
-    }
-    getInitialState() {
-        return {
-            from: undefined,
-            to: undefined,
-        };
-    }
-    handleDayClick(day) {
-        const range = DateUtils.addDayToRange(day, this.state);
-        this.setState(range);
-    }
-    handleResetClick() {
-        this.setState(this.getInitialState());
-    }
-    render() {
-        const { from, to } = this.state;
-        const modifiers = { start: from, end: to };
-        return (
-            <div className="RangeExample">
-                <p>
-                    {!from && !to && 'Please select the first day.'}
-                    {from && !to && 'Please select the last day.'}
-                    {from &&
-                        to &&
-                        `Selected from ${from.toLocaleDateString()} to
-                  ${to.toLocaleDateString()}`}{' '}
-                    {from &&
-                        to && (
-                            <button className="link" onClick={this.handleResetClick}>
-                                Reset
-                </button>
-                        )}
-                </p>
-                <DayPicker
-                    className="Selectable"
-                    numberOfMonths={this.props.numberOfMonths}
-                    selectedDays={[from, { from, to }]}
-                    modifiers={modifiers}
-                    onDayClick={this.handleDayClick}
-                />
-                <Helmet>
-                    <style>{`
-    .Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
-      background-color: #f0f8ff !important;
-      color: #4a90e2;
-    }
-    .Selectable .DayPicker-Day {
-      border-radius: 0 !important;
-    }
-    .Selectable .DayPicker-Day--start {
-      border-top-left-radius: 50% !important;
-      border-bottom-left-radius: 50% !important;
-    }
-    .Selectable .DayPicker-Day--end {
-      border-top-right-radius: 50% !important;
-      border-bottom-right-radius: 50% !important;
-    }
-  `}</style>
-                </Helmet>
+const Comment = props => {
+    const { onChange, textlimit } = props
+    return (
+        <div className="flex-container">
+
+            <div className="text-note flex2">
+                Note/comments :
+                </div>
+            <div className="text-area flex6">
+
+                <textarea className="textarea" maxLength="255" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
             </div>
-        );
-    }
+
+            <p className="text-limit flex2">{textlimit}/255</p>
+
+        </div>
+    )
 }
 
 
-
-class RequestForm extends Component {
+class RequestForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isOneday: true,
-            files: ['index.html'],
-        };
-    }
-    isOnedayQuestion = (isOneday) => {
+            leavetype: "",
+            isOneday: undefined,
+            len: 0,
+            note: '',
+
+        }
+    };
+    typehandler = (value) => {
         this.setState({
-            isOneday
-            
+            leavetype: value
         })
-
-
+        console.log('this is leave type', this.state.leavetype)
     }
+    DayQuestionSetup = (value) => {
+        this.setState({
+            isOneday: value
+        })
+    }
+
+    handleChangeOneDay = (id, value) => {
+        this.setState({ [id]: value })
+    }
+
+    handleChangeMoreDay = (id, value) => {
+        this.setState({ [id]: value })
+    }
+
+    handleChangeComment = (id, value, count) => {
+
+        this.setState({ [id]: value })
+        this.setState({ len: count })
+    }
+
+
 
     render() {
+
         return (
+
             <div>
-                <div>
-                    <FormHeader />
+                <FormHeader />
+                <div className='flex-container'>
+
+                    <div className='select-livetype-text flex2'>
+                        Select your live type
                 </div>
+                    <div className="flex6">
+                        <div className="dropdown-oneday">
+                            <select className="option-time" onChange={(event) => this.typehandler(event.target.value)} >
+                                <option value={'SICK LEAVE'}>SICK LEAVE</option>
+                                <option value={'ANNUAL LEAVE'}>ANNUAL LEAVE</option>
+                                <option value={'LEAVE WITH OUT PAY'}>LEAVE WITH OUT PAY</option>
+                                <option value={'ETC'}>ETC</option>
+                                <option value={'ETC'}>ETC</option>
+                            </select>
 
-
-                <div className="dayquestion">
-
-                    <h5>Select your leave types</h5>
-                    <div className="select-types">
-                        <select >
-                            <option value={0}>select type</option>
-                            <option value={2}>type1</option>
-                            <option value={4}>type2</option>
-                            <option value={6}>type3</option>
-                            <option value={8}>type4</option>
-                        </select>
-                    </div>
-                    <div className="selecttype">
-                        <label className="container">DAYS
-  <input type="radio" className="radio1" onChange={() => this.isOnedayQuestion(true)} checked={this.state.isOneday == true} />
-                            <span class="checkmark"></span>
-                        </label>
-                        <label class="container">HOURS
-  <input type="radio" className="radio" onChange={() => this.isOnedayQuestion(false)} checked={this.state.isOneday == false} />
-                            <span class="checkmark"></span>
-                        </label>
+                        </div>
                     </div>
                 </div>
+                <div className="row-DayQuestion">
+                    <div className="flex-container">
 
-                {!this.state.isOneday && <div className="dropdown-custom">
-                    <h5 className="h5-config">Select hours</h5>
-                    <select className="dropbut" >
-                        <option value={0}>select hour</option>
-                        <option value={2}>1 hour</option>
-                        <option value={4}>2 hour</option>
-                        <option value={6}>3 hour</option>
-                        <option value={8}>4 hour</option>
-                    </select>
-                </div>}
-
-                {this.state.isOneday && <div>
-                    <Example />
-                </div>}
-
-                <div className="comment">
-                    <p className="tp">Comment :</p><textarea className="textarea" maxLength="255" type="text" />
-                </div>
-                <div className="filepond-react">
-                    {/* Pass FilePond properties as attributes */}
-                    <FilePond ref={ref => this.pond = ref}
-                        allowMultiple={true}
-                        maxFiles={3}
-                        server="/api"
-                        onupdatefiles={(fileItems) => {
-                            // Set current file objects to this.state
-                            this.setState({
-                                files: fileItems.map(fileItem => fileItem.file)
-                            });
-                        }}>
-                    </FilePond>
-
+                        <div className=" dayrequest-text flex2">
+                            Day Requested
+                        </div>
+                        <div className="flex6">
+                            <input className='form-check-input1' type="radio" onChange={() => this.DayQuestionSetup(true)} checked={this.state.isOneday === true} />
+                            <label className="form-check-label-Oneday">
+                                One day
+                         </label>
+                            <input className="form-check-input2" type="radio" onChange={() => this.DayQuestionSetup(false)} checked={this.state.isOneday === false} />
+                            <label className="form-check-label-Moreday">
+                                More than one day
+                         </label>
+                        </div>
+                    </div>
                 </div>
 
 
-                <div className="button-confirm">
-                    <button>Submit</button>
-                    <button>Cancel</button>
+                <div className="flex-container">
+                    <div className="text-date flex2">
+                        Date
+                            <Calendar />
+                    </div>
+
+                    <div className="time-text flex6">
+                        Time
+                        </div>
                 </div>
 
-
+                <div className='flex-container'>
+                    <Comment value={this.state.note} onChange={this.handleChangeComment} textlimit={this.state.len} />
+                </div>
             </div>
+
+
+
         );
     }
 }
