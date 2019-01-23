@@ -33,27 +33,26 @@
    border-style: solid;
    border-color:#FEC600;
    background-color: #FEC600;
-   
    height:  95%;
    width:95%;
-   
    border-width: 0.5px;
 }
+
+.tangkwaSetData{
+  text-align: center;
+    border-style: solid;
+    border-color:#D8D8D8;
+    background-color: #FFFFFF;
+    height:  95%;
+    width:95%;
+    border-width: 0.5px;
+  }
 
 .BDL{
   border-left: 6px solid #D8D8D8;
 }
 
-.tangkwaSetData{
-text-align: center;
-  border-style: solid;
-  border-color:#D8D8D8;
-  background-color: #FFFFFF;
-  height:  95%;
-  width:95%;
-  border-width: 0.5px;
-  height:50px;
-}
+
 
 .tangkwaSetPending{
   border-style: solid;
@@ -71,9 +70,10 @@ text-align: center;
   border-color:#16CA63;
   border-radius: 20px;
   background-color: #16CA63;
-  border-width: 0.5px;
+  width : 55%;
   height:30px;
-  margin: 8px 8px;
+ margin-top : 4%;
+ margin-left :20%;
 }
 
 .tangkwaSetReject{
@@ -584,6 +584,15 @@ text-align: left;
   flex: 2;
 text-align: left;
 }
+.tk1flex-3{
+  flex: 3;
+text-align: left;
+}
+.tk1flex-6{
+  flex: 4;
+  text-align: left;
+  margin-left: -17%;
+}
 .tangkwaTitle{
   padding-top : 20px;
   margin-bottom : 20px;
@@ -840,7 +849,17 @@ border-radius : 10px;
   border-radius : 10px;
   margin-left : -30%;
  }
-
+ .setForCM{
+  border-width : 0px;
+  border-radius : 10px;
+  width : 30%;
+  margin-left : 0%;
+ }
+.setTime{
+  border-width : 0px;
+  border-radius : 10px;
+  width: 80px;
+}
  .setHour{
   border-width : 0px;
   border-radius : 10px;
@@ -850,9 +869,10 @@ border-radius : 10px;
 .bookno{
   border-width : 0px;
   border-radius : 10px;
- 
- 
-}
+ }
+ .downdown{
+   margin-top : 2%;
+ }
 .textarea{
   border-width : 0px;
   border-radius : 10px;
@@ -868,6 +888,14 @@ margin-left:11%;
 margin-top:-3%;
 
 }
+.textarea2{
+  border-width : 0px;
+  border-radius : 10px;
+width:50%;
+height:150px;
+margin-left:11%;
+margin-top:-2%;
+}
 
 .tangkwaFile{
   margin-top: 140px;
@@ -878,14 +906,23 @@ margin-top:-3%;
   width : 10%;
   height:30px;
  margin-right:10%;
- background-color : #00CC00;
+ background-color : #FEC600;
+}
+.createEvent{
+border-width : 0px;
+border-radius : 15px;
+width : 10%;
+height:30px;
+margin-right:10%;
+background-color : #FEC600;
+margin-left : 80%;
 }
 .Cancel{
   border-width : 0px;
   border-radius : 15px;
   width : 10%;
   height:30px;
-  background-color : #FF0000;
+  background-color : #FFFFFF;
 }
 
 .select-types{
