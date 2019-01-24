@@ -35,18 +35,20 @@ const FormHeader = props => {
 const Comment = props => {
     const { onChange, textlimit } = props
     return (
-        <div className="flex-container">
+        <div className="row-of-comment">
+            <div className="flex-container">
 
-            <div className="text-note flex2">
-                Note/comments :
+                <div className="text-note flex2">
+                    Note/comments
                 </div>
-            <div className="text-area flex6">
+                <div className="text-area flex6">
 
-                <textarea className="textarea" maxLength="255" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
+                    <textarea className="textarea" maxLength="255" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
+                </div>
+                <div className="format-textlimit">
+                    <p className="text-limit flex2">{textlimit}/255</p>
+                </div>
             </div>
-
-            <p className="text-limit flex2">{textlimit}/255</p>
-
         </div>
     )
 }
@@ -57,7 +59,7 @@ class RequestForm extends React.Component {
         super(props);
         this.state = {
             leavetype: "",
-            isOneday: undefined,
+            isOneday: true,
             len: 0,
             note: '',
 
@@ -136,19 +138,34 @@ class RequestForm extends React.Component {
 
 
                 <div className="flex-container">
-                    <div className="text-date flex2">
+                    {this.state.isOneday && <div className="text-date flex2">
                         Date
                             <Calendar />
-                    </div>
+                    </div>}
 
-                    <div className="time-text flex6">
-                        Time
-                        </div>
+                    {!this.state.isOneday && <div className="text-date flex2    ">
+                        Date
+                            <Calendar />
+                    </div>}
+                    {!this.state.isOneday && <div className='text-date2 flex6'>
+                        Date end
+                            <Calendar />
+                    </div>}
+
                 </div>
 
                 <div className='flex-container'>
                     <Comment value={this.state.note} onChange={this.handleChangeComment} textlimit={this.state.len} />
                 </div>
+
+                <div className='flex-container'>
+                    <div className="input-file flex2">
+
+                        <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image/jpeg" required multiple />
+                    </div>
+                </div>
+
+
             </div>
 
 
