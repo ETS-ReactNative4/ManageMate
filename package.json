@@ -8,6 +8,8 @@
     "filepond": "^3.1.1",
     "filepond-plugin-image-exif-orientation": "^1.0.2",
     "filepond-plugin-image-preview": "^3.0.0",
+    "google-map-react": "^1.1.2",
+    "google-maps-react": "^2.0.2",
     "moment": "^2.22.2",
     "moment-business": "^3.0.1",
     "react": "^16.5.2",

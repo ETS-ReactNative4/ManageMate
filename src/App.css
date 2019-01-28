@@ -969,7 +969,10 @@ margin : 10px
 .form-check-input2 {
   margin : 10px
 }
-
+.googleMap{
+  width:20%;
+  height:10%;
+}
 .row-DayQuestion {
   margin-top : 50px
 }

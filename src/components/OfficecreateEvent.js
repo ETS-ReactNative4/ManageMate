@@ -37,7 +37,7 @@ class OfficeCreateEvent extends Component {
                 <div className = "tk1flex-1">
                 </div>
                 </div>
-                <div className = "downdown">
+                <div className = "downdown ">
                     <button type="submit" value="Submit" className = "Submit">Submit</button>
                     <button type="submit" value="Cancel" className = "Cancel">Cancel</button>
                 </div>
