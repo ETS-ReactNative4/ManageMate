@@ -42,7 +42,7 @@ class TangkwaCheckIn extends Component {
               console.log(position);
               $.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko", function(data) {
                 console.log(data.results[0].formatted_address);
-                ()=>this.setState ({
+                this.setState ({
                     latitude : position.coords.latitude,
                     longitude : position.coords.longitude,
                     address : data.results[0].formatted_address
