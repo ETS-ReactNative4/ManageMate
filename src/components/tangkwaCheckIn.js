@@ -4,6 +4,7 @@ import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import $ from 'jquery'; 
 
 const FormHeader = props => {
     return (
@@ -18,6 +19,9 @@ const FormHeader = props => {
         </React.Fragment>
     )
 }
+
+
+
 class TangkwaCheckIn extends Component {
     constructor() {
         super()
@@ -25,31 +29,37 @@ class TangkwaCheckIn extends Component {
         this.state = {
           latitude: '',
           longitude: '',
-          showLocated: false
+          showLocated: false,
+          address :''
         }
     
-        this.getMyLocation = this.getMyLocation.bind(this)
+        
       }
       
       componentDidMount() {
-        this.getMyLocation()
+        if (navigator.geolocation) { //check if geolocation is available
+            navigator.geolocation.getCurrentPosition(function(position){
+              console.log(position);
+              $.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko", function(data) {
+                console.log(data.results[0].formatted_address);
+                ()=>this.setState ({
+                    latitude : position.coords.latitude,
+                    longitude : position.coords.longitude,
+                    address : data.results[0].formatted_address
+                    
+                })
+              })
+             
+            });   
+            
+        }
       }
     
-      getMyLocation() {
-        const location = window.navigator && window.navigator.geolocation
-        
-        if (location) {
-          location.getCurrentPosition((position) => {
-            this.setState({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
-            })
-          }, (error) => {
-            this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
-          })
-        }
     
-      }    
+       
+
+            
+      
       handleSetTrue = () => {
 this.setState({showLocated:true})
 console.log("onclick",this.state.showLocated)
@@ -57,6 +67,7 @@ console.log("onclick",this.state.showLocated)
     }
 
     render() {
+        console.log("this is state",this.state)
         return (
             <div className="App">
                 <FormHeader />
@@ -64,6 +75,7 @@ console.log("onclick",this.state.showLocated)
                 {this.state.showLocated && <div>
                     <p>Latitude is {this.state.latitude}</p>
                     <p>Longitude is {this.state.longitude}</p>
+                    <p>address is {this.state.address}</p>
                     {console.log("la",this.state.latitude)}
 
                 </div>}
