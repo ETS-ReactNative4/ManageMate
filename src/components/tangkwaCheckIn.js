@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
-import axios from 'axios'; 
+
 
 
 

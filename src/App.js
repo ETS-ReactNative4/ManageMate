@@ -24,6 +24,7 @@ import OfficeCalendar from './components/officeCalendar'
 import MyCalendar from './components/MyCalendar'
 import OfficeCreateEvent from './components/OfficecreateEvent'
 import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
+import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
 class MainLayout extends Component {
   render() {
     return (
@@ -116,6 +117,7 @@ class App extends Component {
           <Route path='Allproject' component={TangkwaAllProject} />
           <Route path='TangkwaLeaveDetail' component={TangkwaLeaveDetail} />
           <Route path='ProjectDetail' component={TangkwaProjectDetail} />
+          <Route path='ProjectsDetail' component={TangkwaAllProjDetail} />
           <Route path='calendar' component={OfficeCalendar} />
           <Route path='requestform' component={RequestForm}></Route>
           <Route path='myCalendar' component={MyCalendar}/>

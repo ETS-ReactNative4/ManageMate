@@ -20,19 +20,20 @@ class TangkwaCreateProj extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            Addstaff: ''
+            projectName : '',
+            detail : '',
+
         }
+        this.handleChangeProjectName = this.handleChangeProjectName.bind(this);
+        this.handleChangeDetail = this.handleChangeDetail.bind(this);
     }
-
-    Addstaff = (boo) => {
-        this.setState({ Addstaff: boo })
-        console.log("add staff --->", this.state.Addstaff)
-
+    handleChangeProjectName(event) {
+        this.setState({ projectName: event.target.value });
+        console.log("projectName",this.state.projectName)
     }
-    AddFalse = (boo) => {
-        this.setState({ Addstaff: false })
-        console.log("set false --->", this.state.Addstaff)
-
+    handleChangeDetail(event) {
+        this.setState({ detail: event.target.value });
+        console.log("detail",this.state.detail)
     }
     render() {
         return (
@@ -41,13 +42,8 @@ class TangkwaCreateProj extends Component {
                 <div className="flex-container">
                     <div className="tk1flex-02"></div>
                     <div className="tk1flex-2">
-                        <div className="tangkwaTitle"><p>PROJECT NAME : <input type="text" name="amount" className="proj" /></p></div>
-                        <div><div className="tangkwaTitle1"><p>DETAIL :</p></div><textarea className="textarea1" maxLength="255" type="text" /></div>
-                        <div className="tangkwaTitle"><p>MEMBER ID : <input type="text" name="amount" className="memid" /><img src={add} width="30" height="30" className="addpng" onClick={() => this.Addstaff(true)} /></p></div>
-                        {this.state.Addstaff && <div>
-                            <input type="text" name="amount" className="memid1" />
-
-                        </div>}
+                        <div className="tangkwaTitle"><p>PROJECT NAME : <input type="text" value={this.state.projectName} onChange={this.handleChangeProjectName} className="proj" /></p></div>
+                        <div><div className="tangkwaTitle1"><p>DETAIL :</p></div><textarea value={this.state.detail} onChange={this.handleChangeDetail} className="textarea1" maxLength="255" type="text" /></div>
                         <div className="tangkwaTitle"><p>FILE :</p></div>
                     </div>
 
