@@ -4,6 +4,7 @@ import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+import $ from 'jquery'; 
 
 const FormHeader = props => {
     return (
@@ -18,6 +19,9 @@ const FormHeader = props => {
         </React.Fragment>
     )
 }
+
+
+
 class TangkwaCheckIn extends Component {
     constructor() {
         super()
@@ -57,6 +61,7 @@ class TangkwaCheckIn extends Component {
     }
 
     render() {
+        console.log("this is state",this.state)
         return (
             <div className="App">
                 <FormHeader />
