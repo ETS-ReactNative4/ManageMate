@@ -16,7 +16,7 @@ class TangkwaLeaveDetail extends Component {
             leaveType: 'Sick Leave',
             dayStart: '01/01/2014',
             dayEnd: '02/01/2018',
-            note: 'sickkkkkkkkkk',
+            note: 'sickkklkjohihvjyguhijvgiugkkkkkkk',
             time: '09.30 AM',
             hrs: '8',
             status: 'Approved',
@@ -27,10 +27,9 @@ class TangkwaLeaveDetail extends Component {
         return (
             <div className="App">
                 <div className="tangkwaTitle tangkwa2"><h4><b>LEAVE DETAIL</b></h4></div>
-                <div className="flex-container">
+                <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
                     <div className="tk1flex-1"><div><p><b>FIRSTNAME :</b> {this.state.firstname}</p></div>
-
                     </div>
                     <div className="tk1flex-1"><div><p><b>LASTNAME :</b> {this.state.lastname}</p></div>
                     </div>
@@ -41,15 +40,19 @@ class TangkwaLeaveDetail extends Component {
                         <div><p><b>MANAGE BY : </b>{this.state.manageby}</p></div>
                     </div>
                 </div>
+
                 <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>LEAVE ID : </b>{this.state.leaveID}</p></div>
+                    <div className="tk1flex-1"><div><p><b>LEAVE ID : </b> {this.state.leaveID}</p></div>
                     </div>
                     <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{this.state.leaveType}</p></div>
                     </div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
+                    <div className="tk1flex-1">
+                    </div>
+                    <div className="tkflex-1">
+                    </div>
                 </div>
+
                 {this.state.setDay && <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
                     <div className="tk1flex-1"><div><p><b>DATE : </b>{this.state.dayStart}</p></div>
@@ -70,16 +73,15 @@ class TangkwaLeaveDetail extends Component {
                         <div className="tk1flex-1"><div><p></p></div></div>
                         <div className="tk1flex-1"><div><p></p></div></div>
                     </div>}
+
                 <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>COMMENT : </b>{this.state.note}</p></div>
-                        <div><p><b>FILE : </b></p></div>
-                    </div>
-                    <div className="tk1flex-1">
+                    <div className="tk1flex-3"><div><p>COMMENT : {this.state.note}</p></div>
                     </div>
                     <div className="tk1flex-1"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
+
                 </div>
+
             </div >
         );
     }

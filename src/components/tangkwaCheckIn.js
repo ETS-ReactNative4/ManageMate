@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
+
 import axios from 'axios'; 
+
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
+
 
 const FormHeader = props => {
     return (
@@ -24,6 +28,7 @@ const FormHeader = props => {
 class TangkwaCheckIn extends Component {
     constructor() {
         super()
+
     
         this.state = {
           latitude: 0,
@@ -68,6 +73,7 @@ class TangkwaCheckIn extends Component {
 this.setState({showLocated:true})
 console.log("onclick",this.state.showLocated)
 
+
     }
 
     render() {
@@ -75,12 +81,14 @@ console.log("onclick",this.state.showLocated)
         return (
             <div className="App">
                 <FormHeader />
+
                 <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng"  onClick={this.handleSetTrue}/></h4></div>
                 {this.state.showLocated && <div>
                     <p>Latitude is {this.state.latitude}</p>
                     <p>Longitude is {this.state.longitude}</p>
                     <p>address is {this.state.address}</p>
                     {console.log("la",this.state.latitude)}
+
 
                 </div>}
                 <div>
