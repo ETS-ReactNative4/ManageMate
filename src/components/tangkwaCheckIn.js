@@ -33,7 +33,7 @@ class TangkwaCheckIn extends Component {
           latitude: 0,
           longitude: 0,
           showLocated: false,
-          address :''
+          address :1
         }
     
         
@@ -46,20 +46,14 @@ class TangkwaCheckIn extends Component {
     setaddress = () => {
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition(function(position){
-              console.log(position.coords.latitude);
-            //   axios.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko", function(data) {
-            //     console.log(data.results[0].formatted_address);
-             
-            //   })
-            //   this.setState ({
-            //     latitude : position.coords.latitude,
-            //     longitude : position.coords.longitude,
-                
-                
-            // })
-             
-            });   
-            
+            axios.get("https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko")
+      .then(res => {
+        this.setState ({
+            address : res.data.results[0].formatted_address
+        })
+        
+      })
+            });           
         }
     }
     
@@ -70,7 +64,7 @@ class TangkwaCheckIn extends Component {
       
       handleSetTrue = () => {
 this.setState({showLocated:true})
-console.log("onclick",this.state.showLocated)
+
 
 
     }
