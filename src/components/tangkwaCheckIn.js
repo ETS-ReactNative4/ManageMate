@@ -3,8 +3,11 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
+
+import axios from 'axios'; 
+
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
-import $ from 'jquery'; 
+
 
 const FormHeader = props => {
     return (
@@ -26,37 +29,50 @@ class TangkwaCheckIn extends Component {
     constructor() {
         super()
 
+    
         this.state = {
-            latitude: '',
-            longitude: '',
-            showLocated: false
+          latitude: 0,
+          longitude: 0,
+          showLocated: false,
+          address :''
         }
+    
+        
+      }
+      
+      componentDidMount() {
+     this.setaddress()
+      }
 
-        this.getMyLocation = this.getMyLocation.bind(this)
-    }
-
-    componentDidMount() {
-        this.getMyLocation()
-    }
-
-    getMyLocation() {
-        const location = window.navigator && window.navigator.geolocation
-
-        if (location) {
-            location.getCurrentPosition((position) => {
-                this.setState({
-                    latitude: position.coords.latitude,
-                    longitude: position.coords.longitude,
-                })
-            }, (error) => {
-                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
-            })
+    setaddress = () => {
+        if (navigator.geolocation) { //check if geolocation is available
+            navigator.geolocation.getCurrentPosition(function(position){
+              console.log(position.coords.latitude);
+            //   axios.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko", function(data) {
+            //     console.log(data.results[0].formatted_address);
+             
+            //   })
+            //   this.setState ({
+            //     latitude : position.coords.latitude,
+            //     longitude : position.coords.longitude,
+                
+                
+            // })
+             
+            });   
+            
         }
-
     }
-    handleSetTrue = () => {
-        this.setState({ showLocated: true })
-        console.log("onclick", this.state.showLocated)
+    
+    
+       
+
+            
+      
+      handleSetTrue = () => {
+this.setState({showLocated:true})
+console.log("onclick",this.state.showLocated)
+
 
     }
 
@@ -65,11 +81,14 @@ class TangkwaCheckIn extends Component {
         return (
             <div className="App">
                 <FormHeader />
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetTrue} /></h4></div>
+
+                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng"  onClick={this.handleSetTrue}/></h4></div>
                 {this.state.showLocated && <div>
                     <p>Latitude is {this.state.latitude}</p>
                     <p>Longitude is {this.state.longitude}</p>
-                    {console.log("la", this.state.latitude)}
+                    <p>address is {this.state.address}</p>
+                    {console.log("la",this.state.latitude)}
+
 
                 </div>}
                 <div>
