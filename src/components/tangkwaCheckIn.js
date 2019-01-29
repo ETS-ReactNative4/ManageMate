@@ -21,38 +21,38 @@ const FormHeader = props => {
 class TangkwaCheckIn extends Component {
     constructor() {
         super()
-    
+
         this.state = {
-          latitude: '',
-          longitude: '',
-          showLocated: false
+            latitude: '',
+            longitude: '',
+            showLocated: false
         }
-    
+
         this.getMyLocation = this.getMyLocation.bind(this)
-      }
-      
-      componentDidMount() {
+    }
+
+    componentDidMount() {
         this.getMyLocation()
-      }
-    
-      getMyLocation() {
+    }
+
+    getMyLocation() {
         const location = window.navigator && window.navigator.geolocation
-        
+
         if (location) {
-          location.getCurrentPosition((position) => {
-            this.setState({
-              latitude: position.coords.latitude,
-              longitude: position.coords.longitude,
+            location.getCurrentPosition((position) => {
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                })
+            }, (error) => {
+                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
             })
-          }, (error) => {
-            this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
-          })
         }
-    
-      }    
-      handleSetTrue = () => {
-this.setState({showLocated:true})
-console.log("onclick",this.state.showLocated)
+
+    }
+    handleSetTrue = () => {
+        this.setState({ showLocated: true })
+        console.log("onclick", this.state.showLocated)
 
     }
 
@@ -60,11 +60,11 @@ console.log("onclick",this.state.showLocated)
         return (
             <div className="App">
                 <FormHeader />
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng"  onClick={this.handleSetTrue}/></h4></div>
+                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetTrue} /></h4></div>
                 {this.state.showLocated && <div>
                     <p>Latitude is {this.state.latitude}</p>
                     <p>Longitude is {this.state.longitude}</p>
-                    {console.log("la",this.state.latitude)}
+                    {console.log("la", this.state.latitude)}
 
                 </div>}
                 <div>
