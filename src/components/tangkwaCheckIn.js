@@ -25,44 +25,38 @@ const FormHeader = props => {
 class TangkwaCheckIn extends Component {
     constructor() {
         super()
-    
-        this.state = {
-          latitude: '',
-          longitude: '',
-          showLocated: false,
-          address :''
-        }
-    
-        
-      }
-      
-      componentDidMount() {
-        if (navigator.geolocation) { //check if geolocation is available
-            navigator.geolocation.getCurrentPosition(function(position){
-              console.log(position);
-              $.get( "https://maps.googleapis.com/maps/api/geocode/json?latlng="+ position.coords.latitude+ "," + position.coords.longitude +"&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko", function(data) {
-                console.log(data.results[0].formatted_address);
-                this.setState ({
-                    latitude : position.coords.latitude,
-                    longitude : position.coords.longitude,
-                    address : data.results[0].formatted_address
-                    
-                })
-              })
-             
-            });   
-            
-        }
-      }
-    
-    
-       
 
-            
-      
-      handleSetTrue = () => {
-this.setState({showLocated:true})
-console.log("onclick",this.state.showLocated)
+        this.state = {
+            latitude: '',
+            longitude: '',
+            showLocated: false
+        }
+
+        this.getMyLocation = this.getMyLocation.bind(this)
+    }
+
+    componentDidMount() {
+        this.getMyLocation()
+    }
+
+    getMyLocation() {
+        const location = window.navigator && window.navigator.geolocation
+
+        if (location) {
+            location.getCurrentPosition((position) => {
+                this.setState({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                })
+            }, (error) => {
+                this.setState({ latitude: 'err-latitude', longitude: 'err-longitude' })
+            })
+        }
+
+    }
+    handleSetTrue = () => {
+        this.setState({ showLocated: true })
+        console.log("onclick", this.state.showLocated)
 
     }
 
@@ -71,12 +65,11 @@ console.log("onclick",this.state.showLocated)
         return (
             <div className="App">
                 <FormHeader />
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng"  onClick={this.handleSetTrue}/></h4></div>
+                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetTrue} /></h4></div>
                 {this.state.showLocated && <div>
                     <p>Latitude is {this.state.latitude}</p>
                     <p>Longitude is {this.state.longitude}</p>
-                    <p>address is {this.state.address}</p>
-                    {console.log("la",this.state.latitude)}
+                    {console.log("la", this.state.latitude)}
 
                 </div>}
                 <div>
