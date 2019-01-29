@@ -34,7 +34,7 @@ class TangkwaAllProject extends Component {
                 <div className="flex-container">
                     <div className="tangkwaSetProjectData row">
                         <div className="tkflex-1">
-                        <Link to='ProjectDetail' className="tkflex-2" ><p>{this.state.projectId}</p></Link>
+                        <Link to='ProjectsDetail' className="tkflex-2" ><p>{this.state.projectId}</p></Link>
                         </div>
                         <div >
                         <div><p><b>{this.state.projectName}</b></p></div>
