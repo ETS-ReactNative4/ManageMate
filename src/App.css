@@ -922,10 +922,16 @@ margin-left : 80%;
   border-width : 0px;
   border-radius : 15px;
   width : 10%;
-  height:30px;
   background-color : #FFFFFF;
 }
-
+.Checkinnn{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 30%;
+  height:30px;
+  background-color : #FFFFFF;
+  margin-bottom: 20px;
+}
 .select-types{
   text-align: left;
   margin-left:20px;
@@ -1063,4 +1069,19 @@ margin : 10px
   text-align: left;
   margin-left: 50px;
   margin-right :10px
+}
+.tangkwaTitle2{
+  margin-left: 10%;
+}
+
+.MapCheckin{
+  margin-bottom : 30px;
+}
+.joinProject{
+  border-width : 0px;
+  border-radius : 15px;
+  width : 10%;
+  height:30px;
+ margin-right:10%;
+ background-color : #FEC600;
 }

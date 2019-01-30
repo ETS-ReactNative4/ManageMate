@@ -17,8 +17,32 @@ const FormHeader = props => {
 class TangkwaWithdrawReq extends Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state = { 
+            amount : '',
+            bankNo : '',
+            bankName : '',
+            comment : ''
         }
+        this.handleChangeAmount = this.handleChangeAmount.bind(this);
+        this.handleChangeBankNo = this.handleChangeBankNo.bind(this);
+        this.handleChangeBankName = this.handleChangeBankName.bind(this);
+        this.handleChangeComment = this.handleChangeComment.bind(this);
+    }
+    handleChangeAmount(event) {
+        this.setState({ amount: event.target.value });
+        console.log("amount",this.state.amount)
+    }
+    handleChangeBankNo(event) {
+        this.setState({ bankNo: event.target.value });
+        console.log("bankNo",this.state.bankNo)
+    }
+    handleChangeBankName(event) {
+        this.setState({ bankName: event.target.value });
+        console.log("bankName",this.state.bankName)
+    }
+    handleChangeComment(event) {
+        this.setState({ comment: event.target.value });
+        console.log("Comment",this.state.comment)
     }
     render() {
         return (
@@ -34,10 +58,10 @@ class TangkwaWithdrawReq extends Component {
                         <div className="tangkwaFile"><p>FILE :</p></div>
                     </div>
                     <div className="tk1flex-8">
-                        <div className="tangkwaTitle"><input type="text" name="amount" className="amount" /></div>
-                        <div className="tangkwaTitle" ><input type="text" name="amount" className="bookname" /></div>
-                        <div className="tangkwaTitle"><input type="text" name="amount" className="bookno" /></div>
-                        <div className="tangkwaTitle"><textarea className="textarea" maxLength="255" type="text" /></div>
+                        <div className="tangkwaTitle"><input type="text" value={this.state.amount} onChange={this.handleChangeAmount} className="amount" /></div>
+                        <div className="tangkwaTitle" ><input type="text" value={this.state.bankName} onChange={this.handleChangeBankName} className="bookname" /></div>
+                        <div className="tangkwaTitle"><input type="text" value={this.state.bankNo} onChange={this.handleChangeBankNo} className="bookno" /></div>
+                        <div className="tangkwaTitle"><textarea value={this.state.comment} onChange={this.handleChangeComment} className="textarea" maxLength="255" type="text" /></div>
                     </div>
                 </div>
                 <div>
