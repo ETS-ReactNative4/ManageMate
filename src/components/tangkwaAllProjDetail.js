@@ -36,7 +36,7 @@ class TangkwaAllProjDetail extends Component {
                         <div><p><b>TOTAL : </b>30 DAYS 20 HOURS WITH 15 MEMBERS</p></div>
                     </div>
                 </div>
-                <div className = "tangkwaTitle2"><button type="submit" value="Submit" className="Submit">JOIN PROJECT</button></div>
+                <div className = "tangkwaTitle2"><button type="submit" value="Submit" className="joinProject">JOIN PROJECT</button></div>
             </div>
         );
     }
