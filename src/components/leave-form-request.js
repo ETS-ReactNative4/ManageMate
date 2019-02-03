@@ -60,6 +60,8 @@ class RequestForm extends React.Component {
         this.state = {
             leavetype: "",
             isOneday: true,
+            dayStart: '',
+            dayEnd: '',
             len: 0,
             note: '',
 
@@ -77,8 +79,10 @@ class RequestForm extends React.Component {
         })
     }
 
-    handleChangeOneDay = (id, value) => {
-        this.setState({ [id]: value })
+    handleChangeOneDay = (id1, value, id2) => {
+        this.setState({ [id1]: value })
+        this.setState({ [id2]: value })
+        console.log("this is date", this.state.dayEnd, this.state.dayStart)
     }
 
     handleChangeMoreDay = (id, value) => {
@@ -93,8 +97,8 @@ class RequestForm extends React.Component {
 
 
 
-    render() {
 
+    render() {
         return (
 
             <div>
@@ -140,7 +144,7 @@ class RequestForm extends React.Component {
                 <div className="flex-container">
                     {this.state.isOneday && <div className="text-date flex2">
                         Date
-                            <Calendar />
+                            <Calendar onChange={this.handleChangeOneDay} id1={'dayStart'} id2={'dayEnd'} />
                     </div>}
 
                     {!this.state.isOneday && <div className="text-date flex2    ">
