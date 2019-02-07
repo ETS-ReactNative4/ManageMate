@@ -4,6 +4,7 @@ import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
 import axios from 'axios';
+import loading from '../Image/lg.rotating-balls-spinner.gif'
 
 
 
@@ -33,7 +34,7 @@ class TangkwaCheckIn extends Component {
           latitude: 0,
           longitude: 0,
           showLocated: false,
-          address :'loading'
+          address :<img src={loading} />
         }
     
         
