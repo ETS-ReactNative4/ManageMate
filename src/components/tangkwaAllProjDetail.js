@@ -28,15 +28,24 @@ class TangkwaAllProjDetail extends Component {
                         <div><p><b>MEMBERS :</b>{this.state.MemId}</p></div>
                         <div><p><b>DETAILS :</b>{this.state.Detail}</p></div>
                         <div><p><b>FILES :</b></p></div>
+                       
                     </div>
-                    <div className="tkflex-1 pjFrame">
-                        <div><p><b>STATUS : </b>{this.state.status}</p></div>
-                        <div><p><b>START : </b>{this.state.start}</p></div>
-                        <div><p><b>DONE : </b>{this.state.end}</p></div>
-                        <div><p><b>TOTAL : </b>30 DAYS 20 HOURS WITH 15 MEMBERS</p></div>
+                    <div className="tkflex-1">
+                        
+                        <div className="pjFrame">
+                            <div><p><b>STATUS : </b>{this.state.status}</p></div>
+                            <div><p><b>START : </b>{this.state.start}</p></div>
+                            <div><p><b>DONE : </b>{this.state.end}</p></div>
+                            <div><p><b>TOTAL : </b>30 DAYS 20 HOURS WITH 15 MEMBERS</p></div>
+                        </div>
+                        <div>
+                            <button type="submit" value="Submit" className="pStatusProcess">IN PROCESS</button>
+                            <button type="submit" value="Submit" className="pStatusDone">DONE</button></div>
+                        
                     </div>
                 </div>
-                <div className = "tangkwaTitle2"><button type="submit" value="Submit" className="joinProject">JOIN PROJECT</button></div>
+                <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject">JOIN PROJECT</button></div>
+                
             </div>
         );
     }
