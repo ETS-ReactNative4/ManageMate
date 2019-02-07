@@ -28,7 +28,7 @@ import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
 class MainLayout extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="App"> 
         <header className="background">
           <h1 className="hero-logo">
             MANAGEMATE
@@ -134,9 +134,6 @@ class App extends Component {
             <Route path='AddUser' component={TangkwaAddUser} />
             <Route path='OfficecreateEvent' component={OfficeCreateEvent}/>
             <Route path='MyCalendarCreateEvent' component={MyCalendarCreateEvent}/>
-
-
-
           </Route>
       </Router>
         );
