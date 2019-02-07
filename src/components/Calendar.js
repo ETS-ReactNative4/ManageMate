@@ -17,23 +17,23 @@ class Calendar extends React.Component {
     }
 
     handleChange(date) {
-        const { id, onChange, id2 } = this.props
+        const { id1, onChange, id2 } = this.props
 
         this.setState({
             startDate: date
         });
         if (date == null) {
-            onChange(id, 'Invalid dat');
+            onChange(id1, 'Invalid dat');
             onChange(id2, 'Invalid dat');
         }
         else if (!business.isWeekDay(date)) {
             alert("You can choose only weekday \n Please try again.")
-            onChange(id, 'Invalid dat');
+            onChange(id1, 'Invalid dat');
             onChange(id2, 'Invalid dat');
         }
         else {
-            onChange(id, moment(date).format().toString().substring(0, 11));
-            onChange(id2, moment(date).format().toString().substring(0, 11));
+            onChange(id1, moment(date).format().toString().substring(0, 11), id2);
+
         }
     }
 
