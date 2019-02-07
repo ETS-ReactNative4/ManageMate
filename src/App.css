@@ -538,9 +538,9 @@ height: 100vh;
   border-color: #FEC600;
   border-radius: 20px;
 align-self: left;
-margin-top : -2%;
+margin-top : 2%;
 margin-right : 3%;
-height : 20%;
+
 }
 
 .flex-1 {
@@ -808,7 +808,7 @@ margin-right:20px;
   margin-top :20px;
 }
 
-.textarea {
+.textarea.textarea{
   width: 60%;
   height: 120px;
   border-radius: 15px;
@@ -1085,3 +1085,44 @@ margin : 10px
  margin-right:10%;
  background-color : #FEC600;
 }
+.pStatus{
+  font-size:17px;
+  border-width : 0px;
+  border-radius : 8px;
+  height:30px;
+ margin-right:1%;
+ background-color : #FEC600;
+}
+.pStatusReady{
+  font-size:17px;
+  border-width : 0px;
+  border-radius : 8px;
+  height:30px;
+ margin-right:1%;
+ background-color : #FEC600;
+}
+.pStatusProcess{
+  font-size:17px;
+  border-width : 0px;
+  border-radius : 8px;
+  height:30px;
+ margin-right:1%;
+ background-color :#3498DB  ;
+ padding-left :3%;
+ padding-right : 3%;
+margin-top : 3%;
+}
+.pStatusDone{
+  font-size:17px;
+  border-width : 0px;
+  border-radius : 8px;
+  height:30px;
+ margin-right:1%;
+ background-color : #58D68D;
+ padding-left :3%;
+ padding-right : 3%;
+}
+
+
+
+
