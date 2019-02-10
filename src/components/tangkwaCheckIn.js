@@ -79,7 +79,7 @@ this.setState({showLocated:true})
                 <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng"  onClick={this.handleSetTrue}/></h4></div>
                 {this.state.showLocated && <div>
                     <p>{this.state.address}</p>  
-                    <img src ={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko"} width="800" height ="500" ></img>             
+                    <img src ={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko"} className = "googleMap" ></img>             
                     {console.log("la",this.state.latitude)}
 
 

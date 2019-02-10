@@ -36,16 +36,16 @@
    height:  95%;
    width:95%;
    border-width: 0.5px;
+   font-size:100%;
 }
 
 .tangkwaSetData{
   text-align: center;
-    border-style: solid;
-    border-color:#D8D8D8;
-    background-color: #FFFFFF;
+  background-color: #FFFFFF;
     height:  95%;
     width:95%;
-    border-width: 0.5px;
+    border-bottom: 2px solid #D8D8D8;
+    margin:auto;
   }
 
 .BDL{
@@ -55,35 +55,18 @@
 
 
 .tangkwaSetPending{
-  border-style: solid;
-  border-color:#EAE8E8;
-  border-radius: 20px;
-  background-color: #EAE8E8;
- border-width: 0.5px;
- height:30px;
- margin: 8px 8px;
+  color:#FEC605;
+  margin:auto;
 }
 
 .tangkwaSetApprove{
-  
-  border-style: solid;
-  border-color:#16CA63;
-  border-radius: 20px;
-  background-color: #16CA63;
-  width : 55%;
-  height:30px;
- margin-top : 4%;
- margin-left :20%;
-}
+  color:#16CA63;
+ margin:auto;
+ }
 
 .tangkwaSetReject{
-  border-style: solid;
-  border-color:#FF4949;
-  border-radius: 20px;
-  background-color: #FF4949;
-  border-width: 0.5px;
-  height:30px;
-  margin: 8px 8px;
+  color:#FF4949;
+ margin:auto;
 }
 
 .tangkwaSetOneday{
@@ -577,6 +560,11 @@ text-align: left;
   text-align: center;  
   
 }
+.tkflex-22{
+  flex: 2;
+  text-align: right;  
+  
+}
 
 
 
@@ -584,6 +572,8 @@ text-align: left;
   flex: 2;
 text-align: left;
 }
+
+
 .tk1flex-3{
   flex: 3;
 text-align: left;
@@ -818,8 +808,7 @@ margin-right:20px;
 .amount {
 border-width: 0px; 
 border-radius : 10px;
-
-
+width:20%;
 }
 .setLeft{
  text-align: left;
@@ -829,6 +818,7 @@ border-radius : 10px;
 .bookname{
   border-width : 0px;
   border-radius : 10px;
+  width:20%;
  }
  .memid{
   border-width : 0px;
@@ -844,11 +834,12 @@ border-radius : 10px;
   border-width : 0px;
   border-radius : 10px;
   margin-left : 2%;
+  width:30%;
  }
  .setForAddUser{
   border-width : 0px;
   border-radius : 10px;
-  margin-left : -30%;
+  width:80%;
  }
  .setForCM{
   border-width : 0px;
@@ -859,17 +850,17 @@ border-radius : 10px;
 .setTime{
   border-width : 0px;
   border-radius : 10px;
-  width: 80px;
+  width: 10%;
 }
  .setHour{
   border-width : 0px;
   border-radius : 10px;
-  margin-left : -17%;
   width : 20%;
  }
 .bookno{
   border-width : 0px;
   border-radius : 10px;
+  width:20%;
  }
  .downdown{
    margin-top : 2%;
@@ -883,10 +874,10 @@ height:150px;
 .textarea1{
   border-width : 0px;
   border-radius : 10px;
-width:50%;
-height:150px;
+width:30%;
+height:100%;
 margin-left:11%;
-margin-top:-3%;
+margin-top:-5%;
 
 }
 .textarea2{
@@ -903,27 +894,23 @@ margin-top:-2%;
 }
 .Submit{
   border-width : 0px;
-  border-radius : 15px;
-  width : 10%;
-  height:30px;
- margin-right:10%;
+  border-radius : 5px;
+margin-right:10%;
  background-color : #FEC600;
+}
+.Cancel{
+  border-width : 0px;
+  border-radius : 5px;
+  background-color : #FFFFFF;
 }
 .createEvent{
 border-width : 0px;
-border-radius : 15px;
-width : 10%;
-height:30px;
+border-radius : 5px;
 margin-right:10%;
 background-color : #FEC600;
 margin-left : 80%;
 }
-.Cancel{
-  border-width : 0px;
-  border-radius : 15px;
-  width : 10%;
-  background-color : #FFFFFF;
-}
+
 .Checkinnn{
   border-width : 0px;
   border-radius : 15px;
@@ -976,8 +963,9 @@ margin : 10px
   margin : 10px
 }
 .googleMap{
-  width:20%;
-  height:10%;
+  width:30%;
+  height:20%;
+  margin-bottom: 2%;
 }
 .row-DayQuestion {
   margin-top : 50px
@@ -1080,7 +1068,7 @@ margin : 10px
 .joinProject{
   border-width : 0px;
   border-radius : 15px;
-  width : 10%;
+  
   height:30px;
  margin-right:10%;
  background-color : #FEC600;
@@ -1103,9 +1091,7 @@ margin : 10px
 }
 .pStatusProcess{
   font-size:17px;
-  border-width : 0px;
   border-radius : 8px;
-  height:30px;
  margin-right:1%;
  background-color :#3498DB  ;
  padding-left :3%;
@@ -1116,7 +1102,6 @@ margin-top : 3%;
   font-size:17px;
   border-width : 0px;
   border-radius : 8px;
-  height:30px;
  margin-right:1%;
  background-color : #58D68D;
  padding-left :3%;
