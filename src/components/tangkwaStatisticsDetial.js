@@ -42,7 +42,7 @@ class TangkwaStatisticsDetail extends Component {
                     <div className="tk1flex-1"><p><b>POSITION :</b> {this.state.position}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
-                    <div className="tk1flex-1"><p></p></div>v
+                    <div className="tk1flex-1"><p></p></div>
 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>

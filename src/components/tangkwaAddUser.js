@@ -86,7 +86,7 @@ class TangkwaAddUser extends Component {
             <div>
                 <div className="tangkwaTitle"><h4><b>ADD USER</b></h4></div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                     </div>
                     <div className="tk1flex-2">
                     </div>
@@ -97,7 +97,7 @@ class TangkwaAddUser extends Component {
                     </div>
                 </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>FIRSTNAME : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -111,7 +111,7 @@ class TangkwaAddUser extends Component {
                     </div>
                 </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>LASTNAME : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -125,7 +125,7 @@ class TangkwaAddUser extends Component {
                     </div>
 </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>EMAIL : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -139,7 +139,7 @@ class TangkwaAddUser extends Component {
                     </div>
 </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>TEL NO. : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -153,7 +153,7 @@ class TangkwaAddUser extends Component {
                     </div>
 </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>BANK NO. : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -167,7 +167,7 @@ class TangkwaAddUser extends Component {
                     </div>
  </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>BANK NAME : </p>
                     </div>
                     <div className="tk1flex-2">
@@ -179,7 +179,7 @@ class TangkwaAddUser extends Component {
                         </div>
  </div>
                 <div className="flex-container row">
-                    <div className="tkflex-2">
+                    <div className="tkflex-22">
                         <p>POSITION : </p>
                     </div>
                     <div className="tk1flex-2">
