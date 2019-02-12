@@ -808,12 +808,14 @@ margin-right:20px;
   margin-top :20px;
 }
 
-.textarea.textarea{
-  width: 60%;
+.textarea{
+  width: 100%;
   height: 120px;
   border-radius: 15px;
   padding: 12px 20px;
   outline: none;
+  border-width : 0px;
+  border-radius : 10px;
 }
 .amount {
 border-width: 0px; 
@@ -874,12 +876,6 @@ border-radius : 10px;
  .downdown{
    margin-top : 2%;
  }
-.textarea{
-  border-width : 0px;
-  border-radius : 10px;
-width:50%;
-height:150px;
-}
 .textarea1{
   border-width : 0px;
   border-radius : 10px;
@@ -984,7 +980,13 @@ margin : 10px
 }
 
 .select-livetype-text {
-  margin-left: 50px
+  margin-left: 50px;
+  flex: 2;
+  text-align: left
+}
+
+.TypeSelect {
+  flex: 6;
 }
 .select-livetype-text.flex2 {
   text-align: left
@@ -992,29 +994,36 @@ margin : 10px
 
 
 .dayrequest-text{
-  margin-left: 50px
-}
-
-.dayrequest-text.flex2 {
+  margin-left: 50px;
+  flex: 2;
   text-align: left
 }
-
+.DayTypeSelect{
+  flex: 6
+}
 .row-calendar {
   margin-top : 50px;
 }
 
-.text-date.flex2 {
-  text-align: left
-}
+
 
 .text-date {
   margin-left: 50px;
+  flex: 1;
+  margin-top: 50px;
+  display: inline-flex;
+  text-align: left
+  
+}
+.text-date2 {
+  flex: 1;
+  margin-top: 50px;
+  display: inline-flex;
+  text-align: left
+  
 }
 
-.text-date.flex2 {
-  display: inline-flex;
-  margin-top: 50px;
-}
+
 .time-text.flex6 {
   margin-top: 50px;
 }
@@ -1030,17 +1039,11 @@ margin : 10px
 
 .row-of-comment {
   margin-top : 50px;
+  width: 100%;
 }
 
 .text-area {
-  margin-left: 10px;
-  margin-right: 50px;
-  
-}
-
-
-.textarea {
-  width: 120%
+  min-height: 80px;
 }
 .format-textlimit {
   margin-right: 10px;
@@ -1051,19 +1054,9 @@ margin : 10px
   margin-left:20%;
   margin-right:20%;
 }
-.text-date2.flex6 {
-  text-align: center;
-}
 
-.text-date2 {
-  margin-left: 70px;
-  margin-right: 10px;
-}
 
-.text-date2.flex6 {
-  display: inline-flex;
-  margin-top: 50px;
-}
+
 
 .input-file.flex2 {
   text-align: left;
@@ -1121,6 +1114,15 @@ margin-top : 3%;
  background-color : #58D68D;
  padding-left :3%;
  padding-right : 3%;
+}
+
+.flex2{
+  text-align: left;
+  margin-top: auto;
+}
+
+.input-date{
+  max-width: 130px;
 }
 
 
