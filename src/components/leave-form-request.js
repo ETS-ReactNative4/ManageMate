@@ -44,9 +44,11 @@ const Comment = props => {
                 <div className="text-area flex6">
 
                     <textarea className="textarea" maxLength="255" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
+                    
+                    
                 </div>
-                <div className="format-textlimit">
-                    <p className="text-limit flex2">{textlimit}/255</p>
+                <div className="flex2">
+                    <p className="text-limit">{textlimit}/255</p>
                 </div>
             </div>
         </div>
@@ -108,7 +110,7 @@ class RequestForm extends React.Component {
                     <div className='select-livetype-text flex2'>
                         Select your live type
                 </div>
-                    <div className="flex6">
+                    <div className="TypeSelect">
                         <div className="dropdown-oneday">
                             <select className="option-time" onChange={(event) => this.typehandler(event.target.value)} >
                                 <option value={'SICK LEAVE'}>SICK LEAVE</option>
@@ -117,9 +119,9 @@ class RequestForm extends React.Component {
                                 <option value={'ETC'}>ETC</option>
                                 <option value={'ETC'}>ETC</option>
                             </select>
-
-                        </div>
                     </div>
+                    </div>
+                    
                 </div>
                 <div className="row-DayQuestion">
                     <div className="flex-container">
@@ -127,7 +129,7 @@ class RequestForm extends React.Component {
                         <div className=" dayrequest-text flex2">
                             Day Requested
                         </div>
-                        <div className="flex6">
+                        <div className="DayTypeSelect">
                             <input className='form-check-input1' type="radio" onChange={() => this.DayQuestionSetup(true)} checked={this.state.isOneday === true} />
                             <label className="form-check-label-Oneday">
                                 One day
@@ -142,16 +144,16 @@ class RequestForm extends React.Component {
 
 
                 <div className="flex-container">
-                    {this.state.isOneday && <div className="text-date flex2">
+                    {this.state.isOneday && <div className="text-date">
                         Date
                             <Calendar onChange={this.handleChangeOneDay} id1={'dayStart'} id2={'dayEnd'} />
                     </div>}
 
-                    {!this.state.isOneday && <div className="text-date flex2    ">
+                    {!this.state.isOneday && <div className="text-date">
                         Date
                             <Calendar />
                     </div>}
-                    {!this.state.isOneday && <div className='text-date2 flex6'>
+                    {!this.state.isOneday && <div className='text-date2'>
                         Date end
                             <Calendar />
                     </div>}
