@@ -1,27 +1,28 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
-import b1 from '../Image/b1.jpg';
-import b2 from '../Image/b2.jpg';
-import b3 from '../Image/b3.jpg';
+import axios from 'axios';
+import _ from 'lodash'
+import moment from 'moment'
 class TangkwaLeaveDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstname: 'Putthachart',
-            lastname: 'Srisuwankun',
-            position: 'Normal User',
-            setDay: false,
-            leaveID: 'LEA672',
-            leaveType: 'Sick Leave',
-            dayStart: '01/01/2014',
-            dayEnd: '02/01/2018',
-            note: 'sickkklkjohihvjyguhijvgiugkkkkkkk',
-            time: '09.30 AM',
-            hrs: '8',
-            status: 'Approved',
-            manageby: '000031464'
+            people: {}
+
         }
+    }
+    componentDidMount() {
+        axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+            .then(res => {
+                const person = res.data
+                this.setState({ people: person })
+                console.log("ttt", this.state.people)
+            })
+            .catch((error) => {
+                console.log('this is error', error)
+                // handle error here
+            })
     }
     render() {
         return (
@@ -36,23 +37,21 @@ class TangkwaLeaveDetail extends Component {
                     <div className="tk1flex-1"><div><p><b>POSITION :</b> {this.state.position}</p></div>
                     </div>
                     <div className="tkflex-1 tangkwaLeaveFrame">
-                        <div><p><b>STATUS : </b>{this.state.status}</p></div>
-                        <div><p><b>MANAGE BY : </b>{this.state.manageby}</p></div>
+                        <div><p><b>STATUS : </b>{this.state.people.LeaveStatus}</p></div>
+                        <div><p><b>MANAGE BY : </b>{this.state.people.ApprovedBy}</p></div>
                     </div>
                 </div>
-
                 <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>LEAVE ID : </b> {this.state.leaveID}</p></div>
+                    <div className="tk1flex-1"><div><p><b>LEAVE ID : </b> {this.state.people.LeaveID}</p></div>
                     </div>
-                    <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{this.state.leaveType}</p></div>
+                    <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{this.state.people.LeaveType}</p></div>
                     </div>
                     <div className="tk1flex-1">
                     </div>
                     <div className="tkflex-1">
                     </div>
                 </div>
-
                 {this.state.setDay && <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
                     <div className="tk1flex-1"><div><p><b>DATE : </b>{this.state.dayStart}</p></div>
@@ -62,26 +61,22 @@ class TangkwaLeaveDetail extends Component {
                     <div className="tk1flex-1"><div><p><b>TIME : </b>{this.state.hrs} HOURS</p></div></div>
                     <div className="tk1flex-1"><div><p></p></div></div>
                 </div>}
-                {!
-                    this.state.setDay && <div className="row flex-container">
-                        <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-1"><div><p><b>DAY START :</b> {this.state.dayStart}</p></div>
-                            <div><p><b>DAY END : </b>{this.state.dayEnd}</p></div>
-                        </div>
-                        <div className="tk1flex-1">
-                        </div>
-                        <div className="tk1flex-1"><div><p></p></div></div>
-                        <div className="tk1flex-1"><div><p></p></div></div>
-                    </div>}
-
-                <div className="row flex-container">
+                {!this.state.setDay && <div className="row flex-container">
                     <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-3"><div><p>COMMENT : {this.state.note}</p></div>
+                    <div className="tk1flex-1"><div><p><b>DAY START :</b>{moment(this.state.people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>
+                        <div><p><b>DAY END : </b>{moment(this.state.people.LeaveEndDateTime).format('DD-MM-YYYY')}</p></div>
+                    </div>
+                    <div className="tk1flex-1">
                     </div>
                     <div className="tk1flex-1"><div><p></p></div></div>
-
+                    <div className="tk1flex-1"><div><p></p></div></div>
+                </div>}
+                <div className="row flex-container">
+                    <div className="tk1flex-0"><div><p></p></div></div>
+                    <div className="tk1flex-3"><div><p>COMMENT : {this.state.people.LeaveComment}</p></div>
+                    </div>
+                    <div className="tk1flex-1"><div><p></p></div></div>
                 </div>
-
             </div >
         );
     }

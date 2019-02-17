@@ -9,8 +9,7 @@ const FormHeader = props => {
                 <div className="show-header">
                     <h4><b>WITHDRAW REQUEST FORM</b></h4>
                 </div>
-
-            </div>
+</div>
         </React.Fragment>
     )
 }

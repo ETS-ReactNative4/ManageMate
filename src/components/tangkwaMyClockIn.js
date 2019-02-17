@@ -3,8 +3,6 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import add from '../Image/add1.jpg'
-
-
 class TangkwaMyClockIn extends Component {
     constructor(props) {
         super(props);
@@ -14,11 +12,9 @@ class TangkwaMyClockIn extends Component {
             GPSIn : 'In',
             clockOut : '18.33 PM',
             GPSOut : 'out'
-
-        }
+}
     }
-   
-    render() {
+   render() {
         return (
             <div className="App">
                <div className = "tangkwaTitle"><h4><b>MY CLOCK IN</b></h4></div>
