@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
-
-
-
 class TangkwaWithDrawDetail extends Component {
     constructor(props) {
         super(props);
@@ -30,9 +27,7 @@ class TangkwaWithDrawDetail extends Component {
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
-
                 </div>
-
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
@@ -59,5 +54,4 @@ class TangkwaWithDrawDetail extends Component {
         );
     }
 }
-
 export default TangkwaWithDrawDetail;

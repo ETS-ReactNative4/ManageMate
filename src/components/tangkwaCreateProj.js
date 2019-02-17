@@ -15,25 +15,23 @@ const FormHeader = props => {
         </React.Fragment>
     )
 }
-
 class TangkwaCreateProj extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projectName : '',
-            detail : '',
-
+            projectName: '',
+            detail: '',
         }
         this.handleChangeProjectName = this.handleChangeProjectName.bind(this);
         this.handleChangeDetail = this.handleChangeDetail.bind(this);
     }
     handleChangeProjectName(event) {
         this.setState({ projectName: event.target.value });
-        console.log("projectName",this.state.projectName)
+        console.log("projectName", this.state.projectName)
     }
     handleChangeDetail(event) {
         this.setState({ detail: event.target.value });
-        console.log("detail",this.state.detail)
+        console.log("detail", this.state.detail)
     }
     render() {
         return (
@@ -46,12 +44,11 @@ class TangkwaCreateProj extends Component {
                         <div><div className="tangkwaTitle1"><p>DETAIL :</p></div><textarea value={this.state.detail} onChange={this.handleChangeDetail} className="textarea1" maxLength="255" type="text" /></div>
                         <div className="tangkwaTitle"><p>FILE :</p></div>
                     </div>
-                    
                 </div>
                 <div>
                     <button type="submit" value="Submit" className="Submit">Submit</button>
                     <button type="submit" value="Cancel" className="Cancel">Cancel</button>
-                  
+
                 </div>
             </div>
         );

@@ -15,8 +15,7 @@ class TangkwaAllProject extends Component {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4>ALL PROJECT</h4></div>
-
-                <div className="flex-container">
+<div className="flex-container">
                     <div className="tangkwaSetProjectTable row">
                         <div className="tkflex-1">
                             <p>PROJECT ID</p>
@@ -28,9 +27,7 @@ class TangkwaAllProject extends Component {
                             <p>STATUS</p>
                         </div>
                     </div>
-
-
-                </div>
+</div>
                 <div className="flex-container">
                     <div className="tangkwaSetProjectData row">
                         <div className="tkflex-1">
@@ -44,13 +41,8 @@ class TangkwaAllProject extends Component {
                         </div>
                     </div>
                 </div>
-               
-               
-                
-
-            </div>
+             </div>
         );
     }
 }
-
 export default TangkwaAllProject;

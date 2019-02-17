@@ -6,17 +6,15 @@ class TangkwaMyProject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projectId : 'PROJ00001',
-            projectName : 'RUSH APP',
-            status : 'IN PROCESS'
-
+            projectId: 'PROJ00001',
+            projectName: 'RUSH APP',
+            status: 'IN PROCESS'
         }
     }
     render() {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4>MY PROJECT</h4></div>
-
                 <div className="flex-container">
                     <div className="tangkwaSetProjectTable row">
                         <div className="tkflex-1">
@@ -29,28 +27,22 @@ class TangkwaMyProject extends Component {
                             <p>STATUS</p>
                         </div>
                     </div>
-
-
                 </div>
                 <div className="flex-container">
                     <div className="tangkwaSetProjectData row">
                         <div className="tkflex-1">
-                        <Link to='ProjectDetail' className="tkflex-2 p" ><p>{this.state.projectId}</p></Link>
+                            <Link to='ProjectDetail' className="tkflex-2 p" ><p>{this.state.projectId}</p></Link>
                         </div>
                         <div>
-                        <div><p><b>{this.state.projectName}</b></p></div>
-                            
+                            <div><p><b>{this.state.projectName}</b></p></div>
                         </div>
                         <div className="tkflex-1">
                             <p>{this.state.status}</p>
                         </div>
                     </div>
                 </div>
-                
-                
             </div>
         );
     }
 }
-
 export default TangkwaMyProject;

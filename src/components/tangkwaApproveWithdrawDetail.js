@@ -4,8 +4,6 @@ import '../App.css';
 import b1 from '../Image/b1.jpg';
 import b2 from '../Image/b2.jpg';
 import b3 from '../Image/b3.jpg';
-
-
 class TangkwaApproveWithDrawDetail extends Component {
     constructor(props) {
         super(props);
@@ -32,9 +30,7 @@ class TangkwaApproveWithDrawDetail extends Component {
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
-
                 </div>
-
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
@@ -69,5 +65,4 @@ class TangkwaApproveWithDrawDetail extends Component {
         );
     }
 }
-
 export default TangkwaApproveWithDrawDetail;
