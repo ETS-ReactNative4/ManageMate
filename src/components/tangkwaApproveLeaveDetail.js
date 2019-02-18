@@ -1,18 +1,17 @@
 import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
-import axios from 'axios';
 import _ from 'lodash'
 import moment from 'moment'
 import { browserHistory } from 'react-router';
+import axios from 'axios';
+import { connect } from 'react-redux'
 class TangkwaApproveLeaveDetail extends Component {
     constructor(props) {
         super(props);
-        const LeaveId = parseInt(_.last(window.location.pathname.split('/')))
-        console.log("ID", LeaveId)
         this.state = {
             people: {},
-            set: ''
+            set: '',
         }
     }
     componentDidMount() {
@@ -144,4 +143,10 @@ class TangkwaApproveLeaveDetail extends Component {
         );
     }
 }
-export default TangkwaApproveLeaveDetail;
+const mapStateToProps = state => {
+    console.log('state chaeck stat', state.history)
+    return {
+        profile: state.history
+    }
+}
+export default connect(mapStateToProps)(TangkwaApproveLeaveDetail)
