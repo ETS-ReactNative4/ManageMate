@@ -86,8 +86,8 @@ this.setState({showLocated:true})
                 </div>}
                 <div>
 
-                    <button type="submit" value="Submit" className="Submit">Submit</button>
-                    <button type="submit" value="Cancel" className="Cancel">Cancel</button>
+                    <button type="submit" value="Check in" className="Submit">Submit</button>
+                    <button type="submit" value="Check out" className="Cancel">Cancel</button>
                 </div>
             </div>
         );

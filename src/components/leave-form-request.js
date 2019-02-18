@@ -55,6 +55,23 @@ const Comment = props => {
     )
 }
 
+const getBase64 = (file) => {
+    return new Promise((resolve, reject) => {
+        try {
+            let reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function () {
+                resolve(reader.result)
+            };
+            reader.onerror = function (error) {
+                reject(error)
+            };
+        } catch (error) {
+            reject(error)
+        }
+    })
+}
+
 
 class RequestForm extends React.Component {
     constructor(props) {
@@ -97,6 +114,9 @@ class RequestForm extends React.Component {
         this.setState({ len: count })
     }
 
+    fileChangedHandler = () => {
+        this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
+    }
 
 
 
