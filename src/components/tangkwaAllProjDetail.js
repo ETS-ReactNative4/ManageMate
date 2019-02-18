@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-
-
-
 class TangkwaAllProjDetail extends Component {
     constructor(props) {
         super(props);
@@ -28,10 +25,8 @@ class TangkwaAllProjDetail extends Component {
                         <div><p><b>MEMBERS :</b>{this.state.MemId}</p></div>
                         <div><p><b>DETAILS :</b>{this.state.Detail}</p></div>
                         <div><p><b>FILES :</b></p></div>
-                       
                     </div>
                     <div className="tkflex-1">
-                        
                         <div className="pjFrame">
                             <div><p><b>STATUS : </b>{this.state.status}</p></div>
                             <div><p><b>START : </b>{this.state.start}</p></div>
@@ -41,14 +36,11 @@ class TangkwaAllProjDetail extends Component {
                         <div>
                             <button type="submit" value="Submit" className="pStatusProcess">IN PROCESS</button>
                             <button type="submit" value="Submit" className="pStatusDone">DONE</button></div>
-                        
                     </div>
                 </div>
                 <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject">JOIN PROJECT</button></div>
-                
             </div>
         );
     }
 }
-
 export default TangkwaAllProjDetail;

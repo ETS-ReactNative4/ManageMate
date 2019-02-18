@@ -1,25 +1,26 @@
 import React, { Component } from 'react'
 import '../App.css';
-
+import axios from 'axios';
+import _ from 'lodash'
+import moment from 'moment'
+import { browserHistory } from 'react-router';
 class TangkwaAddUser extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            firstname : '',
-            lastName : '',
-            email : '',
-            telNo : '',
-            bankNo : '',
-            bankName : '',
-            position : '',
-            sick : '',
-            annual : '',
-            lwp : '',
-            personal : '',
-            lfwos : ''
-
+            firstname: '',
+            lastName: '',
+            email: '',
+            telNo: '',
+            bankNo: '',
+            bankName: '',
+            position: '',
+            sick: '',
+            annual: '',
+            lwp: '',
+            personal: '',
+            lfwos: ''
         }
-
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -32,54 +33,80 @@ class TangkwaAddUser extends Component {
         this.handleChangeLwp = this.handleChangeLwp.bind(this);
         this.handleChangePersonal = this.handleChangePersonal.bind(this);
         this.handleChangeLfwos = this.handleChangeLfwos.bind(this);
-       }
+    }
     handleChangeFirstName(event) {
         this.setState({ firstname: event.target.value });
-        console.log("Firstname",this.state.firstname)
+        console.log("Firstname", this.state.firstname)
     }
     handleChangeLastName(event) {
         this.setState({ lastName: event.target.value });
-        console.log("LastName",this.state.lastName)
+        console.log("LastName", this.state.lastName)
     }
     handleChangeEmail(event) {
         this.setState({ email: event.target.value });
-        console.log("email",this.state.email)
+        console.log("email", this.state.email)
     }
     handleChangeTelNo(event) {
         this.setState({ telNo: event.target.value });
-        console.log("telNo",this.state.telNo)
+        console.log("telNo", this.state.telNo)
     }
     handleChangeBankNo(event) {
         this.setState({ bankNo: event.target.value });
-        console.log("bankNo",this.state.bankNo)
+        console.log("bankNo", this.state.bankNo)
     }
     handleChangeBankName(event) {
         this.setState({ bankName: event.target.value });
-        console.log("bankName",this.state.bankName)
+        console.log("bankName", this.state.bankName)
     }
     handleChangePosition(event) {
         this.setState({ position: event.target.value });
-        console.log("position",this.state.position)
+        console.log("position", this.state.position)
     }
     handleChangeSick(event) {
         this.setState({ sick: event.target.value });
-        console.log("sick",this.state.sick)
+        console.log("sick", this.state.sick)
     }
     handleChangeAnnual(event) {
         this.setState({ annual: event.target.value });
-        console.log("annual",this.state.annual)
+        console.log("annual", this.state.annual)
     }
     handleChangeLwp(event) {
         this.setState({ lwp: event.target.value });
-        console.log("lwp",this.state.lwp)
+        console.log("lwp", this.state.lwp)
     }
     handleChangePersonal(event) {
         this.setState({ personal: event.target.value });
-        console.log("personal",this.state.personal)
+        console.log("personal", this.state.personal)
     }
     handleChangeLfwos(event) {
         this.setState({ lfwos: event.target.value });
-        console.log("Lfwos",this.state.lfwos)
+        console.log("Lfwos", this.state.lfwos)
+    }
+    handleSubmit = async event => {
+        if (window.confirm("Are you sure to add new user?")) {
+            axios.post('https://managemate.azurewebsites.net/AddEmployee', {
+                "staffID": 0,
+                "projectID": 0,
+                "firstnameEN": this.state.firstname,
+                "lastnameEN": this.state.lastName,
+                "firstnameTH": this.state.firstname,
+                "lastnameTH": this.state.lastName,
+                "email": this.state.email,
+                "role": this.state.position,
+                "bankNO": this.state.bankNo,
+                "bankName": this.state.bankName,
+                "tellNO": this.state.telNo
+            }, {
+                    onUploadProgress: ProgressEvent => {
+                        if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                            alert("Data has been sent!.");
+                            browserHistory.push('/Leave')
+                        }
+                    }
+                })
+                .then(function (response) {
+                })
+        }
     }
     render() {
         return (
@@ -107,7 +134,7 @@ class TangkwaAddUser extends Component {
                         <p>SICK LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.sick} onChange={this.handleChangeSick}  className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.sick} onChange={this.handleChangeSick} className="setHour" />  HOURS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -121,9 +148,9 @@ class TangkwaAddUser extends Component {
                         <p>ANNUAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.annual} onChange={this.handleChangeAnnual}  className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.annual} onChange={this.handleChangeAnnual} className="setHour" />  HOURS</p>
                     </div>
-</div>
+                </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
                         <p>EMAIL : </p>
@@ -135,9 +162,9 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE WITHOUT PAY : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lwp} onChange={this.handleChangeLwp}  className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.lwp} onChange={this.handleChangeLwp} className="setHour" />  HOURS</p>
                     </div>
-</div>
+                </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
                         <p>TEL NO. : </p>
@@ -149,9 +176,9 @@ class TangkwaAddUser extends Component {
                         <p>PERSONAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.personal} onChange={this.handleChangePersonal}  className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.personal} onChange={this.handleChangePersonal} className="setHour" />  HOURS</p>
                     </div>
-</div>
+                </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
                         <p>BANK NO. : </p>
@@ -163,40 +190,39 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE FOR WORK OUTSIDE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lfwos} onChange={this.handleChangeLfwos}  className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  HOURS</p>
                     </div>
- </div>
+                </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
                         <p>BANK NAME : </p>
                     </div>
                     <div className="tk1flex-2">
-                    <input type="text" value={this.state.bankname} onChange={this.handleChangeBankName} className="setForAddUser" />
+                        <input type="text" value={this.state.bankname} onChange={this.handleChangeBankName} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
-                        </div>
+                    </div>
                     <div className="tk1flex-2">
-                        </div>
- </div>
+                    </div>
+                </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
                         <p>POSITION : </p>
                     </div>
                     <div className="tk1flex-2">
-                    <input type="text" value={this.state.position} onChange={this.handleChangePosition} className="setForAddUser" />
+                        <input type="text" value={this.state.position} onChange={this.handleChangePosition} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
-                      </div>
+                    </div>
                     <div className="tk1flex-2">
-                         </div>
- </div>
- <div>
-                    <button type="submit" value="Submit" className="Submit">Submit</button>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
                     <button type="submit" value="Cancel" className="Cancel">Cancel</button>
                 </div>
             </div>
         );
     }
 }
-
 export default TangkwaAddUser;

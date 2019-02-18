@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-
-
-
 class TangkwaProjectDetail extends Component {
     constructor(props) {
         super(props);
@@ -41,5 +38,4 @@ class TangkwaProjectDetail extends Component {
         );
     }
 }
-
 export default TangkwaProjectDetail;
