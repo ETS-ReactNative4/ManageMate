@@ -85,17 +85,25 @@ class TangkwaAddUser extends Component {
     handleSubmit = async event => {
         if (window.confirm("Are you sure to add new user?")) {
             axios.post('https://managemate.azurewebsites.net/AddEmployee', {
-                staffID: 0,
-                projectID: 0,
-                firstnameEN: this.state.firstname,
-                lastnameEN: this.state.lastName,
-                firstnameTH: this.state.firstname,
-                lastnameTH: this.state.lastName,
-                email: this.state.email,
-                role: this.state.position,
-                bankNO: this.state.bankNo,
-                bankName: this.state.bankName,
-                tellNO: this.state.telNo
+                "staffID": 0,
+                "projectID": 0,
+                "firstnameEN": this.state.firstname,
+                "lastnameEN": this.state.lastName,
+                "email": this.state.email,
+                "role": this.state.position,
+                "bankNO": this.state.bankNo,
+                "bankName": this.state.bankName,
+                "tellNO": this.state.telNo,
+                "sickQuo": this.state.sick,
+                "sickRemain": 0,
+                "annualQuo": this.state.annual,
+                "annualRemain": 0,
+                "lwpQuo": this.state.lwp,
+                "lwpRemain": 0,
+                "personalQuo": this.state.personal,
+                "personalRemain": 0,
+                "lfwosQuo": this.state.lfwos,
+                "lfwosRemain": 0
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
