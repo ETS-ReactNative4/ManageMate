@@ -115,7 +115,7 @@ class RequestForm extends React.Component {
     }
 
     fileChangedHandler = () => {
-        this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
+        // this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
     }
 
 

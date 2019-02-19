@@ -34,7 +34,7 @@ class TangkwaCheckIn extends Component {
     setaddress = () => {
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition((position) => {
-                axios.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko")
+                axios.get("https://maps.googleapis.com/maps/api/geocode/json?latlng=" + position.coords.latitude + "," + position.coords.longitude + "&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw")
                     .then(res => {
                         let google = res.data.results[0].formatted_address
                         this.setState({
@@ -42,6 +42,7 @@ class TangkwaCheckIn extends Component {
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude
                         })
+                        console.log('this is from google',res)
                     })
             });
         }
@@ -57,8 +58,7 @@ class TangkwaCheckIn extends Component {
                 <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetTrue} /></h4></div>
                 {this.state.showLocated && <div>
                     <p>{this.state.address}</p>
-                    <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAO5c7iTq4pJLrL8AFRu8z6dIKUu5J05ko"} className="googleMap" ></img>
-                    {console.log("la", this.state.latitude)}
+                    <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw"} className="googleMap" ></img>
                 </div>}
                 <div>
 
