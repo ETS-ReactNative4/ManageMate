@@ -5,6 +5,7 @@ import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import check from '../Image/check.png'
 import axios from 'axios';
 import loading from '../Image/lg.rotating-balls-spinner.gif'
+import moment from 'moment';
 const FormHeader = props => {
     return (
         <React.Fragment>
@@ -31,6 +32,27 @@ class TangkwaCheckIn extends Component {
     componentDidMount() {
         this.setaddress()
     }
+    handleSubmitClick = () => {
+        const dateTime = moment().format().toString()
+        axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
+            "runningNo": 0 ,
+            "staffID": 1,
+            "staffName": `Tangkwa`,
+            "time": dateTime,
+            "status":"Checkin",
+            "place":this.state.address
+           
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Data has been sent!.");
+                        browserHistory.push('/')
+                    }
+                }
+            })
+            .then(function (response) {
+            })
+    }
     setaddress = () => {
         if (navigator.geolocation) { //check if geolocation is available
             navigator.geolocation.getCurrentPosition((position) => {
@@ -51,7 +73,7 @@ class TangkwaCheckIn extends Component {
         this.setState({ showLocated: true })
     }
     render() {
-        console.log("this is state", this.state)
+        console.log("this is state",moment().format())
         return (
             <div className="App">
                 <FormHeader />
@@ -63,7 +85,7 @@ class TangkwaCheckIn extends Component {
                 <div>
 
 
-                    <button type="submit" value="Check in" className="Submit">Submit</button>
+                    <button type="submit" value="Check in" className="Submit" onClick={this.handleSubmitClick}>Submit</button>
                     <button type="submit" value="Check out" className="Cancel">Cancel</button>
 
                 </div>
