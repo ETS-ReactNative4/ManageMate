@@ -34,7 +34,7 @@ class TangkwaMyLeaveHistory extends Component {
                 </div>
                 {this.state.people.map(people => (<div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><div className="tangkwaSetApprove"><p><b>{people.leaveStatus}</b></p></div></div>
-                    <Link to={`/LeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>{people.leaveID}</p></div></Link>
+                    <Link to={`/LeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
                     <div className="tkflex-2"><p>{people.firstName}</p></div>
                     <div className="tkflex-2"><p>{moment(people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                     <div className="tkflex-1"><p>{people.approvedBy}</p></div>
