@@ -4,6 +4,7 @@ import '../App.css';
 import { addHistory } from '../action'
 import { connect } from 'react-redux'
 import _ from 'lodash';
+import tangkwaMyClockIn from './tangkwaMyClockIn'
 class TangkwaStatisticsDetail extends Component {
     constructor(props) {
         super(props);
@@ -90,6 +91,7 @@ class TangkwaStatisticsDetail extends Component {
                     <div className="tkflex-1"><p>{this.state.lfwosQuota}</p></div>
                     <div className="tkflex-1"><p>{this.state.lwpRemain}</p></div>
                 </div>
+                
             </div>
         );
     }

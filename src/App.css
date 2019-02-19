@@ -2,63 +2,49 @@
   text-align: center;
   font-family : Roboto;
 }
-
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
-
 .App-header {
   background-color: #222;
   height: 150px;
   padding: 20px;
   color: white;
 }
-
 .App-title {
   font-size: 1.5em;
 }
-
 .App-intro {
   font-size: large;
 }
 .tangkwaSetMargin{
   padding-top : 80px; 
-
 }
-
 .tangkwaSetTable{
-
-   text-align: center;
+text-align: center;
    border-style: solid;
    border-color:#FEC600;
    background-color: #FEC600;
-   height:  95%;
-   width:95%;
+  width:95%;
    border-width: 0.5px;
    font-size:100%;
 }
-
 .tangkwaSetData{
   text-align: center;
   background-color: #FFFFFF;
-    height:  95%;
     width:95%;
     border-bottom: 2px solid #D8D8D8;
     margin:auto;
   }
-
 .BDL{
   border-left: 6px solid #D8D8D8;
 }
-
-
 
 .tangkwaSetPending{
   color:#FEC605;
   margin:auto;
 }
-
 .tangkwaSetApprove{
   color:#16CA63;
  margin:auto;
@@ -68,7 +54,6 @@
   color:#FF4949;
  margin:auto;
 }
-
 .tangkwaSetOneday{
   margin-left: 100px; 
 }
@@ -76,14 +61,11 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box
 }
-
 /* -----------setup My html------------ */
 html {
   background-color: #fff;
@@ -93,12 +75,10 @@ html {
   font-size: 20px;
   text-rendering: optimizeLegibility;
 }
-
 .row {
   max-width: 1980px;
   margin: 0 auto ;  
 }
-
 
 /* --------------background------------ */
 .background {
@@ -122,13 +102,11 @@ height: 100vh;
   margin-top: 25px;
   margin-left: 25px;
   margin-right: 25px;
- 
-  height: 180vh;
+ height: 180vh;
   background-color:rgba(234, 232, 232, 0.85);
   border-radius: 41px;
   opacity: 0.8;
 }
-
 
 .tangkwa1 {
   margin-left : 80px;
@@ -151,13 +129,10 @@ height: 100vh;
   margin-left : 120px;
 }
 /* ------------dropdown content---------------- */
-
 .main-nav {
   margin-top:28px;
   display: inline-flex;
-
 }
-
 .dropbtn {
   background-color: transparent;
   font-size: 50px;
@@ -173,11 +148,9 @@ height: 100vh;
   border-radius: 15px;
   letter-spacing: 2px;
 }
-
 .dropdown {
   position: relative;
 }
-
 .dropdown-content {
   display: none;
   position: absolute;
@@ -190,11 +163,8 @@ height: 100vh;
    flex:1;
 }
  
-
 .tangkwaSetProjectTable{
-
-  text-align: center;
-  
+text-align: center;
   border-style:  solid #FEC600;
   background-color: #FEC600;
   height:  80%;
@@ -202,7 +172,6 @@ height: 100vh;
   margin-left : 60px;
   border-width: 0.5px;
 }
-
 .tangkwaPJID{
   margin-left : 100PX;
 }
@@ -215,7 +184,6 @@ height: 100vh;
 .tangkwaSetProjectData{
   text-align: center;
 }
-
 .dropdown-content a {
   font-weight: lighter;
   font-style: 'Roboto';
@@ -226,13 +194,11 @@ height: 100vh;
   display: block;
 }
 
-
 .dropdown-content a:hover {background-color: #f1f1f1;border-radius: 15px;}
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 .dropdown:hover .dropbtn {
     background-color:#FEC600;
     color:black;
@@ -321,7 +287,6 @@ height: 100vh;
   cursor: pointer;
   border-radius: 15px;
   letter-spacing: 2px;
-
 }
 
 .dropdown3 {
@@ -502,20 +467,16 @@ height: 100vh;
 .PJDT1{
   margin-left : 70px;
   margin-top : 20px;
-  
-}
+  }
 .PJDT2{
   margin-left : 58px;
-  
-}
+  }
 .PJDT3{
   margin-left : 64px;
-  
-}
+  }
 .PJDT4{
   margin-left : 2px;
-  
-}
+  }
 .pjFrame{
   border-style: solid;
   border-color: #FEC600;
@@ -523,7 +484,6 @@ height: 100vh;
 align-self: left;
 margin-top : 2%;
 margin-right : 3%;
-
 }
 
 .flex-1 {
@@ -558,22 +518,15 @@ text-align: left;
 .tkflex-2{
   flex: 2;
   text-align: center;  
-  
-}
+  }
 .tkflex-22{
   flex: 2;
   text-align: right;  
-  
-}
-
-
-
+  }
 .tk1flex-2{
   flex: 2;
 text-align: left;
 }
-
-
 .tk1flex-3{
   flex: 3;
 text-align: left;
@@ -595,7 +548,6 @@ text-align: left;
   flex: 1;
   text-align: left;  
 }
-
 .tk1flex-8{
   flex: 8;
   text-align: left;
@@ -626,7 +578,6 @@ height : 20%;
   border-width: 0;
   
 }
-
 .tangkwaWDFrame{
   border-style: solid;
   border-color: #FEC600;
@@ -636,7 +587,6 @@ margin-top : -2%;
 margin-right : 3%;
 height : 20%;
 }
-
 .dropbtn5:focus { 
   background-color: #FEC600;
   color:black;
@@ -661,11 +611,9 @@ height : 20%;
   border-radius: 15px;
   letter-spacing: 2px;
 }
-
 .dropdown6 {
   position: relative;
 }
-
 .dropdown-content6 {
   display: none;
   position: absolute;
@@ -677,7 +625,6 @@ height : 20%;
   border-radius: 15px;
   flex:1;
 }
-
 .dropdown-content6 a {
   font-weight: lighter;
   font-style: 'Roboto';
@@ -1001,15 +948,13 @@ margin : 10px
   margin-top: 50px;
   display: inline-flex;
   text-align: left
-  
-}
+  }
 .text-date2 {
   flex: 1;
   margin-top: 50px;
   display: inline-flex;
   text-align: left
-  
-}
+  }
 
 
 .time-text.flex6 {
@@ -1042,10 +987,6 @@ margin : 10px
   margin-left:20%;
   margin-right:20%;
 }
-
-
-
-
 .input-file.flex2 {
   text-align: left;
   margin-left: 50px;

@@ -18,7 +18,6 @@ class TangkwaStatistics extends Component {
                 this.setState({ people: res.data })
                 const data = res.data.map(p => {
                     return _.reduce(p, (result, val, key) => {
-
                         return {
                             ...result,
                             [_.camelCase(key)]: val

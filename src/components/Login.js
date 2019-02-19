@@ -37,6 +37,4 @@ const mapStateToProps = state => {
         staff : state.staff
     }
 }
-
-
 export default connect(mapStateToProps,mapDispatchToProps,)(Login)
