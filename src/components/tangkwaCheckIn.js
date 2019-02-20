@@ -35,13 +35,13 @@ class TangkwaCheckIn extends Component {
     handleSubmitClick = () => {
         const dateTime = moment().format().toString()
         axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
-            "runningNo": 0 ,
+            "runningNo": 0,
             "staffID": 1,
             "staffName": `Tangkwa`,
             "time": dateTime,
-            "status":"Checkin",
-            "place":this.state.address
-           
+            "status": "in",
+            "place": this.state.address
+
         }, {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
@@ -64,7 +64,7 @@ class TangkwaCheckIn extends Component {
                             latitude: position.coords.latitude,
                             longitude: position.coords.longitude
                         })
-                        console.log('this is from google',res)
+                        console.log('this is from google', res)
                     })
             });
         }
@@ -73,7 +73,7 @@ class TangkwaCheckIn extends Component {
         this.setState({ showLocated: true })
     }
     render() {
-        console.log("this is state",moment().format())
+        console.log("this is state", moment().format())
         return (
             <div className="App">
                 <FormHeader />
@@ -83,11 +83,8 @@ class TangkwaCheckIn extends Component {
                     <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw"} className="googleMap" ></img>
                 </div>}
                 <div>
-
-
                     <button type="submit" value="Check in" className="Submit" onClick={this.handleSubmitClick}>Submit</button>
                     <button type="submit" value="Check out" className="Cancel">Cancel</button>
-
                 </div>
             </div>
         );
