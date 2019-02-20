@@ -10,7 +10,7 @@ class TangkwaApproveLeaveDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: {},
+            people: [],
             set: '',
         }
     }
@@ -79,67 +79,73 @@ class TangkwaApproveLeaveDetail extends Component {
     render() {
         return (
             <div className="App">
-                <div className="tangkwaTitle tangkwa2"><h4><b>APPROVE DETAIL</b></h4></div>
-                <div className="flex-container">
-                    <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>FIRSTNAME :</b> {this.state.people.LeaveID}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p><b>LASTNAME :</b> {this.state.lastname}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p><b>POSITION :</b> {this.state.position}</p></div>
-                    </div>
-                    <div className="tkflex-1 tangkwaLeaveFrame">
-                        <div><p><b>STATUS : </b>{this.state.people.LeaveStatus}</p></div>
-                        <div><p><b>MANAGE BY : </b>{this.state.people.ApprovedBy}</p></div>
-                    </div>
-                </div>
-                <div className="row flex-container">
-                    <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>LEAVE ID : </b>{this.state.people.LeaveID}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{this.state.people.LeaveType}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                </div>
-                {this.state.setDay && <div className="row flex-container">
-                    <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>DATE : </b>{this.state.dayStart}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p><b>TIME : </b>{this.state.time}</p></div>
-                    </div>
-                    <div className="tk1flex-1"><div><p><b>TIME : </b>{this.state.hrs} HOURS</p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                </div>}
-                {!this.state.setDay && <div className="row flex-container">
-                    <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>DAY START :</b>{moment(this.state.people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>
-                        <div><p><b>DAY END : </b>{moment(this.state.people.LeaveEndDateTime).format('DD-MM-YYYY')}</p></div>
-                    </div>
-                    <div className="tk1flex-1">
-                    </div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                </div>}
-                <div className="row flex-container">
-                    <div className="tk1flex-0"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p><b>COMMENT : </b>{this.state.people.LeaveComment}</p></div>
-                        <div><p><b>FILE : </b></p>
-                            <img src width="100" />
-                            <img src width="100" />
-                            <img src width="100" />
+                {this.state.people.map(people => (
+                    <div>
+                        <div className="tangkwaTitle tangkwa2"><h4><b>APPROVE DETAIL</b></h4></div>
+                        <div className="flex-container">
+                            <div className="tk1flex-0"></div>
+                            <div className="tk1flex-1">
+                                <div><p><b>FIRSTNAME : </b>{people.FirstnameEN}</p></div>
+                            </div>
+                            <div className="tk1flex-1">
+                                <div><p><b>LASTNAME : </b>{people.LastnameEN}</p></div>
+                            </div>
+                            <div className="tk1flex-1">
+                                <div><p><b>SATFF ID : </b>{people.StaffID}</p></div>
+                            </div>
+                            <div className="tkflex-1 tangkwaLeaveFrame">
+                                <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
+                                <div><p><b>MANAGE BY : </b>{people.ApprovedBy}</p></div>
+                            </div>
                         </div>
-                    </div>
-                    <div className="tk1flex-1">
-                    </div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                    <div className="tk1flex-1"><div><p></p></div></div>
-                </div>
-                {this.handleCheckSet(this.state.people.leaveStatus) && <div className="tangkwaTitle">
-                    <button type="submit" value="Submit" onClick={this.handleSetTrue} className="Submit">APPROVE</button>
-                    <button type="submit" value="Cancel" onClick={this.handleSetFalse} className="Cancel">REJECT</button>
-                </div>}
-            </div >
+                        <div className="row flex-container">
+                            <div className="tk1flex-0">
+                                <div><p></p></div></div>
+                            <div className="tk1flex-1">
+                                <div><p><b>POSITION :</b>{people.Role}</p></div>
+                            </div>
+                            <div className="tk1flex-1">
+                                <div><p><b>LEAVE ID : </b>{people.LeaveID}</p></div>
+                            </div>
+                            <div className="tk1flex-1">
+                                <div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div></div>
+                            <div className="tk1flex-1">
+                                <div><p></p></div></div>
+                        </div>
+                        <div className="row flex-container">
+                            <div className="tk1flex-0">
+                                <div><p></p></div></div>
+                            <div className="tk1flex-1">
+                                <div><p><b>DAY START :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
+                                <div><p><b>DAY END : </b>{moment(people.LeaveEndDateTime).format('DD-MM-YYYY')}</p></div>
+                            </div>
+                            <div className="tk1flex-1">
+                            </div>
+                            <div className="tk1flex-1"><div><p></p></div></div>
+                            <div className="tk1flex-1"><div><p></p></div></div>
+                        </div>
+                        <div className="row flex-container">
+                            <div className="tk1flex-0">
+                                <div><p></p></div></div>
+                            <div className="tk1flex-1">
+                                <div><p><b>COMMENT : </b>{people.LeaveComment}</p></div>
+                                <div><p><b>FILE : </b></p>
+                                    <img src width="100" />
+                                    <img src width="100" />
+                                    <img src width="100" />
+                                </div>
+                            </div>
+                            <div className="tk1flex-1">
+                            </div>
+                            <div className="tk1flex-1"><div><p></p></div></div>
+                            <div className="tk1flex-1"><div><p></p></div></div>
+                        </div>
+                        {this.handleCheckSet(people.LeaveStatus) && <div className="tangkwaTitle">
+                            <button type="submit" value="Submit" onClick={this.handleSetTrue} className="Submit">APPROVE</button>
+                            <button type="submit" value="Cancel" onClick={this.handleSetFalse} className="Cancel">REJECT</button>
+                        </div>}
+                    </div>))}
+            </div>
         );
     }
 }

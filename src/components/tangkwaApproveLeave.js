@@ -19,6 +19,7 @@ class TangkwaApproveLeave extends Component {
         axios.get('https://managemate.azurewebsites.net/api/Leave/GetLeaveInfo')
             .then(res => {
                 this.setState({ people: res.data })
+                console.log("kkk",this.state.people)
                 const data = res.data.map(p => {
                     return _.reduce(p, (result, val, key) => {
                         return {
@@ -51,7 +52,7 @@ class TangkwaApproveLeave extends Component {
                     <div className="row flex-container tangkwaSetData">
                         <div className="tkflex-1 "><div className="tangkwaSetApprove"><p>{people.leaveStatus}</p></div></div>
                         <Link to={`/ApproveLeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
-                        <div className="tkflex-2"><p>{people.firstName} {people.lastName}</p></div>
+                        <div className="tkflex-2"><p>{people.firstnameEN} {people.lastnameEN}</p></div>
                         <div className="tkflex-2"><p>{moment(people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                         <div className="tkflex-1"><p>{people.approvedBy}</p></div>
                     </div>))}
@@ -63,7 +64,7 @@ const mapDispatchToProps = dispatch => ({
     addAllLeave: (add) => dispatch(addAllLeave(add))
 })
 const mapStateToProps = state => {
-    console.log('state678',state)
+    console.log('state',state)
     return {
         people: state.add,
     
