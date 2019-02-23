@@ -8,7 +8,7 @@ import '../App.css';
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-class Calendar extends React.Component {
+class EnddateCalendar extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
@@ -18,22 +18,23 @@ class Calendar extends React.Component {
     }
 
     handleChange(date) {
-        const { id1, onChange, id2 } = this.props
+        console.log('this is More Day End function')
+        const { id1, onChange} = this.props
 
         this.setState({
             startDate: date
         });
         if (date == null) {
             onChange(id1, 'Invalid dat');
-            onChange(id2, 'Invalid dat');
+           
         }
         else if (!business.isWeekDay(date)) {
             alert("You can choose only weekday \n Please try again.")
             onChange(id1, 'Invalid dat');
-            onChange(id2, 'Invalid dat');
+           
         }
         else {
-            onChange(id1, moment(date).format().toString(), id2);
+            onChange(id1, moment(date).format().toString());
 
         }
     }
@@ -51,4 +52,4 @@ class Calendar extends React.Component {
     }
 }
 
-export default Calendar
+export default EnddateCalendar
