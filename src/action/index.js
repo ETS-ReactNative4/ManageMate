@@ -22,5 +22,19 @@ export const addStaffId = staff => ({
   
 })
 
+export const addWithdraw = withdraw => ({
+  type: 'ADD_WITHDRAW',
+  payload: { withdraw }
+  
+})
+
+export const addProject = project => ({
+  type: 'ADD_PROJECT',
+  payload: { project }
+  
+})
+
+
+
 
 

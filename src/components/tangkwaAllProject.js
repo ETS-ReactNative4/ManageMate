@@ -2,20 +2,34 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import axios from 'axios';
+import { connect } from 'react-redux'
+import { addProject } from '../action'
 class TangkwaAllProject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projectId : 'PROJ00001',
-            projectName : 'Leave Management software',
-            status : 'IN PROCESS'
+            people: []
         }
+    }
+    componentDidMount() {
+        axios.get('https://managemate.azurewebsites.net/GetProjectInfo')
+            .then(res => {
+                const person = res.data
+                this.setState({ people: person })
+                console.log("ttt", this.state.people)
+                this.props.addProject(person)
+            })
+            .catch((error) => {
+                console.log('this is error', error)
+                // handle error here
+            })
     }
     render() {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4>ALL PROJECT</h4></div>
-<div className="flex-container">
+                <div className="flex-container">
                     <div className="tangkwaSetProjectTable row">
                         <div className="tkflex-1">
                             <p>PROJECT ID</p>
@@ -27,22 +41,32 @@ class TangkwaAllProject extends Component {
                             <p>STATUS</p>
                         </div>
                     </div>
-</div>
-                <div className="flex-container">
+                </div>
+                {this.state.people.map(people => (<div className="flex-container">
                     <div className="tangkwaSetProjectData row">
                         <div className="tkflex-1">
-                        <Link to='ProjectsDetail' className="tkflex-2" ><p>{this.state.projectId}</p></Link>
+                            <Link to={`ProjectsDetail/${people.projectID}`}  ><p>{people.projectID}</p></Link>
                         </div>
-                        <div >
-                        <div><p><b>{this.state.projectName}</b></p></div>
+                        <div className="tkflex-2">
+                            <div><p><b>{people.projectName}</b></p></div>
                         </div>
-                        <div className="tkflex-1">
-                            <p>{this.state.status}</p>
+                        <div className={`${people.projectStatus == 'Done' ? 'tangkwaSetApprove tkflex-1' : people.projectStatus == 'Ready' ? 'tangkwaSetPending tkflex-1' : 'tangkwaSetReady tkflex-1'}`}>
+                            <p>{people.projectStatus}</p>
                         </div>
                     </div>
-                </div>
-             </div>
+                </div>))}
+            </div>
         );
     }
 }
-export default TangkwaAllProject;
+const mapDispatchToProps = dispatch => ({
+    addProject: (project) => dispatch(addProject(project))
+})
+const mapStateToProps = state => {
+    console.log('state...', state.project)
+    return {
+        people: state.project
+    }
+}
+export default connect(mapStateToProps,
+    mapDispatchToProps)(TangkwaAllProject)

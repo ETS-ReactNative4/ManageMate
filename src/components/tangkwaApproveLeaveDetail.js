@@ -71,7 +71,7 @@ class TangkwaApproveLeaveDetail extends Component {
         }
     }
     handleCheckSet = (status) => {
-        if (status === "pending") {
+        if (status === "Pending") {
             return true
         }
         return false

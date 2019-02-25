@@ -2,25 +2,26 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import axios from 'axios';
 const FormHeader = props => {
     return (
-<React.Fragment>
+        <React.Fragment>
             <div className="border-header">
                 <div className="show-header">
                     <h4><b>WITHDRAW REQUEST FORM</b></h4>
                 </div>
-</div>
+            </div>
         </React.Fragment>
     )
 }
 class TangkwaWithdrawReq extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
-            amount : '',
-            bankNo : '',
-            bankName : '',
-            comment : ''
+        this.state = {
+            amount: "",
+            bankNo: "",
+            bankName: "",
+            comment: ""
         }
         this.handleChangeAmount = this.handleChangeAmount.bind(this);
         this.handleChangeBankNo = this.handleChangeBankNo.bind(this);
@@ -29,19 +30,52 @@ class TangkwaWithdrawReq extends Component {
     }
     handleChangeAmount(event) {
         this.setState({ amount: event.target.value });
-        console.log("amount",this.state.amount)
+        console.log("amount", this.state.amount)
     }
     handleChangeBankNo(event) {
         this.setState({ bankNo: event.target.value });
-        console.log("bankNo",this.state.bankNo)
+        console.log("bankNo", this.state.bankNo)
     }
     handleChangeBankName(event) {
         this.setState({ bankName: event.target.value });
-        console.log("bankName",this.state.bankName)
+        console.log("bankName", this.state.bankName)
     }
     handleChangeComment(event) {
         this.setState({ comment: event.target.value });
-        console.log("Comment",this.state.comment)
+        console.log("Comment", this.state.comment)
+    }
+    handleSubmit = async event => {
+        if (window.confirm("Are you sure to sent report?")) {
+            axios.post('https://managemate.azurewebsites.net/WithdrawInfo', {
+                "withdrawID": 0,
+                "staffID": "1",
+                "bankNo": this.state.bankNo,
+                "bankName": this.state.bankName,
+                "firstnameEN": "string",
+                "lastnameEN": "string",
+                "role": "1",
+                "amount": this.state.amount,
+                "withdrawComment": this.state.comment
+            }, {
+                    onUploadProgress: ProgressEvent => {
+                        if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                            alert("Data has been sent!.");
+                            browserHistory.push('/MywithdrawHistory')
+                        }
+                    }
+                })
+                .then(function (response) {
+                })
+                .catch((error) => {
+                    console.log('this is error', error)
+                    // handle error here
+                })
+        }
+    }
+    handleCancel = () => {
+        if (window.confirm("Are you Cancel")) {
+            browserHistory.push('/Statistics')
+        }
     }
     render() {
         return (
@@ -64,8 +98,8 @@ class TangkwaWithdrawReq extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="submit" value="Submit" className = "Submit">Submit</button>
-                    <button type="submit" value="Cancel" className = "Cancel">Cancel</button>
+                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
+                    <button type="submit" value="Cancel" onClick={this.handleCancel} className="Cancel">Cancel</button>
                 </div>
             </div>
         );

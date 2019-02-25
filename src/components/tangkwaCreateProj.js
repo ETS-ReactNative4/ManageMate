@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import add from '../Image/add1.jpg'
+import axios from 'axios';
 const FormHeader = props => {
     return (
         <React.Fragment>
@@ -33,6 +34,37 @@ class TangkwaCreateProj extends Component {
         this.setState({ detail: event.target.value });
         console.log("detail", this.state.detail)
     }
+    handleSubmit = async event => {
+        if (window.confirm("Are you sure to create new Project?")) {
+            axios.post('https://managemate.azurewebsites.net/ProjectInfo', {
+                "projectID": 0,
+                "createByStaffID": "1",
+                "projectName": this.state.projectName,
+                "projectDetail": this.state.detail,
+                "projectStatus": "ready",
+                "member": "string",
+                "startDateTime": "2019-02-24T08:28:10.038Z",
+                "endDateTime": "2019-02-24T08:28:10.038Z"
+            }, {
+                    onUploadProgress: ProgressEvent => {
+                        if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                            alert("Data has been sent!.");
+                            browserHistory.push('/Allproject')
+                        }
+                    }
+                })
+                .then(function (response) {
+                })
+                .catch((error) => {
+                    console.log('this is error', error)
+                    // handle error here
+                })
+        }
+    }
+    handleCancel = () => {
+        if (window.confirm("Are you Cancel")) {
+        browserHistory.push('/Allproject')}
+    }
     render() {
         return (
             <div className="App">
@@ -46,9 +78,8 @@ class TangkwaCreateProj extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="submit" value="Submit" className="Submit">Submit</button>
-                    <button type="submit" value="Cancel" className="Cancel">Cancel</button>
-
+                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
+                    <button type="submit" value="Cancel" onClick={this.handleCancel}className="Cancel">Cancel</button>
                 </div>
             </div>
         );

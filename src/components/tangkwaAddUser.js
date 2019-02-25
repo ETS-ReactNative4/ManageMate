@@ -85,25 +85,14 @@ class TangkwaAddUser extends Component {
     handleSubmit = async event => {
         if (window.confirm("Are you sure to add new user?")) {
             axios.post('https://managemate.azurewebsites.net/AddEmployee', {
-                "staffID": 0,
-                "projectID": 0,
-                "firstnameEN": this.state.firstname,
-                "lastnameEN": this.state.lastName,
-                "email": this.state.email,
-                "role": this.state.position,
-                "bankNO": this.state.bankNo,
-                "bankName": this.state.bankName,
-                "tellNO": this.state.telNo,
-                "sickQuo": this.state.sick,
-                "sickRemain": 0,
-                "annualQuo": this.state.annual,
-                "annualRemain": 0,
-                "lwpQuo": this.state.lwp,
-                "lwpRemain": 0,
-                "personalQuo": this.state.personal,
-                "personalRemain": 0,
-                "lfwosQuo": this.state.lfwos,
-                "lfwosRemain": 0
+                "withdrawID": 0,
+                "staffID": 1,
+                "bankNo": "this.state.bankNo",
+                "bankNumber": 0,
+                "firstnameEN": "string",
+                "lastnameEN": "string",
+                "role": "string",
+                "amount": 0,
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
@@ -119,6 +108,10 @@ class TangkwaAddUser extends Component {
                     // handle error here
                 })
         }
+    }
+    handleCancel = () => {
+        if (window.confirm("Are you Cancel")) {
+        browserHistory.push('/Statistics')}
     }
     render() {
         return (
@@ -146,7 +139,7 @@ class TangkwaAddUser extends Component {
                         <p>SICK LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.sick} onChange={this.handleChangeSick} className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.sick} onChange={this.handleChangeSick} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -160,7 +153,7 @@ class TangkwaAddUser extends Component {
                         <p>ANNUAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.annual} onChange={this.handleChangeAnnual} className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.annual} onChange={this.handleChangeAnnual} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -174,7 +167,7 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE WITHOUT PAY : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lwp} onChange={this.handleChangeLwp} className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.lwp} onChange={this.handleChangeLwp} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -188,7 +181,7 @@ class TangkwaAddUser extends Component {
                         <p>PERSONAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.personal} onChange={this.handleChangePersonal} className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.personal} onChange={this.handleChangePersonal} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -202,7 +195,7 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE FOR WORK OUTSIDE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  HOURS</p>
+                        <p><input type="text" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -222,7 +215,14 @@ class TangkwaAddUser extends Component {
                         <p>POSITION : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.position} onChange={this.handleChangePosition} className="setForAddUser" />
+                        <div className="selecttype">
+                            <select onChange={this.handleChangePosition} >
+                                <option value="">Please Select</option>
+                                <option value="1">Super User</option>
+                                <option value="2">HR</option>
+                                <option value="3">Normal User</option>
+                            </select>
+                        </div>
                     </div>
                     <div className="tk1flex-2">
                     </div>
@@ -231,7 +231,7 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div>
                     <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
-                    <button type="submit" value="Cancel" className="Cancel">Cancel</button>
+                    <button type="submit" value="Cancel" onClick={this.handleCancel}className="Cancel">Cancel</button>
                 </div>
             </div>
         );
