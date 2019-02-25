@@ -113,6 +113,27 @@ class TangkwaAddUser extends Component {
         if (window.confirm("Are you Cancel")) {
         browserHistory.push('/Statistics')}
     }
+
+    handleCheck = () => {
+        console.log("log in check")
+        if (this.state.firstname == '' ||
+        this.state.lastName== '' ||
+        this.state.email== ''||
+        this.state.telNo== ''||
+        this.state.bankNo== ''||
+        this.state.bankName== ''||
+        this.state.position== '',
+        this.state. sick== '' ||
+        this.state.annual== ''||
+        this.state.lwp== ''||
+        this.state.personal== '' ||
+        this.state.lfwos== '' ){
+            alert('Incorrect or incomplete information!')
+        }
+        else{
+            this.handleSubmit()
+        }
+    }
     render() {
         return (
             <div>
@@ -139,7 +160,7 @@ class TangkwaAddUser extends Component {
                         <p>SICK LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.sick} onChange={this.handleChangeSick} className="setHour" />  DAYS</p>
+                        <p><input type="number" value={this.state.sick} onChange={this.handleChangeSick} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -153,7 +174,7 @@ class TangkwaAddUser extends Component {
                         <p>ANNUAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.annual} onChange={this.handleChangeAnnual} className="setHour" />  DAYS</p>
+                        <p><input type="number" value={this.state.annual} onChange={this.handleChangeAnnual} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -167,7 +188,7 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE WITHOUT PAY : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lwp} onChange={this.handleChangeLwp} className="setHour" />  DAYS</p>
+                        <p><input type="number" value={this.state.lwp} onChange={this.handleChangeLwp} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -181,7 +202,7 @@ class TangkwaAddUser extends Component {
                         <p>PERSONAL LEAVE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.personal} onChange={this.handleChangePersonal} className="setHour" />  DAYS</p>
+                        <p><input type="number" value={this.state.personal} onChange={this.handleChangePersonal} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -195,7 +216,7 @@ class TangkwaAddUser extends Component {
                         <p>LEAVE FOR WORK OUTSIDE : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <p><input type="text" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  DAYS</p>
+                        <p><input type="number" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  DAYS</p>
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -230,7 +251,7 @@ class TangkwaAddUser extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
+                    <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">Submit</button>
                     <button type="submit" value="Cancel" onClick={this.handleCancel}className="Cancel">Cancel</button>
                 </div>
             </div>
