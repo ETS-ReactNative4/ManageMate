@@ -50,7 +50,7 @@ class TangkwaApproveLeave extends Component {
                 </div>
                 {this.state.people.map(people => (
                     <div className="row flex-container tangkwaSetData">
-                        <div className="tkflex-1 "><div className="tangkwaSetApprove"><p>{people.leaveStatus}</p></div></div>
+                        <div className="tkflex-1 "><div className={`${people.leaveStatus == 'Approved' ? 'tangkwaSetApprove' : people.leaveStatus == 'Pending' ? 'tangkwaSetPending' : 'tangkwaSetReject'}`}><p>{people.leaveStatus}</p></div></div>
                         <Link to={`/ApproveLeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
                         <div className="tkflex-2"><p>{people.firstnameEN} {people.lastnameEN}</p></div>
                         <div className="tkflex-2"><p>{moment(people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>

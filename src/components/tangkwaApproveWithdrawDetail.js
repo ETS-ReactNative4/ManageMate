@@ -4,21 +4,23 @@ import '../App.css';
 import b1 from '../Image/b1.jpg';
 import b2 from '../Image/b2.jpg';
 import b3 from '../Image/b3.jpg';
+import { connect } from 'react-redux'
+import _ from 'lodash';
 class TangkwaApproveWithDrawDetail extends Component {
     constructor(props) {
         super(props);
+        const withdrawId = _.last(window.location.pathname.split('/'))
+        const person = _.find(props.people, item => item.withdrawID == withdrawId)
+        console.log("kor du noi", person)
         this.state = {
-            iD: 'WD00001',
-            firstname: 'Sirapob',
-            lastname: 'Meechuvet',
-            position: 'Normal user',
-            amount: '500',
-            bankNo: '029930382823',
-            bankName: 'กรุงเทพ',
-            comment: '-',
-            status: 'pending',
-            manageBy: '-'
+            person
         }
+    }
+    handleCheckSet = (status) => {
+        if (status === "Pending") {
+            return true
+        }
+        return false
     }
     render() {
         return (
@@ -26,30 +28,30 @@ class TangkwaApproveWithDrawDetail extends Component {
                 <div className="tangkwaTitle"><h4>WITHDRAW DETAIL</h4></div>
                 <div className="flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><div><p><b>WITHDRAW NO. : {this.state.iD}</b></p></div></div>
+                    <div className="tk1flex-1"><div><p><b>WITHDRAW NO. : {this.state.person.withdrawID}</b></p></div></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
                     <div className="tkflex-1"></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.firstname}</p></div></div>
-                    <div className="tk1flex-1"><p>LASTNAME : {this.state.lastname}</p></div>
-                    <div className="tk1flex-1"><p>POSITION : {this.state.position}</p></div>
-                    <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.status}</div>
+                    <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.person.firstnameEN}</p></div></div>
+                    <div className="tk1flex-1"><p>LASTNAME : {this.state.person.lastnameEN}</p></div>
+                    <div className="tk1flex-1"><p>POSITION : {this.state.person.Role}</p></div>
+                    <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.person.withdrawStatus}</div>
                         <div>MANAGE BY : {this.state.manageBy}</div>
                     </div>
                 </div>
                 <div className="flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><div><p>AMOUNT : {this.state.amount}</p></div>
-                        <div><p>BANK NO. : {this.state.bankNo}</p></div>
-                        <div><p>BANK NAME : {this.state.bankName}</p></div>
-                        <div><p>COMMENT : {this.state.comment}</p></div>
+                    <div className="tk1flex-1"><div><p>AMOUNT : {this.state.person.amount}</p></div>
+                        <div><p>BANK NO. : {this.state.person.bankNo}</p></div>
+                        <div><p>BANK NAME : {this.state.person.bankName}</p></div>
+                        <div><p>COMMENT : {this.state.person.withdrawComment}</p></div>
                         <div> <p>FILE : </p>
-                            <img src={b1} width="100" />
-                            <img src={b1} width="100" />
-                            <img src={b1} width="100" />
+                            <img src width="100" />
+                            <img src width="100" />
+                            <img src width="100" />
                         </div>
                     </div>
                     <div className="tk1flex-1"></div>
@@ -57,12 +59,18 @@ class TangkwaApproveWithDrawDetail extends Component {
                     <div className="tk1flex-1">
                     </div>
                 </div>
-                <div className="tangkwaTitle">
-                    <button type="submit" value="Submit" className="Submit">APPROVE</button>
-                    <button type="submit" value="Cancel" className="Cancel">REJECT</button>
-                </div>
+                {this.handleCheckSet(this.state.person.status) && <div className="tangkwaTitle">
+                    <button type="submit" value="Submit" onClick={this.handleSetTrue} className="Submit">APPROVE</button>
+                    <button type="submit" value="Cancel" onClick={this.handleSetFalse} className="Cancel">REJECT</button>
+                </div>}
             </div >
         );
     }
 }
-export default TangkwaApproveWithDrawDetail;
+const mapStateToProps = state => {
+    console.log("gg", state.withdraw)
+    return {
+        people: state.withdraw
+    }
+}
+export default connect(mapStateToProps)(TangkwaApproveWithDrawDetail)

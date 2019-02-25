@@ -54,9 +54,15 @@ text-align: center;
   color:#FF4949;
  margin:auto;
 }
+.tangkwaSetReady{
+  color: rgb(29, 80, 219);
+ margin:auto;
+ }
+
 .tangkwaSetOneday{
   margin-left: 100px; 
 }
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -1055,4 +1061,6 @@ margin-top : 3%;
   margin-top : 2%;
 }
 
-
+.selecttype{
+  margin-left:1%;
+}

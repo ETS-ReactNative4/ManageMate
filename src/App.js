@@ -115,12 +115,12 @@ class App extends Component {
         <Route path='/' component={MainLayout} >
           <Route path='MyleaveHistory' component={TangkwaMyLeaveHistory} />
           <Route path='MywithdrawHistory' component={TangkwaMyWithDrawHistory} />
-          <Route path='withdrawDetail' component={TangkwaWithDrawDetail} />
+          <Route path='withdrawDetail/:formId' component={TangkwaWithDrawDetail} />
           <Route path='Myprojects' component={TangkwaMyProject} />
           <Route path='Allproject' component={TangkwaAllProject} />
           <Route path='LeaveDetail/:formId' component={TangkwaLeaveDetail} />
-          <Route path='ProjectDetail' component={TangkwaProjectDetail} />
-          <Route path='ProjectsDetail' component={TangkwaAllProjDetail} />
+          <Route path='ProjectDetail/:formId' component={TangkwaProjectDetail} />
+          <Route path='ProjectsDetail/:formId' component={TangkwaAllProjDetail} />
           <Route path='calendar' component={OfficeCalendar} />
           <Route path='requestform' component={RequestForm}></Route>
           <Route path='myCalendar' component={MyCalendar}/>
@@ -132,7 +132,7 @@ class App extends Component {
             <Route path='Approve' component={TangkwaApproveLeave} />
             <Route path='ApproveLeaveDetail/:fromId' component={TangkwaApproveLeaveDetail} />
             <Route path='withdrawApprove' component={TangkwaApproveWithdraw} />
-            <Route path='ApproveWithdrawDetail' component={TangkwaApproveWithDrawDetail} />
+            <Route path='ApproveWithdrawDetail/:formId' component={TangkwaApproveWithDrawDetail} />
             <Route path='MyClockIn' component={TangkwaMyClockIn} />
             <Route path='CheckIn' component={TangkwaCheckIn} />
             <Route path='AddUser' component={TangkwaAddUser} />

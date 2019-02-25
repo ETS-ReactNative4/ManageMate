@@ -22,5 +22,15 @@ export default (state = inttialState, action) => {
         ...state,
         staff: action.payload.staff
       }
+      case 'ADD_WITHDRAW':
+      return {
+        ...state,
+        withdraw: action.payload.withdraw
+      }
+      case 'ADD_PROJECT':
+      return {
+        ...state,
+        project: action.payload.project
+      }
     }
 }
