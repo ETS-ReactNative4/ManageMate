@@ -14,6 +14,7 @@ import Helmet from 'react-helmet';
 import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import Calendar from './Calendar';
+import axios from 'axios';
 
 const FormHeader = props => {
     return (
@@ -122,6 +123,8 @@ class RequestForm extends React.Component {
 
         this.setState({ [id]: value })
         this.setState({ len: count })
+
+        console.log(this.state.note)
     }
 
     fileChangedHandler = (event) => {
@@ -155,7 +158,7 @@ class RequestForm extends React.Component {
             console.log(isAfter)
             if (isAfter == false || this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {
                 alert('Incorrect or incomplete information!.')
-                break;
+                
             }
             else {
                 this.handleSendData()
@@ -181,33 +184,29 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
-        let Base64File =
-        axios.post('https://appmanleavemanagement20180718055046.azurewebsites.net/api/Leaves/Leave', {
-            "leaveId": 0,
-            "type": "Annual Leave",
-            "staffId": `${staffId}`,
-            "startDateTime": this.state.leaveDate + this.state.leaveTime + ":00",
-            "endDateTime": this.state.leaveDateStop + this.state.leaveTime + ":00",
-            "hoursStartDate": this.state.leaveAmount,
-            "hoursEndDate": this.state.leaveAmountStop,
-            "approvalStatus": "Pending",
-            "comment": this.state.note,
-            "approvedTime": "2018-07-24T11:15:18.558Z",
-            "approvedBy": "string",
-            "attachedFile1": attachFileBase64,
-            "attachedFileName1": this.state.selectedFile[0].name.substring(0, 15),
-            "attachedFile2": "",
-            "attachedFileName2": "No Image.",
-            "attachedFile3": "",
-            "attachedFileName3": "No Image.",
-            "requestedDateTime": "2018-07-24T11:15:18.558Z",
-            "isExisting": true,
-            "commentByAdmin": "string"
+        let Base64File = this.getBase64(this.state.selectedFile[0])
+        axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            "leaveID" : 0,
+            "staffID" : 0,
+            "firstnameEN" : "tangkwa",
+            "lastnameEN" : "tangkwa",
+            "role" :0,
+            "leaveType" : this.state.leavetype,
+            "leaveStartDateTime" : this.state.dayStart,
+            "leaveEndDateTime" : this.state.dayEnd,
+            "leaveStatus" : "pending",
+            "leaveComment" : this.state.note,
+            "approvedBy" : 0,
+            "approvedTime" : "2019-02-25T11:55:50.106Z",
+            "leaveFile1" : Base64File,
+            "leaveFile2" : "string",    
+            "leaveFile3" : "string",
+
         }, {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        browserHistory.push('/Leave')
+                        browserHistory.push('/')
 
                     }
 
