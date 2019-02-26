@@ -83,7 +83,7 @@ class TangkwaWithdrawReq extends Component {
             alert('Incorrect or incomplete information!.')
         }
         else {
-            this.handleSubmit
+            this.handleSubmit()
         }
     }
     render() {
