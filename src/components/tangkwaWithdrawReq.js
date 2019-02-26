@@ -77,6 +77,15 @@ class TangkwaWithdrawReq extends Component {
             browserHistory.push('/Statistics')
         }
     }
+
+    handleCheck = () => {
+        if (this.state.amount == '' || this.state.bankName == '' || this.state.bankNo == '' || this.state.comment == '') {
+            alert('Incorrect or incomplete information!.')
+        }
+        else {
+            this.handleSubmit
+        }
+    }
     render() {
         return (
             <div className="App">
@@ -101,12 +110,14 @@ class TangkwaWithdrawReq extends Component {
                         <div className="tangkwaFile"><p>FILE :</p></div>
                     </div>
                     <div className="tk1flex-8">
+
                         <div className="tangkwaTitle"><input type="text" value={this.state.amount} onChange={this.handleChangeAmount} className="amount" /></div>
+
                         <div className="tangkwaTitle"><textarea value={this.state.comment} onChange={this.handleChangeComment} className="textarea" maxLength="255" type="text" /></div>
                     </div>
                 </div>
                 <div>
-                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
+                    <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">Submit</button>
                     <button type="submit" value="Cancel" onClick={this.handleCancel} className="Cancel">Cancel</button>
                 </div>
             </div>
