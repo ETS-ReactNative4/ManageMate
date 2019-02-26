@@ -5,6 +5,8 @@ import clock from '../Image/circular-clock.png';
 // Or import the input component
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import 'react-day-picker/lib/style.css';
+import StartdateCalendar from './StartdateCalendar';
+import EnddateCalendar from './EnddateCalendar';
 import { Redirect, browserHistory } from "react-router";
 import { Link } from 'react-router';
 import moment from 'moment';
@@ -83,6 +85,9 @@ class RequestForm extends React.Component {
             dayEnd: '',
             len: 0,
             note: '',
+            error : false,
+            selectedFile : [] ,
+            CheckTypeFile : false
 
         }
     };
@@ -104,8 +109,13 @@ class RequestForm extends React.Component {
         console.log("this is date", this.state.dayEnd, this.state.dayStart)
     }
 
-    handleChangeMoreDay = (id, value) => {
+    handleChangeMoreDayStart = (id, value) => {
         this.setState({ [id]: value })
+        console.log("this is date", this.state.dayEnd, this.state.dayStart)
+    }
+    handleChangeMoreDayEnd = (id, value) => {
+        this.setState({ [id]: value })
+        console.log("this is date", this.state.dayEnd, this.state.dayStart) 
     }
 
     handleChangeComment = (id, value, count) => {
@@ -114,10 +124,98 @@ class RequestForm extends React.Component {
         this.setState({ len: count })
     }
 
-    fileChangedHandler = () => {
-        // this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
+    fileChangedHandler = (event) => {
+        this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
+
+    }
+    checkTypeofFile = () => {
+        let i = 0
+        for (i = 0; i < (this.state.selectedFile.length); i++) {
+            var ext = this.state.selectedFile[i].type
+            if (ext != "image/jpeg") {
+                this.setState({ CheckTypeFile: false })
+                alert('You can only use .jpg file!')
+                break;
+            }
+            else {
+                this.setState({ CheckTypeFile: true })
+            }
+        }
+        console.log('number of i', i)
+        if (i > 3) {
+            alert("You can only upload up to 3 images! \n please try again")
+        }
     }
 
+    handleCheckSubmit = () => {
+        var isAfter = moment(this.state.dayStart).isAfter(moment().format());
+        console.log(isAfter)
+        if (this.state.isOneday == true ) {
+            var isAfter = moment(this.state.dayStart).isAfter(moment().format());
+            console.log(isAfter)
+            if (isAfter == false || this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {
+                alert('Incorrect or incomplete information!.')
+                break;
+            }
+            else {
+                this.handleSendData()
+            }
+        }
+
+    }
+    getBase64 = (file) => {
+        return new Promise((resolve, reject) => {
+            try {
+                let reader = new FileReader();
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    resolve(reader.result)
+                };
+                reader.onerror = function (error) {
+                    reject(error)
+                };
+            } catch (error) {
+                reject(error)
+            }
+        })
+    }
+
+    handleSendData = async event => {
+        let Base64File =
+        axios.post('https://appmanleavemanagement20180718055046.azurewebsites.net/api/Leaves/Leave', {
+            "leaveId": 0,
+            "type": "Annual Leave",
+            "staffId": `${staffId}`,
+            "startDateTime": this.state.leaveDate + this.state.leaveTime + ":00",
+            "endDateTime": this.state.leaveDateStop + this.state.leaveTime + ":00",
+            "hoursStartDate": this.state.leaveAmount,
+            "hoursEndDate": this.state.leaveAmountStop,
+            "approvalStatus": "Pending",
+            "comment": this.state.note,
+            "approvedTime": "2018-07-24T11:15:18.558Z",
+            "approvedBy": "string",
+            "attachedFile1": attachFileBase64,
+            "attachedFileName1": this.state.selectedFile[0].name.substring(0, 15),
+            "attachedFile2": "",
+            "attachedFileName2": "No Image.",
+            "attachedFile3": "",
+            "attachedFileName3": "No Image.",
+            "requestedDateTime": "2018-07-24T11:15:18.558Z",
+            "isExisting": true,
+            "commentByAdmin": "string"
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Data has been sent!.");
+                        browserHistory.push('/Leave')
+
+                    }
+
+                }
+            })
+            .then(function (response) {
+            })
+    }
 
 
     render() {
@@ -171,11 +269,11 @@ class RequestForm extends React.Component {
 
                     {!this.state.isOneday && <div className="text-date">
                         Date
-                            <Calendar />
+                            <StartdateCalendar  onChange={this.handleChangeMoreDayStart} id1={'dayStart'} />
                     </div>}
                     {!this.state.isOneday && <div className='text-date2'>
                         Date end
-                            <Calendar />
+                            <EnddateCalendar onChange={this.handleChangeMoreDayEnd} id1={'dayEnd'}/>
                     </div>}
 
                 </div>
@@ -187,8 +285,12 @@ class RequestForm extends React.Component {
                 <div className='flex-container'>
                     <div className="input-file flex2">
 
-                        <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image/jpeg" required multiple />
+                    <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image/jpeg" required multiple />
                     </div>
+                </div>
+
+                <div>
+                        <button className="submit-button" onClick={this.handleCheckSubmit}>Send</button>
                 </div>
 
 
