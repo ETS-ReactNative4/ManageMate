@@ -26,7 +26,8 @@ class TangkwaCheckIn extends Component {
             latitude: 0,
             longitude: 0,
             showLocated: false,
-            address: <img src={loading} />
+            address: <img src={loading} />,
+            status : ''
         }
     }
     componentDidMount() {
@@ -39,7 +40,7 @@ class TangkwaCheckIn extends Component {
             "staffID": 1,
             "staffName": `Tangkwa`,
             "time": dateTime,
-            "status": "in",
+            "status": this.state.status,
             "place": this.state.address
 
         }, {
@@ -69,15 +70,21 @@ class TangkwaCheckIn extends Component {
             });
         }
     }
-    handleSetTrue = () => {
+    handleSetIn = () => {
         this.setState({ showLocated: true })
+        this.setState({ status: "in" })
+    }
+    handleSetOut = () => {
+        this.setState({ showLocated: true })
+        this.setState({ status: "out" })
     }
     render() {
         console.log("this is state", moment().format())
         return (
             <div className="App">
                 <FormHeader />
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetTrue} /></h4></div>
+                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetIn} /></h4></div>
+                <div className="tangkwaTitle"><h4>CHECK OUT : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetOut} /></h4></div>
                 {this.state.showLocated && <div>
                     <p>{this.state.address}</p>
                     <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw"} className="googleMap" ></img>

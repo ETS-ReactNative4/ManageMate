@@ -93,16 +93,26 @@ class TangkwaWithdrawReq extends Component {
                 <div className="flex-container">
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-1">
-                        <div className="tangkwaTitle"><p>AMOUNT :</p></div>
                         <div className="tangkwaTitle"><p>BANK NAME :</p></div>
-                        <div className="tangkwaTitle"><p>BANK NO. :</p></div>
-                        <div className="tangkwaTitle"><p><span>COMMENT :</span></p></div>
+                       <div className="tangkwaTitle"><p>BANK NO. :</p></div>
+                        
+                    </div>
+                    <div className="tk1flex-8">
+                        <div className="tangkwaTitle"><p>เดี๋ยวอันนี้จะดึงค่าจาก redux มาใส่ รอทำตอน authen</p></div>
+                        <div className="tangkwaTitle"><p>เดี๋ยวอันนี้จะดึงค่าจาก redux มาใส่ รอทำตอน authen</p></div>
+                    </div>
+                </div>
+                <div className="flex-container">
+                    <div className="tk1flex-0"></div>
+                    <div className="tk1flex-1">
+                        <div className="tangkwaTitle"><p>AMOUNT :</p></div>
+                       <div className="tangkwaTitle"><p><span>COMMENT :</span></p></div>
                         <div className="tangkwaFile"><p>FILE :</p></div>
                     </div>
                     <div className="tk1flex-8">
-                        <div className="tangkwaTitle"><input type="number" value={this.state.amount} onChange={this.handleChangeAmount} className="amount"  /></div>
-                        <div className="tangkwaTitle" ><input type="text" value={this.state.bankName} onChange={this.handleChangeBankName} className="bookname" /></div>
-                        <div className="tangkwaTitle"><input type="text" value={this.state.bankNo} onChange={this.handleChangeBankNo} className="bookno" /></div>
+
+                        <div className="tangkwaTitle"><input type="text" value={this.state.amount} onChange={this.handleChangeAmount} className="amount" /></div>
+
                         <div className="tangkwaTitle"><textarea value={this.state.comment} onChange={this.handleChangeComment} className="textarea" maxLength="255" type="text" /></div>
                     </div>
                 </div>
