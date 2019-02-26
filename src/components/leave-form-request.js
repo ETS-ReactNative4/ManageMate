@@ -196,7 +196,7 @@ class RequestForm extends React.Component {
             "leaveEndDateTime" : this.state.dayEnd,
             "leaveStatus" : "Pending",
             "leaveComment" : this.state.note,
-            "approvedBy" : 0,
+            "approvedBy" : "-",
             "approvedTime" : "2019-02-25T11:55:50.106Z",
             "leaveFile1" : "File",
             "leaveFile2" : "string",    

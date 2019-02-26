@@ -111,7 +111,7 @@ class TangkwaWithdrawReq extends Component {
                     </div>
                     <div className="tk1flex-8">
 
-                        <div className="tangkwaTitle"><input type="text" value={this.state.amount} onChange={this.handleChangeAmount} className="amount" /></div>
+                        <div className="tangkwaTitle"><input type="number" value={this.state.amount} onChange={this.handleChangeAmount} className="amount" /></div>
 
                         <div className="tangkwaTitle"><textarea value={this.state.comment} onChange={this.handleChangeComment} className="textarea" maxLength="255" type="text" /></div>
                     </div>

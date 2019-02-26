@@ -65,6 +65,16 @@ class TangkwaCreateProj extends Component {
         if (window.confirm("Are you Cancel")) {
         browserHistory.push('/Allproject')}
     }
+
+    handleCheck = () => {
+        if (this.state.projectName== ''||
+        this.state.detail== '' ) {
+            alert('Incorrect or incomplete information!.')
+        }
+        else {
+             this.handleSubmit()
+        }
+    }
     render() {
         return (
             <div className="App">
