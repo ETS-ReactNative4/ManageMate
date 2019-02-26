@@ -184,7 +184,7 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
-        let Base64File = this.getBase64(this.state.selectedFile[0])
+        // let Base64File = this.getBase64(this.state.selectedFile[0])
         axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             "leaveID" : 0,
             "staffID" : 0,
@@ -198,7 +198,7 @@ class RequestForm extends React.Component {
             "leaveComment" : this.state.note,
             "approvedBy" : 0,
             "approvedTime" : "2019-02-25T11:55:50.106Z",
-            "leaveFile1" : Base64File,
+            "leaveFile1" : "File",
             "leaveFile2" : "string",    
             "leaveFile3" : "string",
 
