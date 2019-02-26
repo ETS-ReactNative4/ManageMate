@@ -79,7 +79,7 @@ class TangkwaWithdrawReq extends Component {
     }
 
     handleCheck = () => {
-        if (this.state.amount == '' || this.state.bankName == '' || this.state.bankNo == '' || this.state.comment == '') {
+        if (this.state.amount == '' || this.state.comment == '') {
             alert('Incorrect or incomplete information!.')
         }
         else {
