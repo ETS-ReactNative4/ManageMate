@@ -233,8 +233,8 @@ class RequestForm extends React.Component {
                                 <option value={'SICK LEAVE'}>SICK LEAVE</option>
                                 <option value={'ANNUAL LEAVE'}>ANNUAL LEAVE</option>
                                 <option value={'LEAVE WITH OUT PAY'}>LEAVE WITH OUT PAY</option>
-                                <option value={'ETC'}>ETC</option>
-                                <option value={'ETC'}>ETC</option>
+                                <option value={'PERSONAL LEAVE'}>PERSONAL LEAVE</option>
+                                <option value={'LEAVE FOR WORK OUTSIDE'}>LEAVE FOR WORK OUTSIDE</option>
                             </select>
                     </div>
                     </div>
