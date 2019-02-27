@@ -88,7 +88,7 @@ class TangkwaCreateProj extends Component {
                     </div>
                 </div>
                 <div>
-                    <button type="submit" value="Submit" onClick={this.handleSubmit} className="Submit">Submit</button>
+                    <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">Submit</button>
                     <button type="submit" value="Cancel" onClick={this.handleCancel}className="Cancel">Cancel</button>
                 </div>
             </div>
