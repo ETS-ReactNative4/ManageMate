@@ -55,7 +55,8 @@ class TangkwaWithdrawReq extends Component {
                 "lastnameEN": "string",
                 "role": "1",
                 "amount": this.state.amount,
-                "withdrawComment": this.state.comment
+                "withdrawComment": this.state.comment,
+                "status" : "Pending"
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
@@ -79,7 +80,7 @@ class TangkwaWithdrawReq extends Component {
     }
 
     handleCheck = () => {
-        if (this.state.amount == '' || this.state.bankName == '' || this.state.bankNo == '' || this.state.comment == '') {
+        if (this.state.amount == '' || this.state.comment == '') {
             alert('Incorrect or incomplete information!.')
         }
         else {

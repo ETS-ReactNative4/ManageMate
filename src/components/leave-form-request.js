@@ -187,7 +187,7 @@ class RequestForm extends React.Component {
         // let Base64File = this.getBase64(this.state.selectedFile[0])
         axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             "leaveID" : 0,
-            "staffID" : 0,
+            "staffID" : 1,
             "firstnameEN" : "tangkwa",
             "lastnameEN" : "tangkwa",
             "role" :0,
