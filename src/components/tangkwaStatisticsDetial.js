@@ -40,6 +40,17 @@ class TangkwaStatisticsDetail extends Component {
                 // handle error here
             })
     }
+    setRole = (role) => {
+        if (role === "1") {
+            return role = "Super User"
+        }
+        else if (role === "2") {
+            return role = "HR"
+        }
+        if (role === "3") {
+            return role = "Normal User"
+        }
+    }
     render() {
         const { person } = this.state
         return (
@@ -54,7 +65,7 @@ class TangkwaStatisticsDetail extends Component {
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><p><b>POSITION :</b> {this.state.person.role}</p></div>
+                    <div className="tk1flex-1"><p><b>POSITION :</b> {this.setRole(this.state.person.role)}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>

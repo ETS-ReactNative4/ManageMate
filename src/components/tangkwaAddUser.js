@@ -97,7 +97,7 @@ class TangkwaAddUser extends Component {
                 "staffID": 0,
                 "projectID": 0,
                 "firstnameEN": this.state.firstname ,
-                "lastnameEN": this.state.lastname,
+                "lastnameEN": this.state.lastName,
                 "firstnameTH": "string",
                 "lastnameTH": "string",
                 "email": this.state.email,
@@ -146,8 +146,9 @@ class TangkwaAddUser extends Component {
         this.state.telNo== ''||
         this.state.bankNo== ''||
         this.state.bankName== ''||
-        this.state.position== '',
-        this.state. sick== '' ||
+        this.state.position== '' ||
+        this.state.sick== '' || 
+        this.state.sick < 0 ||
         this.state.annual== ''||
         this.state.lwp== ''||
         this.state.personal== '' ||

@@ -55,7 +55,8 @@ class TangkwaWithdrawReq extends Component {
                 "lastnameEN": "string",
                 "role": "1",
                 "amount": this.state.amount,
-                "withdrawComment": this.state.comment
+                "withdrawComment": this.state.comment,
+                "status" : "Pending"
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
