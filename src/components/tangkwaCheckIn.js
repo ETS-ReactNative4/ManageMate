@@ -47,7 +47,7 @@ class TangkwaCheckIn extends Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        browserHistory.push('/')
+                        browserHistory.push('/MyClockIn')
                     }
                 }
             })
