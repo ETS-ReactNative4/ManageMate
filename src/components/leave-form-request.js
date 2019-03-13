@@ -153,9 +153,11 @@ class RequestForm extends React.Component {
     }
 
     handleCheckSubmit = () => {
+
         var isAfter = moment(this.state.dayEnd).isAfter(moment(this.state.dayStart).format());
-    
-        if (isAfter == true ) {
+      console.log("isAfter",isAfter)
+      console.log("Start-End",this.state.dayStart,this.state.dayEnd)
+        if (this.state.isOneday == true ) {
             var isAfter = moment(this.state.dayEnd).isAfter(moment(this.state.dayStart).format());
             console.log(isAfter)
             if (this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {

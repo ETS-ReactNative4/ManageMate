@@ -33,7 +33,7 @@ class Calendar extends React.Component {
             onChange(id2, 'Invalid dat');
         }
         else {
-            onChange(id1, moment(date).format().toString(), id2);
+            onChange(id1, moment(date).format().toString().substring(0,10), id2);
 
         }
     }
