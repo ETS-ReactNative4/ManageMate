@@ -105,6 +105,7 @@ class RequestForm extends React.Component {
     }
 
     handleChangeOneDay = (id1, value, id2) => {
+        console.log("value",value)
         this.setState({ [id1]: value })
         this.setState({ [id2]: value })
         console.log("this is date", this.state.dayEnd, this.state.dayStart)
@@ -112,11 +113,11 @@ class RequestForm extends React.Component {
 
     handleChangeMoreDayStart = (id, value) => {
         this.setState({ [id]: value })
-        console.log("this is date", this.state.dayEnd, this.state.dayStart)
+        console.log("this is date start",this.state.dayStart)
     }
     handleChangeMoreDayEnd = (id, value) => {
         this.setState({ [id]: value })
-        console.log("this is date", this.state.dayEnd, this.state.dayStart) 
+        console.log("this is date end ", this.state.dayEnd, this.state.dayStart) 
     }
 
     handleChangeComment = (id, value, count) => {
@@ -152,18 +153,22 @@ class RequestForm extends React.Component {
     }
 
     handleCheckSubmit = () => {
-        var isAfter = moment(this.state.dayStart).isAfter(moment().format());
-        console.log(isAfter)
-        if (this.state.isOneday == true ) {
-            var isAfter = moment(this.state.dayStart).isAfter(moment().format());
+        var isAfter = moment(this.state.dayEnd).isAfter(moment(this.state.dayStart).format());
+    
+        if (isAfter == true ) {
+            var isAfter = moment(this.state.dayEnd).isAfter(moment(this.state.dayStart).format());
             console.log(isAfter)
-            if (isAfter == false || this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {
+            if (this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {
                 alert('Incorrect or incomplete information!.')
                 
             }
             else {
                 this.handleSendData()
             }
+        
+        }
+        else {
+            alert('Incorrect DateTime')
         }
 
     }
@@ -201,8 +206,8 @@ class RequestForm extends React.Component {
             "approvedBy" : "-",
             "approvedTime" : "2019-02-25T11:55:50.106Z",
             "leaveFile1" : Base64File,
-            "leaveFile2" : "string",    
-            "leaveFile3" : "string",
+            "leaveFile2" : "",    
+            "leaveFile3" : "",
 
         }, {
                 onUploadProgress: ProgressEvent => {
@@ -286,7 +291,8 @@ class RequestForm extends React.Component {
                 <div className='flex-container'>
                     <div className="input-file flex2">
 
-                    <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image" required multiple />
+                    <input type="file" onChange={this.fileChangedHandler}  size="2MB" accept="image" required multiple />
+                    <img id="output"/>
                     </div>
                 </div>
 

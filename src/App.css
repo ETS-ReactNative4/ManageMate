@@ -976,6 +976,11 @@ margin : 10px
 
 }
 
+.text-note.flex2 {
+  margin:0;
+  margin-left: 50px;
+}
+
 .row-of-comment {
   margin-top : 50px;
   width: 100%;
