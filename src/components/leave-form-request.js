@@ -128,7 +128,8 @@ class RequestForm extends React.Component {
     }
 
     fileChangedHandler = (event) => {
-        this.setState({ selectedFile: Array.from(event.target.files) }, this.checkTypeofFile)
+        this.setState({ selectedFile: Array.from(event.target.files) })
+        console.log(this.state.selectedFile)
 
     }
     checkTypeofFile = () => {
@@ -167,6 +168,7 @@ class RequestForm extends React.Component {
 
     }
     getBase64 = (file) => {
+        console.log("in base64 format")
         return new Promise((resolve, reject) => {
             try {
                 let reader = new FileReader();
@@ -184,7 +186,7 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
-        // let Base64File = this.getBase64(this.state.selectedFile[0])
+        let Base64File =  await this.getBase64(this.state.selectedFile[0])
         axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             "leaveID" : 0,
             "staffID" : 0,
@@ -198,7 +200,7 @@ class RequestForm extends React.Component {
             "leaveComment" : this.state.note,
             "approvedBy" : "-",
             "approvedTime" : "2019-02-25T11:55:50.106Z",
-            "leaveFile1" : "File",
+            "leaveFile1" : Base64File,
             "leaveFile2" : "string",    
             "leaveFile3" : "string",
 
@@ -284,7 +286,7 @@ class RequestForm extends React.Component {
                 <div className='flex-container'>
                     <div className="input-file flex2">
 
-                    <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image/jpeg" required multiple />
+                    <input type="file" onChange={this.fileChangedHandler} size="2MB" accept="image" required multiple />
                     </div>
                 </div>
 
