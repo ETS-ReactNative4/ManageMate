@@ -42,7 +42,7 @@ class TangkwaApproveWithdraw extends Component {
                     <Link to={`/ApproveWithdrawDetail/${people.withdrawID}`} className="tkflex-1" ><div><p><b>{people.withdrawID}</b></p></div></Link>
                     <div className="tkflex-2"><p><b>{people.firstnameEN} {people.lastnameEN}</b></p></div>
                     <div className="tkflex-1"><p><b>{people.amount}</b></p></div>
-                    <div className="tkflex-1"><p><b>{people.manageBy}</b></p></div>
+                    <div className="tkflex-1"><p><b>{people.idapproved}</b></p></div>
                 </div>))}
             </div>
         );

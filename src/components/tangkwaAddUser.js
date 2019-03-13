@@ -85,19 +85,43 @@ class TangkwaAddUser extends Component {
     handleSubmit = async event => {
         if (window.confirm("Are you sure to add new user?")) {
             axios.post('https://managemate.azurewebsites.net/AddEmployee', {
-                "withdrawID": 0,
-                "staffID": 1,
-                "bankNo": "this.state.bankNo",
-                "bankNumber": 0,
-                "firstnameEN": "string",
-                "lastnameEN": "string",
-                "role": "string",
-                "amount": 0,
+                // "withdrawID": 0,
+                // "staffID": 1,
+                // "bankNo": "this.state.bankNo",
+                // "bankNumber": 0,
+                // "firstnameEN": "string",
+                // "lastnameEN": "string",
+                // "role": this.state.position ,
+                // "amount": 0,
+
+                "staffID": 0,
+                "projectID": 0,
+                "firstnameEN": this.state.firstname ,
+                "lastnameEN": this.state.lastName,
+                "firstnameTH": "string",
+                "lastnameTH": "string",
+                "email": this.state.email,
+                "role": this.state.position,
+                "bankNO": this.state.bankNo,
+                "bankName": this.state.bankName,
+                "tellNO": this.state.telNo ,
+                "sickQuo": this.state.sick,
+                "sickRemain": 0,
+                "annualQuo": this.state.annual,
+                "annualRemain": 0,
+                "lwpQuo": this.state.lwp ,
+                "lwpRemain": 0,
+                "personalQuo": this.state.personal ,
+                "personalRemain": 0,
+                "lfwosQuo": this.state.lfwos ,
+                "lfwosRemain": 0
+
+
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                             alert("Data has been sent!.");
-                            browserHistory.push('/Leave')
+                            browserHistory.push('/Statistics')
                         }
                     }
                 })
@@ -122,8 +146,9 @@ class TangkwaAddUser extends Component {
         this.state.telNo== ''||
         this.state.bankNo== ''||
         this.state.bankName== ''||
-        this.state.position== '',
-        this.state. sick== '' ||
+        this.state.position== '' ||
+        this.state.sick== '' || 
+        this.state.sick < 0 ||
         this.state.annual== ''||
         this.state.lwp== ''||
         this.state.personal== '' ||

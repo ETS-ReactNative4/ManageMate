@@ -189,7 +189,7 @@ class RequestForm extends React.Component {
         let Base64File =  await this.getBase64(this.state.selectedFile[0])
         axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             "leaveID" : 0,
-            "staffID" : 0,
+            "staffID" : 1,
             "firstnameEN" : "tangkwa",
             "lastnameEN" : "tangkwa",
             "role" :0,
@@ -208,7 +208,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        browserHistory.push('/')
+                        browserHistory.push('/MyleaveHistory')
 
                     }
 

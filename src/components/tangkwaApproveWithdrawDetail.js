@@ -38,8 +38,8 @@ class TangkwaApproveWithDrawDetail extends Component {
                     <div className="tk1flex-1"><div><p>FIRSTNAME : {this.state.person.firstnameEN}</p></div></div>
                     <div className="tk1flex-1"><p>LASTNAME : {this.state.person.lastnameEN}</p></div>
                     <div className="tk1flex-1"><p>POSITION : {this.state.person.Role}</p></div>
-                    <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.person.withdrawStatus}</div>
-                        <div>MANAGE BY : {this.state.manageBy}</div>
+                    <div className="tkflex-1 tangkwaWDFrame"><div>STATUS : {this.state.person.status}</div>
+                        <div>MANAGE BY : {this.state.person.idapproved}</div>
                     </div>
                 </div>
                 <div className="flex-container">

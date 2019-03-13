@@ -27,6 +27,17 @@ class TangkwaStatistics extends Component {
                 this.props.addHistory(data)
             })
     }
+    setRole = (role) => {
+        if (role === "1") {
+            return role = "Super User"
+        }
+        else if (role === "2") {
+            return role = "HR"
+        }
+        if (role === "3") {
+            return role = "Normal User"
+        }
+    }
     render() {
         return (
             <div className="App">
@@ -40,7 +51,7 @@ class TangkwaStatistics extends Component {
                 {this.state.people.map(people => (<div className="row flex-container tangkwaSetData">
                     <Link to={`StatisticsDetail/${people.staffID}`} className="tkflex-1" ><div><p>{people.staffID}</p></div></Link>
                     <div className="tkflex-2"><p>{people.firstnameEN} {people.lastnameEN}</p></div>
-                    <div className="tkflex-1"><p>{people.role}</p></div>
+                    <div className="tkflex-1"><p>{this.setRole(people.role)}</p></div>
                 </div>))}
             </div>
         );
