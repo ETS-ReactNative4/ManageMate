@@ -34,7 +34,8 @@ class TangkwaCheckIn extends Component {
         this.setaddress()
     }
     handleSubmitClick = () => {
-        const dateTime = moment().format().toString()
+        const dateTime = new Date().toString()
+        console.log(dateTime)
         axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
             "runningNo": 0,
             "staffID": 1,
