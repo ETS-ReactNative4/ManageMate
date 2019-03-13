@@ -76,6 +76,19 @@ class TangkwaApproveLeaveDetail extends Component {
         }
         return false
     }
+    setRole(role) {
+        
+        if (role === 0) {
+         console.log("55555")
+            return role = 'Normal User'
+        }
+        if (role === 1) {
+         return role = 'HR'
+     }
+     if (role === 2) {
+         return role = 'Super User'
+     }
+     }
     render() {
         return (
             <div className="App">
@@ -102,7 +115,7 @@ class TangkwaApproveLeaveDetail extends Component {
                             <div className="tk1flex-0">
                                 <div><p></p></div></div>
                             <div className="tk1flex-1">
-                                <div><p><b>POSITION :</b>{people.Role}</p></div>
+                                <div><p><b>POSITION :</b>{this.setRole(people.Role)}</p></div>
                             </div>
                             <div className="tk1flex-1">
                                 <div><p><b>LEAVE ID : </b>{people.LeaveID}</p></div>
