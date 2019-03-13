@@ -6,15 +6,22 @@ import check from '../Image/check.png'
 import axios from 'axios';
 import loading from '../Image/lg.rotating-balls-spinner.gif'
 import moment from 'moment';
+import clock from '../Image/circular-clock.png';
+import DateComponent from './DateComponent';
 const FormHeader = props => {
     return (
+
         <React.Fragment>
             <div className="border-header">
                 <div className="show-header">
-                    <h5><b>TODAY DATE : 11/12/2018</b></h5>
-                    <div><h5><b>TIME : 9.30 AM</b></h5></div>
+                    CLOCK IN,OUT
+            </div>
+                <div className='header1'>
+                    <div className='date-header'>
+                        <img src={clock} width="30px" height="30px" className="icon-clock" />Today Date :
+                    <DateComponent />
+                    </div>
                 </div>
-
             </div>
         </React.Fragment>
     )

@@ -3,12 +3,21 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import axios from 'axios';
+import clock from '../Image/circular-clock.png';
+import DateComponent from './DateComponent';
 const FormHeader = props => {
     return (
+
         <React.Fragment>
             <div className="border-header">
                 <div className="show-header">
-                    <h4><b>WITHDRAW REQUEST FORM</b></h4>
+                    WITHDRAW REQUEST FORM
+            </div>
+                <div className='header1'>
+                    <div className='date-header'>
+                        <img src={clock} width="30px" height="30px" className="icon-clock" />Today Date :
+                    <DateComponent />
+                    </div>
                 </div>
             </div>
         </React.Fragment>

@@ -25,7 +25,7 @@ import MyCalendar from './components/MyCalendar'
 import OfficeCreateEvent from './components/OfficecreateEvent'
 import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
 import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
-import Login from './components/Login'
+
 class MainLayout extends Component {
   render() {
     return (
@@ -110,7 +110,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Login/>
+       
       <Router history={browserHistory}>
         <Route path='/' component={MainLayout} >
           <Route path='MyleaveHistory' component={TangkwaMyLeaveHistory} />

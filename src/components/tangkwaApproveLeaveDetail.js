@@ -6,6 +6,7 @@ import moment from 'moment'
 import { browserHistory } from 'react-router';
 import axios from 'axios';
 import { connect } from 'react-redux'
+import BigPicture from "react-bigpicture";
 class TangkwaApproveLeaveDetail extends Component {
     constructor(props) {
         super(props);
@@ -143,9 +144,14 @@ class TangkwaApproveLeaveDetail extends Component {
                             <div className="tk1flex-1">
                                 <div><p><b>COMMENT : </b>{people.LeaveComment}</p></div>
                                 <div><p><b>FILE : </b></p>
-                                    <img src width="100" />
-                                    <img src width="100" />
-                                    <img src width="100" />
+                                <BigPicture
+                            
+                               
+                            img src = {people.LeaveFile1}
+                        >
+                            <img src={people.LeaveFile1} width = "80" height = "80"/>
+                        </BigPicture>
+                        
                                 </div>
                             </div>
                             <div className="tk1flex-1">
