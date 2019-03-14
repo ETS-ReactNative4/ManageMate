@@ -160,7 +160,7 @@ class RequestForm extends React.Component {
         if (this.state.isOneday == true ) {
             var isAfter = moment(this.state.dayEnd).isAfter(moment(this.state.dayStart).format());
             console.log(isAfter)
-            if (this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false) {
+            if (this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false || this.state.leavetype =='') {
                 alert('Incorrect or incomplete information!.')
                 
             }
@@ -170,7 +170,14 @@ class RequestForm extends React.Component {
         
         }
         else {
-            alert('Incorrect DateTime')
+            if (isAfter == false || this.state.dayStart == 'Invalid dat' || this.state.dayEnd == 'Invalid dat' || this.checkTypeofFile == false || this.state.leavetype =='') {
+                alert('Incorrect or incomplete information!.')
+                
+            }
+            else {
+                this.handleSendData()
+            }
+            
         }
 
     }
@@ -239,6 +246,7 @@ class RequestForm extends React.Component {
                     <div className="TypeSelect">
                         <div className="dropdown-oneday">
                             <select className="option-time" onChange={(event) => this.typehandler(event.target.value)} >
+                            <option value={''}>Please Select LeaveType</option>
                                 <option value={'SICK LEAVE'}>SICK LEAVE</option>
                                 <option value={'ANNUAL LEAVE'}>ANNUAL LEAVE</option>
                                 <option value={'LEAVE WITH OUT PAY'}>LEAVE WITH OUT PAY</option>

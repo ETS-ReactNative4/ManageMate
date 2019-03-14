@@ -41,13 +41,13 @@ class TangkwaCheckIn extends Component {
         this.setaddress()
     }
     handleSubmitClick = () => {
-        const dateTime = new Date().toString()
-        console.log(dateTime)
+        
+      
         axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
             "runningNo": 0,
             "staffID": 1,
             "staffName": `Tangkwa`,
-            "time": dateTime,
+            "time": "2019-03-14T08:59:36.491Z",
             "status": this.state.status,
             "place": this.state.address
 
