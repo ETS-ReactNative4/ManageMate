@@ -30,11 +30,12 @@ class TangkwaApproveLeaveDetail extends Component {
     handleSetTrue = () => {
         this.setState({ set: true })
         console.log("set", this.state.set)
+        console.log()
         if (window.confirm("Are you sure you want to Approve?")) {
             axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
                 "status": 'Approved',
-                "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
-                "approverId": "5",
+                "leaveId": 7,
+                "approverId": "1",
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
