@@ -17,17 +17,17 @@ class TangkwaMyClockIn extends Component {
         }
     }
     componentDidMount() {
-        axios.get('https://managemate.azurewebsites.net/GetCheckinInfo')
+        axios.get('https://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
                 console.log("clock in", this.state.people)
                 const person1 = res.data.filter(person1 => {
-                    return person1.status === 'in'
+                    return person1.Status === 'in'
                 })
                 this.setState({ peoplein: person1 })
                 const person2 = res.data.filter(person2 => {
-                    return person2.status === 'out'
+                    return person2.Status === 'out'
                 })
                 this.setState({ peopleout: person2 })
 
@@ -50,8 +50,8 @@ class TangkwaMyClockIn extends Component {
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
                         {this.state.peoplein.map(peoplein => (<div className="row flex-container tangkwaSetData">
-                            <div className="tkflex-1"><p>{moment(peoplein.time).format('DD-MM-YYYY')}</p></div>
-                            <div className="tkflex-1"><p>{moment(peoplein.time).format('HH:MM')}</p></div>
+                            <div className="tkflex-1"><p>{peoplein.Date}</p></div>
+                            <div className="tkflex-1"><p>{peoplein.Time}</p></div>
                             <div className="tkflex-1"><p>{peoplein.place}</p></div>
                         </div>))}
                     </div>
@@ -63,8 +63,8 @@ class TangkwaMyClockIn extends Component {
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
                         {this.state.peopleout.map(peopleout => (<div className="row flex-container tangkwaSetData">
-                            <div className="tkflex-1"><p>{moment(peopleout.time).format('DD-MM-YYYY')}</p></div>
-                            <div className="tkflex-1"><p>{moment(peopleout.time).format('HH:MM')}</p></div>
+                            <div className="tkflex-1"><p>{peopleout.Date}</p></div>
+                            <div className="tkflex-1"><p>{peopleout.Time}</p></div>
                             <div className="tkflex-1"><p>{peopleout.place}</p></div>
                         </div>))}
                     </div>
