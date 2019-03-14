@@ -34,7 +34,7 @@ class EnddateCalendar extends React.Component {
            
         }
         else {
-            onChange(id1, moment(date).format().toString());
+            onChange(id1, moment(date).format().toString().substring(0,10));
 
         }
     }
