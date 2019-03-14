@@ -31,7 +31,7 @@ class TangkwaApproveLeaveDetail extends Component {
         this.setState({ set: true })
         console.log("set", this.state.set)
         if (window.confirm("Are you sure you want to Approve?")) {
-            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=1&approverId=1`, {
+            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
                 "status": 'Approved',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
                 "approverId": "5",
@@ -53,7 +53,7 @@ class TangkwaApproveLeaveDetail extends Component {
         this.setState({ set: false })
         console.log("set", this.state.set)
         if (window.confirm("Are you sure you want to Approve?")) {
-            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=1&approverId=1`, {
+            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
                 "status": 'Rejected',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
                 "approverId": "5",
