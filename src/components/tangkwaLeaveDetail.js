@@ -52,6 +52,14 @@ class TangkwaLeaveDetail extends Component {
             return true
         }
     }
+    setDay = (start,end) => {
+        if (start == end) {
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
 
     render() {
@@ -84,7 +92,17 @@ class TangkwaLeaveDetail extends Component {
                         <div className="tkflex-1">
                         </div>
                     </div>
-                    <div className="row flex-container">
+                    {this.setDay(people.LeaveStartDateTime,people.LeaveEndDateTime) && <div className="row flex-container">
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        <div className="tk1flex-1"><div><p><b>DATE :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
+                            <div></div>
+                        </div>
+                        <div className="tk1flex-1">
+                        </div>
+                        <div className="tk1flex-1"><div><p></p></div></div>
+                        <div className="tk1flex-1"><div><p></p></div></div>
+                    </div>}
+                    {!this.setDay(people.LeaveStartDateTime,people.LeaveEndDateTime) && <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
                         <div className="tk1flex-1"><div><p><b>DAY START :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                             <div><p><b>DAY END : </b>{moment(people.LeaveEndDateTime).format('DD-MM-YYYY')}</p></div>
@@ -93,7 +111,7 @@ class TangkwaLeaveDetail extends Component {
                         </div>
                         <div className="tk1flex-1"><div><p></p></div></div>
                         <div className="tk1flex-1"><div><p></p></div></div>
-                    </div>
+                    </div>}
                     <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
                         <div className="tk1flex-3"><div><p>COMMENT : {people.LeaveComment}</p></div>
