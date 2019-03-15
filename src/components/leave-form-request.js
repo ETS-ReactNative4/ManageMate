@@ -340,7 +340,7 @@ class RequestForm extends React.Component {
                 </div>
 
                 <div>
-                        <button className="submit-button" onClick={this.handleCheckSubmit}>Send</button>
+                        <button className="submit-button" onClick={this.handleCheckSubmit} className ="Submit">Send</button>
                 </div>
 
 
