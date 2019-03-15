@@ -200,6 +200,38 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
+        if (this.state.selectedFile.length == 0){
+            axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            "leaveID" : 0,
+            "staffID" : 1,
+            "firstnameEN" : "tangkwa",
+            "lastnameEN" : "tangkwa",
+            "role" :0,
+            "leaveType" : this.state.leavetype,
+            "leaveStartDateTime" : this.state.dayStart,
+            "leaveEndDateTime" : this.state.dayEnd,
+            "leaveStatus" : "Pending",
+            "leaveComment" : this.state.note,
+            "approvedBy" : "-",
+            "approvedTime" : "2019-02-25T11:55:50.106Z",
+            "leaveFile1" : "",
+            "leaveFile2" : "",    
+            "leaveFile3" : "",
+
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Data has been sent!.");
+                        browserHistory.push('/MyleaveHistory')
+
+                    }
+
+                }
+            })
+            .then(function (response) {
+            })
+        }
+        else {
         let Base64File =  await this.getBase64(this.state.selectedFile[0])
         axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             "leaveID" : 0,
@@ -230,6 +262,7 @@ class RequestForm extends React.Component {
             })
             .then(function (response) {
             })
+        }
     }
 
 
