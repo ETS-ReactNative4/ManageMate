@@ -106,15 +106,15 @@ class TangkwaAddUser extends Component {
                 "bankName": this.state.bankName,
                 "tellNO": this.state.telNo ,
                 "sickQuo": this.state.sick,
-                "sickRemain": 0,
+                "sickRemain": this.state.sick,
                 "annualQuo": this.state.annual,
-                "annualRemain": 0,
+                "annualRemain": this.state.annual,
                 "lwpQuo": this.state.lwp ,
-                "lwpRemain": 0,
+                "lwpRemain": this.state.lwp,
                 "personalQuo": this.state.personal ,
-                "personalRemain": 0,
+                "personalRemain": this.state.personal ,
                 "lfwosQuo": this.state.lfwos ,
-                "lfwosRemain": 0
+                "lfwosRemain": this.state.lfwos
 
 
             }, {

@@ -99,42 +99,78 @@ class TangkwaApproveLeaveDetail extends Component {
             return false
         }
     }
+    CheckPic = (pic) => {
+        if (pic === "") {
+            return false
+        }
+        else {
+            return true
+        }
+    }
     render() {
         return (
             <div className="App">
                 {this.state.people.map(people => (
                     <div>
                         <div className="tangkwaTitle tangkwa2"><h4><b>APPROVE DETAIL</b></h4></div>
-                        <div className="flex-container">
-                            <div className="tk1flex-0"></div>
-                            <div className="tk1flex-1">
-                                <div><p><b>FIRSTNAME : </b>{people.FirstnameEN}</p></div>
-                            </div>
-                            <div className="tk1flex-1">
-                                <div><p><b>LASTNAME : </b>{people.LastnameEN}</p></div>
-                            </div>
-                            <div className="tk1flex-1">
-                                <div><p><b>SATFF ID : </b>{people.StaffID}</p></div>
-                            </div>
-                            <div className="tkflex-1 tangkwaLeaveFrame">
-                                <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
-                                <div><p><b>MANAGE BY : </b>{people.ApprovedBy}</p></div>
-                            </div>
-                        </div>
                         <div className="row flex-container">
-                            <div className="tk1flex-0">
-                                <div><p></p></div></div>
-                            <div className="tk1flex-1">
-                                <div><p><b>POSITION :</b>{this.setRole(people.Role)}</p></div>
-                            </div>
-                            <div className="tk1flex-1">
-                                <div><p><b>LEAVE ID : </b>{people.LeaveID}</p></div>
-                            </div>
-                            <div className="tk1flex-1">
-                                <div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div></div>
-                            <div className="tk1flex-1">
-                                <div><p></p></div></div>
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        <div className="tk1flex-1 fffont"><div><p>LEAVE ID : {people.LeaveID}</p></div>
                         </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tkflex-1 tangkwaLeaveFrame">
+                            <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
+                            <div><p><b>MANAGE BY : </b>{people.ApprovedBy}</p></div>
+                        </div>
+                    </div>
+                    
+                        
+                    <div className="row flex-container">
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        
+                        <div className="tk1flex-1"><div><p>STAFF ID : {people.StaffID}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tk1flex-1 ">
+                            <div></div>
+                        
+                        </div>
+                    
+                    </div>
+                    <div className="row flex-container">
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        
+                        <div className="tk1flex-1"><div><p>FIRSTNAME : {people.FirstnameEN}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p>LASTNAME : {people.LastnameEN}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p>POSITION : {this.setRole(people.Role)}</p></div>
+                        </div>
+                        <div className="tk1flex-1 ">
+                            <div><p></p></div>
+                        
+                        </div>
+                    
+                    </div>
+<div className = "line"></div>
+                    <div className="row flex-container ">
+                        <div className="tk1flex-0"></div>
+                        
+                        <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tkflex-1">
+                        </div>
+                    </div>
                         {this.setDay(people.LeaveStartDateTime,people.LeaveEndDateTime) && <div className="row flex-container">
                             <div className="tk1flex-0">
                                 <div><p></p></div></div>
@@ -165,13 +201,13 @@ class TangkwaApproveLeaveDetail extends Component {
                             <div className="tk1flex-1">
                                 <div><p><b>COMMENT : </b>{people.LeaveComment}</p></div>
                                 <div><p><b>FILE : </b></p>
-                                <BigPicture
+                                {this.CheckPic(people.LeaveFile1) && <BigPicture
                             
                                
                             img src = {people.LeaveFile1}
                         >
                             <img src={people.LeaveFile1} width = "80" height = "80"/>
-                        </BigPicture>
+                        </BigPicture>}
                         
                                 </div>
                             </div>
