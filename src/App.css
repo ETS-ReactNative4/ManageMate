@@ -554,6 +554,10 @@ text-align: left;
   flex: 1;
   text-align: left;  
 }
+.fffont {
+  font-size: 23pt;
+  color : blue;
+}
 .tk1flex-8{
   flex: 8;
   text-align: left;
@@ -567,13 +571,19 @@ text-align: left;
   border-color: #FEC600;
   border-radius: 20px;
 align-self: left;
-margin-top : -2%;
+margin-top :-0.6%;
 margin-right : 3%;
 height : 20%;
 }
 .addpng{
   margin-left : 1%;
   
+}
+.line{
+  border-top: 2px solid gray;
+  background-color: lightgrey;
+  margin-top : 0.5%;
+ margin-bottom: 0.5%;
 }
 .checkpng{
   margin-top :-0.2%;

@@ -70,11 +70,11 @@ class TangkwaLeaveDetail extends Component {
                     <div className="tangkwaTitle tangkwa2"><h4><b>LEAVE DETAIL</b></h4></div>
                     <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-1"><div><p><b>FIRSTNAME :</b> {people.FirstnameEN}</p></div>
+                        <div className="tk1flex-1 fffont"><div><p>LEAVE ID : {people.LeaveID}</p></div>
                         </div>
-                        <div className="tk1flex-1"><div><p><b>LASTNAME :</b> {people.LastnameEN}</p></div>
+                        <div className="tk1flex-1"><div></div>
                         </div>
-                        <div className="tk1flex-1"><div><p><b>STAFF ID : </b>{people.StaffID}</p></div>
+                        <div className="tk1flex-1"><div></div>
                         </div>
                         <div className="tkflex-1 tangkwaLeaveFrame">
                             <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
@@ -82,12 +82,44 @@ class TangkwaLeaveDetail extends Component {
                         </div>
                     </div>
                     <div className="row flex-container">
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        
+                        <div className="tk1flex-1"><div><p>STAFF ID : {people.StaffID}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p></p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p></p></div>
+                        </div>
+                        <div className="tk1flex-1 ">
+                            <div><p></p></div>
+                        
+                        </div>
+                    
+                    </div>
+                    <div className="row flex-container">
+                        <div className="tk1flex-0"><div><p></p></div></div>
+                        
+                        <div className="tk1flex-1"><div><p>FIRSTNAME : {people.FirstnameEN}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p>LASTNAME : {people.LastnameEN}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div><p>POSITION : {this.setRole(people.Role)}</p></div>
+                        </div>
+                        <div className="tk1flex-1 ">
+                            <div><p></p></div>
+                        
+                        </div>
+                    
+                    </div>
+                    <div className = "line"></div>
+                    <div className="row flex-container">
                         <div className="tk1flex-0"></div>
-                        <div className="tk1flex-1"><div><p><b>POSITION :</b> {this.setRole(people.Role)}</p></div>
-                        </div>
-                        <div className="tk1flex-1"><div><p><b>LEAVE ID : </b> {people.LeaveID}</p></div>
-                        </div>
+                        
                         <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
+                        </div>
+                        <div className="tk1flex-1"><div></div>
                         </div>
                         <div className="tkflex-1">
                         </div>
