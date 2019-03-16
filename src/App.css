@@ -1044,6 +1044,10 @@ margin : 10px
  margin-right:1%;
  background-color : #FEC600;
 }
+.selecttype{
+  padding-left : 77%;
+  padding-bottom: 3%;
+}
 .pStatusProcess{
   font-size:17px;
   border-radius : 8px;
