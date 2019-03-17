@@ -7,7 +7,7 @@ class OfficeCalendar extends Component {
             <div>
                 <div className="tangkwaTitle"><h4><b>OFFICE CALENDAR</b></h4></div>
                 <Link to='OfficecreateEvent' ><button type="submit" value="event" className="createEvent">CREATE EVENT</button></Link>
-              
+
             </div>
         );
     }
