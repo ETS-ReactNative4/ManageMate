@@ -23,7 +23,9 @@ class TangkwaStatisticsDetail extends Component {
     }
     componentDidMount() {
         axios.get(`http://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=${_.last(window.location.pathname.split('/'))}`)
+        // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
+                console.log(res.data)
                 const person1 = res.data.filter(person1 => {
                     return person1.Status === "in"
                 })

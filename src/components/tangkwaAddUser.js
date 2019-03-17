@@ -84,8 +84,9 @@ class TangkwaAddUser extends Component {
     }
     handleSubmit = async event => {
         if (window.confirm("Are you sure to add new user?")) {
-            axios.post('https://managemate.azurewebsites.net/AddEmployee', {
-                // "withdrawID": 0,
+            // axios.post('https://managemate.azurewebsites.net/AddEmployee', {
+                axios.post('http://127.0.0.1:8000/employee/addemployee/', {
+                // "withdrawID": 0, 
                 // "staffID": 1,
                 // "bankNo": "this.state.bankNo",
                 // "bankNumber": 0,

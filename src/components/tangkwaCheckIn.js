@@ -47,8 +47,8 @@ class TangkwaCheckIn extends Component {
             console.log("this is check in date",date , time)
 
       
-        axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
-            "runningNo": 0,
+        // axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
+        axios.post('http://127.0.0.1:8000/employee/checkin/', {
             "staffID": 1,
             "staffName": `Tangkwa`,
             "date" : date,
