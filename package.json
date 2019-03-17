@@ -11,6 +11,7 @@
     "filepond-plugin-image-exif-orientation": "^1.0.2",
     "filepond-plugin-image-preview": "^3.0.0",
     "geolocation": "^0.2.0",
+    "globalize": "^1.4.2",
     "google-map-react": "^1.1.2",
     "google-maps-react": "^2.0.2",
     "jquery": "^3.3.1",
