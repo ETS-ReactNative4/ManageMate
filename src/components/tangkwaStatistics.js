@@ -13,8 +13,10 @@ class TangkwaStatistics extends Component {
         }
     }
     componentDidMount() {
-        axios.get("https://managemate.azurewebsites.net/GetEmployeeInfo")
+        // axios.get("https://managemate.azurewebsites.net/GetEmployeeInfo")
+        axios.get("http://127.0.0.1:8000/employee/getemployee/")
             .then(res => {
+                console.log(res.data)
                 this.setState({ people: res.data })
                 const data = res.data.map(p => {
                     return _.reduce(p, (result, val, key) => {
