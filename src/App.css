@@ -566,6 +566,19 @@ text-align: left;
     flex: 13;
   text-align: left;
   }
+  .log-in{
+    border-color: #222;
+    border-radius : 15px;
+    width : 45%;
+  }
+  .borderLogin{
+    border: 2px solid white;
+    background: white;
+    border-radius: 10px;
+    width : 30%;
+    margin-left : 35%;
+    margin-top :12%;
+  }
 .tangkwaLeaveFrame{
   border-style: solid;
   border-color: #FEC600;
@@ -855,6 +868,13 @@ margin-top:-2%;
   border-width : 0px;
   border-radius : 5px;
 margin-right:10%;
+ background-color : #FEC600;
+}
+.LoginButton{
+  border-width : 0px;
+  border-radius : 5px;
+  width: 20%;
+margin-left:70%;
  background-color : #FEC600;
 }
 .Cancel{
