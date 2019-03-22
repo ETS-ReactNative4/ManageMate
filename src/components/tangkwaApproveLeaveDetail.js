@@ -16,8 +16,9 @@ class TangkwaApproveLeaveDetail extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
-            .then(res => {
+        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`http://127.0.0.1:8000/employee/getleave/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)    
+        .then(res => {
                 const person = res.data
                 this.setState({ people: person })
                 console.log("ttt", this.state.people)
@@ -32,9 +33,10 @@ class TangkwaApproveLeaveDetail extends Component {
         console.log("set", this.state.set)
         console.log()
         if (window.confirm("Are you sure you want to Approve?")) {
-            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
+            // axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
+            axios.post("http://127.0.0.1:8000/employee/updateleave/",{ 
                 "status": 'Approved',
-                "leaveId": 7,
+                "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
                 "approverId": "1",
             }, {
                     onUploadProgress: ProgressEvent => {
@@ -54,8 +56,9 @@ class TangkwaApproveLeaveDetail extends Component {
         this.setState({ set: false })
         console.log("set", this.state.set)
         if (window.confirm("Are you sure you want to Approve?")) {
-            axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
-                "status": 'Rejected',
+            // axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
+                axios.post("http://127.0.0.1:8000/employee/updateleave/",{     
+            "status": 'Rejected',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
                 "approverId": "5",
             }, {
@@ -80,14 +83,14 @@ class TangkwaApproveLeaveDetail extends Component {
     }
     setRole = (role) => {
         
-        if (role === 0) {
+        if (role === "0") {
          console.log("55555")
             return role = 'Normal User'
         }
-        if (role === 1) {
+        if (role === "1") {
          return role = 'HR'
      }
-     if (role === 2) {
+     if (role === "2") {
          return role = 'Super User'
      }
      }

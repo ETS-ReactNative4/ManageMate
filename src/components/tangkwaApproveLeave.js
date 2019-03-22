@@ -20,9 +20,11 @@ class TangkwaApproveLeave extends Component {
         console.log(this.state.Save)
         this.setState({ Save: event.target.value })
 
+
     }
     componentDidMount() {
-        axios.get('https://managemate.azurewebsites.net/api/Leave/GetLeaveInfo')
+        // axios.get('https://managemate.azurewebsites.net/api/Leave/GetLeaveInfo')
+        axios.get("http://127.0.0.1:8000/employee/getleaveall/")
             .then(res => {
                 this.setState({ people: res.data })
                 console.log("kkk",this.state.people)
@@ -73,7 +75,7 @@ class TangkwaApproveLeave extends Component {
                     }).map((people) =>
                         <div className="row flex-container tangkwaSetData">
                             <div className="tkflex-1"><div className={`${people.leaveStatus == 'Approved' ? 'tangkwaSetApprove' : people.leaveStatus == 'Pending' ? 'tangkwaSetPending' : 'tangkwaSetReject'}`}><p><b>{people.leaveStatus}</b></p></div></div>
-                            <Link to={`/LeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
+                            <Link to={`/ApproveLeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
                             <div className="tkflex-2"><p>{people.firstnameEN} {people.lastnameEN}</p></div>
                             <div className="tkflex-2"><p>{moment(people.leaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                             <div className="tkflex-1"><p>{people.approvedBy}</p></div>
