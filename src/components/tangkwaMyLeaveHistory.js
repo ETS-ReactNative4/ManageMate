@@ -21,7 +21,8 @@ class TangkwaMyLeaveHistory extends Component {
 
     }
     componentDidMount() {
-        axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
+        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
+        axios.get(`http://127.0.0.1:8000/employee/getleavebystaffid/?staffId=${this.state.staffid}`)
             .then(res => {
                 this.setState({ people: res.data })
                 console.log("people", this.state.people)

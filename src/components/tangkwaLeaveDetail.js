@@ -18,7 +18,8 @@ class TangkwaLeaveDetail extends Component {
     }
     async componentDidMount() {
         try {
-            const response = await axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`);
+            // const response = await axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`);
+            const response = await axios.get(`http://127.0.0.1:8000/employee/getleave/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             await this.setState({ people: response.data });
             console.log("1234", this.state.people)
         } catch (error) {
@@ -26,14 +27,14 @@ class TangkwaLeaveDetail extends Component {
         }
     }
     setRole(role) {
-        if (role === 0) {
+        if (role === "0") {
             console.log("55555")
             return role = 'Normal User'
         }
-        if (role === 1) {
+        if (role === "1") {
             return role = 'HR'
         }
-        if (role === 2) {
+        if (role === "2") {
             return role = 'Super User'
         }
 

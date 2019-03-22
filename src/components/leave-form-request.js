@@ -200,8 +200,11 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
+        
         if (this.state.selectedFile.length == 0){
-            axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            console.log("this is send fuction")
+            // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            axios.post("http://127.0.0.1:8000/employee/addleave/",{
             "leaveID" : 0,
             "staffID" : 1,
             "firstnameEN" : "tangkwa",
@@ -233,7 +236,8 @@ class RequestForm extends React.Component {
         }
         else {
         let Base64File =  await this.getBase64(this.state.selectedFile[0])
-        axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+        // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+        axios.post("http://127.0.0.1:8000/employee/addleave/",{
             "leaveID" : 0,
             "staffID" : 1,
             "firstnameEN" : "tangkwa",
