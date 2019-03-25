@@ -189,10 +189,10 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
-                        <p>FIRSTNAME : </p>
+                        <p>USERNAME : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} className="setForAddUser" />
+                        <input type="text" value={this.state.username} onChange={this.handleChangeusername} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>SICK LEAVE : </p>
@@ -203,10 +203,10 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
-                        <p>LASTNAME : </p>
+                        <p>PASSWORD : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.lastname} onChange={this.handleChangeLastName} className="setForAddUser" />
+                        <input type="text" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>ANNUAL LEAVE : </p>
@@ -217,10 +217,10 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
-                        <p>EMAIL : </p>
+                        <p>FIRSTNAME : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.email} onChange={this.handleChangeEmail} className="setForAddUser" />
+                        <input type="text" value={this.state.firstname} onChange={this.handleChangeFirstName} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>LEAVE WITHOUT PAY : </p>
@@ -231,10 +231,10 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
-                        <p>TEL NO. : </p>
+                        <p>LASTNAME : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.telNo} onChange={this.handleChangeTelNo} className="setForAddUser" />
+                        <input type="text" value={this.state.lastname} onChange={this.handleChangeLastName} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>PERSONAL LEAVE : </p>
@@ -245,16 +245,44 @@ class TangkwaAddUser extends Component {
                 </div>
                 <div className="flex-container row">
                     <div className="tkflex-22">
-                        <p>BANK NO. : </p>
+                        <p>EMAIL : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.bankNo} onChange={this.handleChangeBankNo} className="setForAddUser" />
+                        <input type="text" value={this.state.email} onChange={this.handleChangeEmail} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>LEAVE FOR WORK OUTSIDE : </p>
                     </div>
                     <div className="tk1flex-2">
                         <p><input type="number" value={this.state.lfwos} onChange={this.handleChangeLfwos} className="setHour" />  DAYS</p>
+                    </div>
+                </div>
+                <div className="flex-container row">
+                    <div className="tkflex-22">
+                        <p>TEL NO. : </p>
+                    </div>
+                    <div className="tk1flex-2">
+                        <input type="text" value={this.state.telNo} onChange={this.handleChangeTelNo} className="setForAddUser" />
+                    </div>
+                    <div className="tk1flex-2">
+                       
+                    </div>
+                    <div className="tk1flex-2">
+                     
+                    </div>
+                </div>
+                <div className="flex-container row">
+                    <div className="tkflex-22">
+                        <p>BANK NO. : </p>
+                    </div>
+                    <div className="tk1flex-2">
+                        <input type="text" value={this.state.bankNo} onChange={this.handleChangeBankNo} className="setForAddUser" />
+                    </div>
+                    <div className="tk1flex-2">
+                        
+                    </div>
+                    <div className="tk1flex-2">
+                       
                     </div>
                 </div>
                 <div className="flex-container row">
@@ -288,34 +316,7 @@ class TangkwaAddUser extends Component {
                     <div className="tk1flex-2">
                     </div>
                 </div>
-                <div className="flex-container row">
-                    <div className="tkflex-22">
-                        <p>USERNAME : </p>
-                    </div>
-                    <div className="tk1flex-2">
-                        <input type="text" value={this.state.username} onChange={this.handleChangeusername} className="setForAddUser" />
-                    </div>
-                    <div className="tk1flex-2">
-                        
-                    </div>
-                    <div className="tk1flex-2">
-                      
-                    </div>
-                </div>
-                <div className="flex-container row">
-                    <div className="tkflex-22">
-                        <p>PASSWORD : </p>
-                    </div>
-                    <div className="tk1flex-2">
-                        <input type="text" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser" />
-                    </div>
-                    <div className="tk1flex-2">
-                        
-                    </div>
-                    <div className="tk1flex-2">
-                      
-                    </div>
-                </div>
+                
                 <div>
                     <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">Submit</button>
                     <button type="submit" value="Cancel" onClick={this.handleCancel}className="Cancel">Cancel</button>
