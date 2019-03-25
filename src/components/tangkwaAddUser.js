@@ -19,7 +19,9 @@ class TangkwaAddUser extends Component {
             annual: '',
             lwp: '',
             personal: '',
-            lfwos: ''
+            lfwos: '',
+            username : '',
+            password : ''
         }
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
@@ -33,10 +35,20 @@ class TangkwaAddUser extends Component {
         this.handleChangeLwp = this.handleChangeLwp.bind(this);
         this.handleChangePersonal = this.handleChangePersonal.bind(this);
         this.handleChangeLfwos = this.handleChangeLfwos.bind(this);
+        this.handleChangeusername = this.handleChangeusername.bind(this);
+        this.handleChangepassword = this.handleChangepassword.bind(this);
     }
     handleChangeFirstName(event) {
         this.setState({ firstname: event.target.value });
         console.log("Firstname", this.state.firstname)
+    }
+    handleChangeusername(event) {
+        this.setState({ username: event.target.value });
+        console.log("username", this.state.username)
+    }
+    handleChangepassword(event) {
+        this.setState({ password: event.target.value });
+        console.log("password", this.state.password)
     }
     handleChangeLastName(event) {
         this.setState({ lastName: event.target.value });
@@ -262,18 +274,46 @@ class TangkwaAddUser extends Component {
                         <p>POSITION : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <div className="selecttype">
+                       
                             <select onChange={this.handleChangePosition} >
                                 <option value="">Please Select</option>
                                 <option value="1">Super User</option>
                                 <option value="2">HR</option>
                                 <option value="3">Normal User</option>
                             </select>
-                        </div>
+                        
                     </div>
                     <div className="tk1flex-2">
                     </div>
                     <div className="tk1flex-2">
+                    </div>
+                </div>
+                <div className="flex-container row">
+                    <div className="tkflex-22">
+                        <p>USERNAME : </p>
+                    </div>
+                    <div className="tk1flex-2">
+                        <input type="text" value={this.state.username} onChange={this.handleChangeusername} className="setForAddUser" />
+                    </div>
+                    <div className="tk1flex-2">
+                        
+                    </div>
+                    <div className="tk1flex-2">
+                      
+                    </div>
+                </div>
+                <div className="flex-container row">
+                    <div className="tkflex-22">
+                        <p>PASSWORD : </p>
+                    </div>
+                    <div className="tk1flex-2">
+                        <input type="text" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser" />
+                    </div>
+                    <div className="tk1flex-2">
+                        
+                    </div>
+                    <div className="tk1flex-2">
+                      
                     </div>
                 </div>
                 <div>
