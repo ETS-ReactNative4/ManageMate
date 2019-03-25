@@ -119,12 +119,12 @@ class TangkwaStatisticsDetail extends Component {
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>PERSONAL LEAVE</b></p></div>
                     <div className="tkflex-1"><p>{this.state.person.personalQuo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.person.lwpRemain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.person.personalRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>LEAVE FOR WORK OUTSIDE</b></p></div>
                     <div className="tkflex-1"><p>{this.state.person.lfwosQuo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.person.lwpRemain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.person.lfwosRemain}</p></div>
                 </div>
 
                 <div className="flex-container row margindetail">

@@ -48,7 +48,8 @@ class TangkwaCheckIn extends Component {
 
       
         // axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
-        axios.post('http://172.20.10.4:8000/employee/checkin/', {
+        // axios.post('http://172.20.10.4:8000/employee/checkin/', {
+        axios.post('http://127.0.0.1:8000/employee/checkin/', {    
             "staffID": 1,
             "staffName": `Tangkwa`,
             "date" : date,

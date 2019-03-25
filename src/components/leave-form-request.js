@@ -205,7 +205,6 @@ class RequestForm extends React.Component {
             console.log("this is send fuction")
             // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             axios.post("http://127.0.0.1:8000/employee/addleave/",{
-            "leaveID" : 0,
             "staffID" : 1,
             "firstnameEN" : "tangkwa",
             "lastnameEN" : "tangkwa",
@@ -225,7 +224,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        browserHistory.push('/MyleaveHistory')
+                        // browserHistory.push('/MyleaveHistory')
 
                     }
 
