@@ -106,35 +106,40 @@ class TangkwaAddUser extends Component {
                 // "lastnameEN": "string",
                 // "role": this.state.position ,
                 // "amount": 0,
-
-                "staffID": 0,
-                "projectID": 0,
-                "firstnameEN": this.state.firstname ,
-                "lastnameEN": this.state.lastName,
-                "firstnameTH": "string",
-                "lastnameTH": "string",
-                "email": this.state.email,
-                "role": this.state.position,
-                "bankNO": this.state.bankNo,
-                "bankName": this.state.bankName,
-                "tellNO": this.state.telNo ,
-                "sickQuo": this.state.sick,
-                "sickRemain": this.state.sick,
-                "annualQuo": this.state.annual,
-                "annualRemain": this.state.annual,
-                "lwpQuo": this.state.lwp ,
-                "lwpRemain": this.state.lwp,
-                "personalQuo": this.state.personal ,
-                "personalRemain": this.state.personal ,
-                "lfwosQuo": this.state.lfwos ,
-                "lfwosRemain": this.state.lfwos
-
+                "user":{
+                    "username":this.state.username,
+                    "password":this.state.password,
+                    "user_type": this.state.position,
+                },
+                "data":{
+                    "staffID": 0,
+                    "projectID": 0,
+                    "firstnameEN": this.state.firstname ,
+                    "lastnameEN": this.state.lastName,
+                    "firstnameTH": "string",
+                    "lastnameTH": "string",
+                    "email": this.state.email,
+                    "role": this.state.position,
+                    "bankNO": this.state.bankNo,
+                    "bankName": this.state.bankName,
+                    "tellNO": this.state.telNo ,
+                    "sickQuo": this.state.sick,
+                    "sickRemain": this.state.sick,
+                    "annualQuo": this.state.annual,
+                    "annualRemain": this.state.annual,
+                    "lwpQuo": this.state.lwp ,
+                    "lwpRemain": this.state.lwp,
+                    "personalQuo": this.state.personal ,
+                    "personalRemain": this.state.personal ,
+                    "lfwosQuo": this.state.lfwos ,
+                    "lfwosRemain": this.state.lfwos
+                }
 
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                             alert("Data has been sent!.");
-                            browserHistory.push('/Statistics')
+                            // browserHistory.push('/Statistics')
                         }
                     }
                 })
