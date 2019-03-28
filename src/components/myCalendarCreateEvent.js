@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import '../App.css';
+import EventCalendar from './EventCalendar';
+import axios from 'axios'
 
 const FormHeader = props => {
     return (
@@ -20,7 +22,8 @@ class MyCalendarCreateEvent extends Component {
             value: '',
             min : '',
             hour:'',
-            comment: ''
+            comment: '',
+            date : ''
 
         }
 
@@ -42,9 +45,41 @@ class MyCalendarCreateEvent extends Component {
         this.setState({ comment: event.target.value });
         console.log("Comment",this.state.comment)
     }
+
+    handleChangeDateTime = (id , value) => {
+       this.setState({
+           [id] : value
+       })
+    }
+
+    handleSubmit = () => {
+            // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            axios.post("http://127.0.0.1:8000/employee/addcalendar/",{
+            "staffID" : 1,
+            "datetime" : this.state.date,
+            "date" : this.state.date.substring(8,10),
+            "time" :`${this.state.hour}` + `${this.state.min}`,
+            "comment" : this.state.comment
+
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Data has been sent!.");
+                        // browserHistory.push('/MyleaveHistory')
+
+                    }
+
+                }
+            })
+            .then(function (response) {
+            })
+    }
+    
+
+
     render() {
+        console.log("this is date ",this.state.date.substring(8,10))
         return (
-            
             <div>
                 <FormHeader/>
                 <div className = "row flex-container">
@@ -55,7 +90,8 @@ class MyCalendarCreateEvent extends Component {
                 </div>
                 <div className = "row flex-container">
                 <div className = "tk1flex-0"></div>
-                <div className = "tk1flex-3 downdown">DATE : </div>
+                <div className = "tk1flex-3 downdown">DATE : <EventCalendar onChange = {this.handleChangeDateTime} id ={'date'}/></div>
+
                 <div className = "tk1flex-1">
                 </div>
                 </div>
@@ -66,7 +102,7 @@ class MyCalendarCreateEvent extends Component {
                 </div>
                 </div>
                 <div className = "downdown">
-                    <button type="submit" value="Submit" className = "Submit">Submit</button>
+                    <button type="submit" value="Submit" onClick= {this.handleSubmit} className = "Submit">Submit</button>
                     <button type="submit" value="Cancel" className = "Cancel">Cancel</button>
                 </div>
             </div>
