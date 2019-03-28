@@ -3,14 +3,22 @@ import '../App.css';
 import moment from 'moment';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import Calendar from '../components/Calendar555';
-
+import axios from 'axios'
 
 const style = {
     position: "relative",
     margin: "50px auto"
 }
-class MyCalendar extends Component {
 
+
+class MyCalendar extends Component {
+    componentDidMount() {
+        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
+        axios.get(`http://127.0.0.1:8000/employee/getcalendar/`)
+            .then(res => {
+               console.log('this is log',res.data)
+            })
+    }
     render() {
 
 
