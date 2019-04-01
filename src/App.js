@@ -25,6 +25,7 @@ import MyCalendar from './components/MyCalendar'
 import OfficeCreateEvent from './components/OfficecreateEvent'
 import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
 import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
+import CheckInchoice from './components/checkinchoice'
 
 class MainLayout extends Component {
   render() {
@@ -52,14 +53,6 @@ class MainLayout extends Component {
                 </div>
               </div>
 
-              <div className="dropdown3">
-                <button className="dropbtn3">WITHDRAW</button>
-                <div className="dropdown-content3">
-                  <a href="/WithdrawRequest">WITHDRAW</a>
-                  <a href="/MywithdrawHistory">MY WITHDRAW</a>
-                  <a href="/withdrawApprove">APPROVE</a>
-                </div>
-              </div>
 
               <div className="dropdown4">
                 <button className="dropbtn4">CLOCK IN</button>
@@ -138,6 +131,7 @@ class App extends Component {
             <Route path='AddUser' component={TangkwaAddUser} />
             <Route path='OfficecreateEvent' component={OfficeCreateEvent}/>
             <Route path='MyCalendarCreateEvent' component={MyCalendarCreateEvent}/>
+            <Route path='checkInChoice' component={CheckInchoice}/>
             
           </Route>
       </Router>

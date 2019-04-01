@@ -50,15 +50,19 @@ class MyCalendarCreateEvent extends Component {
        this.setState({
            [id] : value
        })
+       console.log(this.state.date)
     }
 
     handleSubmit = () => {
+        
             // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             axios.post("http://127.0.0.1:8000/employee/addcalendar/",{
             "staffID" : 1,
             "datetime" : this.state.date,
-            "date" : this.state.date.substring(8,10),
-            "time" :`${this.state.hour}` + `${this.state.min}`,
+            "Month" : this.handleSetMonth(this.state.date.substring(5,7)),
+            "date" : this.handleSetDate(this.state.date.substring(8,10)),
+            "Hours" :this.state.hour ,
+            "Minutes": this.state.min,
             "comment" : this.state.comment
 
         }, {
@@ -74,11 +78,145 @@ class MyCalendarCreateEvent extends Component {
             .then(function (response) {
             })
     }
+    handleSetDate = (date) => {
+        if(date === "01") {
+            return date = 1
+        }
+        else if(date === "02") {
+          return date = 2
+      }
+      else if(date === "03") {
+          return date = 3
+      }
+      else if(date === "04") {
+          return date = 4
+      }
+      else if(date === "05") {
+          return date = 5
+      }
+      else if(date === "06") {
+          return date = 6
+      }
+      else if(date === "07") {
+          return date = 7
+      }
+      else if(date === "08") {
+          return date = 8
+      }
+      else if(date === "09") {
+          return date = 9
+      }
+      else if(date === "10") {
+          return date = 10
+      }
+      else if(date === "11") {
+          return date = 11
+      }
+      else if(date === "12") {
+          return date = 12
+      }
+      else if(date === "13") {
+          return date = 13
+      }
+      else if(date === "14") {
+          return date = 14
+      }
+      else if(date === "15") {
+          return date = 15
+      }
+      else if(date === "16") {
+          return date = 16
+      }
+      else if(date === "17") {
+          return date = 17
+      }
+      else if(date === "18") {
+          return date = 18
+      }
+      else if(date === "20") {
+          return date = 20
+      }
+      else if(date === "21") {
+          return date = 21
+      }
+      else if(date === "22") {
+          return date = 22
+      }
+      else if(date === "23") {
+          return date = 23
+      }
+      else if(date === "24") {
+          return date = 24
+      }
+      else if(date === "25") {
+          return date = 25
+      }
+      else if(date === "26") {
+          return date = 26
+      }
+      else if(date === "27") {
+          return date = 27
+      }
+      else if(date === "28") {
+          return date = 28
+      }
+      else if(date === "29") {
+          return date = 29
+      }
+      else if(date === "30") {
+          return date = 30
+      }
+      else if(date === "31") {
+          return date = 31
+      }
+
+    
+    }
+
+    handleSetMonth = (month) => {
+        if (month === "01") {
+            return month = "January"
+        }
+        else if (month === "02") {
+            return month = "February"
+        }
+        else if (month === "03") {
+            return month = "March"
+        }
+        else if (month === "04") {
+            return month = "April"
+        }
+        else if (month === "05") {
+            return month = "May"
+        }
+        else if (month === "06") {
+            return month = "June"
+        }
+        else if (month === "07") {
+            return month = "July"
+        }
+        else if (month === "08") {
+            return month = "August"
+        }
+        else if (month === "09") {
+            return month = "September"
+        }
+        else if (month === "10") {
+            return month = "October"
+        }
+        else if (month === "11") {
+            return month = "November"
+        }
+        else if (month === "2") {
+            return month = "December"
+        }
+
+    }
     
 
 
     render() {
-        console.log("this is date ",this.state.date.substring(8,10))
+        console.log(this.state.date.substring(5,7))
         return (
             <div>
                 <FormHeader/>
