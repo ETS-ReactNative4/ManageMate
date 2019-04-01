@@ -897,6 +897,11 @@ margin-left : 80%;
   height:30px;
   background-color : #FFFFFF;
   margin-bottom: 20px;
+  display:inline-flex;
+}
+
+.checkin-row{
+  display:inline-flex;
 }
 .select-types{
   text-align: left;

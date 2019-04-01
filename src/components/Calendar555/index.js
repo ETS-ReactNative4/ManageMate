@@ -4,26 +4,40 @@ import './calendar.css';
 import left from '../../Image/left-arrow.png'
 import right from '../../Image/arrow-point-to-right.png'
 import _ from 'lodash';
+import axios from 'axios';
 export default class Calendar extends React.Component {
     state = {
+
         dateContext: moment(),
         today: moment(),
         showMonthPopup: false,
         showYearPopup: false,
         selectedDay: null,
-        data: [{ day: 3, comment: "big Cleanning" },
-        { day: 1, comment: "big Cleanning" },
-        { day: 7, comment: "big Cleanning" }
-        ],
+        data: []
     }
     constructor(props) {
         super(props);
         this.width = props.width || "350px";
         this.style = props.style || {};
+       
     }
+    async componentDidMount() {
+        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
+          axios.get(`http://127.0.0.1:8000/employee/getcalendar/`)
+         
+            .then(res => {
+                console.log("data",res.data)
+             this.setState({data : res.data});
+            
+            })
+          
+         
+    }
+   
     weekdays = moment.weekdays(); //["Sunday", "Monday", "Tuesday", "Wednessday", "Thursday", "Friday", "Saturday"]
     weekdaysShort = moment.weekdaysShort(); // ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
     months = moment.months();
+   
     year = () => {
         return this.state.dateContext.format("Y");
     }
@@ -106,6 +120,7 @@ export default class Calendar extends React.Component {
                 }
             </span>
         );
+        
     }
     showYearEditor = () => {
         this.setState({
@@ -156,10 +171,12 @@ export default class Calendar extends React.Component {
         }, () => {
             console.log("SELECTED DAY: ", this.state.selectedDay);
         });
+        var today = day;
+        var n = today.toString();
 
         this.props.onDayClick && this.props.onDayClick(e, day);
         const dataFilter = data.filter((data) => {
-            if (day === data.day) {
+            if (n == data.date && data.Month == this.month()) {
                 return data
             }
             else {
@@ -167,26 +184,36 @@ export default class Calendar extends React.Component {
             }
            
         })
+        console.log("dataffff",dataFilter)
         if (dataFilter == "") {
-            alert("no data")
+            alert("No event on this day")
         }
         else {
-            alert("day : "+day+
-            " Comment :"+dataFilter[0].comment)
+           dataFilter.map((dataFilter) => {
+               return  alert("date : "+ dataFilter.datetime+
+               " time : "+dataFilter.Hours+":"+dataFilter.Minutes+
+               " detail : "+dataFilter.comment+
+               " by : "+dataFilter.FirstnameEN)
+           })
         }
        
     }
     mapDay = (today, data) => {
+        var num = today;
+        var n = num.toString();
+        console.log("month111",this.month())
+        //console.log("Map data",data)
         const dateSelect = data.filter((data) => {
-            if (today === data.day) {
-                // console.log("check same type", (typeof (today) === typeof (data.day)))
-                // console.log("check same value", (today === data.day))
-                // console.log('filter ', today)
-                return data.day;
+            if (n == data.date && data.Month == this.month()) {
+                // console.log("check same type", (typeof (n) === typeof (data.date)))
+                // console.log("check same value", (n === data.date))
+                // console.log('filter ')
+                return data.date;
             }
+           
         });
         // console.log(dateSelect)
-        return dateSelect[0] !== undefined ? dateSelect[0].day : '';
+        return dateSelect[0] !== undefined ? dateSelect[0].date : '';
     }
     render() {
         // Map the weekdays i.e Sun, Mon, Tue etc as <td>
@@ -202,10 +229,12 @@ export default class Calendar extends React.Component {
             </td>
             );
         }
-        console.log("blanks: ", blanks);
+        console.log("month",typeof(this.month()))
+        //console.log("blanks: ", blanks);
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
             let className = (d == this.currentDay() ? "day current-day" : "day");
+            //console.log("555",this.state.data)
             let selectedClass = (d == this.mapDay(d, this.state.data) ? " selected-day " : " ");
             // console.log('func ', d, this.mapDay(d, this.state.data),d == this.mapDay(d, this.state.data))
             daysInMonth.push(
@@ -214,7 +243,7 @@ export default class Calendar extends React.Component {
                 </td>
             );
         }
-        console.log("days: ", daysInMonth);
+        //console.log("days: ", daysInMonth);
         var totalSlots = [...blanks, ...daysInMonth];
         let rows = [];
         let cells = [];
@@ -251,6 +280,7 @@ export default class Calendar extends React.Component {
                             </td>
                             <td colSpan="2" className="nav-month">
                                 <img src={left} height="25px" onClick={(e) => { this.prevMonth() }} />
+
                                 <img src={right} height="25px" onClick={(e) => { this.nextMonth() }} />
                             </td>
                         </tr>

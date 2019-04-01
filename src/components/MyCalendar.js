@@ -12,13 +12,14 @@ const style = {
 
 
 class MyCalendar extends Component {
-    componentDidMount() {
-        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
-        axios.get(`http://127.0.0.1:8000/employee/getcalendar/`)
-            .then(res => {
-               console.log('this is log',res.data)
-            })
+    constructor(props) {
+        super(props);
+        this.state = {
+          
+            
+        }
     }
+  
     render() {
 
 
@@ -27,7 +28,7 @@ class MyCalendar extends Component {
                 <div className="tangkwaTitle"><h4><b>MY CALENDAR</b></h4></div>
                 <Link to='MyCalendarCreateEvent' ><button type="submit" value="event" className="createEvent">CREATE EVENT</button></Link>
                 <div className="App">
-                    <Calendar style={style} width="1200px"
+                    <Calendar style={style} width="1200px" data = {this.state.data}
                       />
                 </div>
             </div>

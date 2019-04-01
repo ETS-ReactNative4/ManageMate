@@ -97,8 +97,10 @@ class TangkwaCheckIn extends Component {
         return (
             <div className="App">
                 <FormHeader />
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetIn} /></h4></div>
-                <div className="tangkwaTitle"><h4>CHECK OUT : <img src={check} width="50" height="50" className="checkpng" onClick={this.handleSetOut} /></h4></div>
+                <div className ="checkin-row">
+                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="1000" height="200" className="checkpng" onClick={this.handleSetIn} /></h4></div>
+                <div className="tangkwaTitle"><h4>CHECK OUT : <img src={check} width="200" height="200" className="checkpng" onClick={this.handleSetOut} /></h4></div>
+                </div>
                 {this.state.showLocated && <div>
                     <p>{this.state.address}</p>
                     <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw"} className="googleMap" ></img>
