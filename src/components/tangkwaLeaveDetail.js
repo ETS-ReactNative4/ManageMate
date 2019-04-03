@@ -79,7 +79,7 @@ class TangkwaLeaveDetail extends Component {
                         </div>
                         <div className="tkflex-1 tangkwaLeaveFrame">
                             <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
-                            <div><p><b>MANAGE BY : </b>{people.ApprovedBy}</p></div>
+                            <div><p><b>MANAGE BY : </b>{people.approvedBy}</p></div>
                         </div>
                     </div>
                     <div className="row flex-container">
@@ -116,7 +116,7 @@ class TangkwaLeaveDetail extends Component {
                     <div className="row flex-container">
                         <div className="tk1flex-0"></div>
                         
-                        <div className="tk1flex-1"><div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div>
+                        <div className="tk1flex-2"><div><p><b>LEAVE TYPE : </b>{people.LeaveType}</p></div>
                         </div>
                         <div className="tk1flex-1"><div></div>
                         </div>
@@ -127,7 +127,7 @@ class TangkwaLeaveDetail extends Component {
                     </div>
                     {this.setDay(people.LeaveStartDateTime,people.LeaveEndDateTime) && <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-1"><div><p><b>DATE :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
+                        <div className="tk1flex-2"><div><p><b>DATE :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                             <div></div>
                         </div>
                         <div className="tk1flex-1">
@@ -137,7 +137,7 @@ class TangkwaLeaveDetail extends Component {
                     </div>}
                     {!this.setDay(people.LeaveStartDateTime,people.LeaveEndDateTime) && <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-1"><div><p><b>DAY START :</b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
+                        <div className="tk1flex-1"><div><p><b>DAY START : </b>{moment(people.LeaveStartDateTime).format('DD-MM-YYYY')}</p></div>
                             <div><p><b>DAY END : </b>{moment(people.LeaveEndDateTime).format('DD-MM-YYYY')}</p></div>
                         </div>
                         <div className="tk1flex-1">
@@ -147,13 +147,15 @@ class TangkwaLeaveDetail extends Component {
                     </div>}
                     <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-3"><div><p>COMMENT : {people.LeaveComment}</p></div>
+                        <div className="tk1flex-2"><div><p><b>COMMENT : </b> {people.LeaveComment}</p></div>
                         </div>
+                        <div className="tk1flex-1"><div></div><div><p></p></div></div>
+                        <div className="tk1flex-1"><div></div><div><p></p></div></div>
                         <div className="tk1flex-1"><div></div><div><p></p></div></div>
                     </div>
                     <div className="row flex-container">
                         <div className="tk1flex-0"><div><p></p></div></div>
-                        <div className="tk1flex-3"><div><p>FILE : </p>
+                        <div className="tk1flex-2"><div><p><b>FILE : </b></p>
                             {this.CheckPic(people.LeaveFile1) && <BigPicture
                             
                                
@@ -162,6 +164,8 @@ class TangkwaLeaveDetail extends Component {
                                 <img src={people.LeaveFile1} width = "80" height = "80"/>
                             </BigPicture>}</div>
                         </div>
+                        <div className="tk1flex-1"><div></div><div><p></p></div></div>
+                        <div className="tk1flex-1"><div></div><div><p></p></div></div>
                         <div className="tk1flex-1"><div></div><div><p></p></div></div>
                     </div>
                 </div>))}

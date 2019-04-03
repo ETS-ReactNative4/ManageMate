@@ -26,6 +26,7 @@ import OfficeCreateEvent from './components/OfficecreateEvent'
 import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
 import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
 import CheckInchoice from './components/checkinchoice'
+import EditUserDetail from './components/EditUserDetail'
 
 class MainLayout extends Component {
   render() {
@@ -132,6 +133,7 @@ class App extends Component {
             <Route path='OfficecreateEvent' component={OfficeCreateEvent}/>
             <Route path='MyCalendarCreateEvent' component={MyCalendarCreateEvent}/>
             <Route path='checkInChoice' component={CheckInchoice}/>
+            <Route path='EditUserDetail/:formId' component={EditUserDetail}/>
             
           </Route>
       </Router>
