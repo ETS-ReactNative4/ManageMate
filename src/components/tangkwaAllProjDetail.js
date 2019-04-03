@@ -12,7 +12,7 @@ class TangkwaAllProjDetail extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`https://managemate.azurewebsites.net/GetProjectInfoByProjectID?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`http://127.0.0.1:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
@@ -23,6 +23,60 @@ class TangkwaAllProjDetail extends Component {
                 // handle error here
             })
     }
+
+    onClickJoinProject = () =>{
+        axios.post("http://127.0.0.1:8000/employee/putJoinProject/",{     
+                "staffId": 2,
+                "projectID": this.state.people.projectID,
+               
+            }, {
+                    onUploadProgress: ProgressEvent => {
+                        if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                            alert("Join project successful")
+                        }
+                    }
+                })
+                .then(res => {
+                    console.log('log approve', res);
+                    console.log('log approve', res.data);
+                })
+        }
+
+    onClickChangeStatusDone = () => {
+        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+            "projectId": this.state.people.projectID,
+            "status": "done"
+           
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Join project successful")
+                    }
+                }
+            })
+            .then(res => {
+                console.log('log approve', res);
+                console.log('log approve', res.data);
+            })
+    }
+    onClickChangeStatusInprocess = () => {
+        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+            "projectId": this.state.people.projectID,
+            "status": "inprocess"
+           
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Join project successful")
+                    }
+                }
+            })
+            .then(res => {
+                console.log('log approve', res);
+                console.log('log approve', res.data);
+            })
+    }
+    
     render() {
         return (
             <div className="App">
@@ -32,24 +86,24 @@ class TangkwaAllProjDetail extends Component {
                         <div className="tk1flex-0"></div>
                         <div className="tk1flex-2">
                             <div><p><b>PROJECT ID : </b>{people.projectID}</p></div>
-                            <div><p><b>PROJECT NAME : </b>{people.projectName}</p></div>
+                            <div><p><b>PROJECT NAME : </b>{people.ProjectName}</p></div>
                             <div><p><b>MEMBERS :</b>{this.state.MemId}</p></div>
-                            <div><p><b>DETAILS :</b>{people.projectDetail}</p></div>
+                            <div><p><b>DETAILS :</b>{people.ProjectDetail}</p></div>
                             <div><p><b>FILES :</b></p></div>
                         </div>
                         <div className="tkflex-1">
                             <div className="pjFrame">
-                                <div><p><b>STATUS : </b>{people.projectStatus}</p></div>
+                                <div><p><b>STATUS : </b>{people.status}</p></div>
                                 <div><p><b>START : </b>{moment(people.startDateTime).format('DD-MM-YYYY')}</p></div>
                                 <div><p><b>DONE : </b>{moment(people.endDateTime).format('DD-MM-YYYY')}</p></div>
                                 <div><p><b>TOTAL : </b></p></div>
                             </div>
                             <div>
-                                <button type="submit" value="Submit" className="pStatusProcess">IN PROCESS</button>
-                                <button type="submit" value="Submit" className="pStatusDone">DONE</button></div>
+                                <button type="submit" value="Submit" className="pStatusProcess" onClick={this.onClickChangeStatusInprocess}>IN PROCESS</button>
+                                <button type="submit" value="Submit" className="pStatusDone" onClick={this.onClickChangeStatusDone}>DONE</button></div>
                         </div>
                     </div>
-                    <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject">JOIN PROJECT</button></div>
+                    <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject" onClick={this.onClickJoinProject}>JOIN PROJECT</button></div>
                 </div>))}
             </div>
         );

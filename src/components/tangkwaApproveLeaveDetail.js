@@ -126,7 +126,7 @@ class TangkwaApproveLeaveDetail extends Component {
                         </div>
                         <div className="tkflex-1 tangkwaLeaveFrame">
                             <div><p><b>STATUS : </b>{people.LeaveStatus}</p></div>
-                            <div><p><b>MANAGE BY : </b>{people.ApprovedBy}</p></div>
+                            <div><p><b>MANAGE BY : </b>{people.approvedBy}</p></div>
                         </div>
                     </div>
                     
