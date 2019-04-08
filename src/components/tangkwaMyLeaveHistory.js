@@ -43,7 +43,7 @@ class TangkwaMyLeaveHistory extends Component {
 
                     </select>
                 </div>
-                <div className="row flex-container tangkwaSetTable">
+                <div className="row flex-container tangkwaSetTable ">
                     <div className="tkflex-1"><p>STATUS</p></div>
                     <div className="tkflex-1"><p>LEAVE ID</p></div>
                     <div className="tkflex-2"><p>NAME</p></div>
