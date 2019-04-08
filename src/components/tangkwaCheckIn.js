@@ -34,7 +34,7 @@ class TangkwaCheckIn extends Component {
             longitude: 0,
             showLocated: false,
             address: <img src={loading} />,
-            status : ''
+            status: ''
         }
     }
     componentDidMount() {
@@ -42,18 +42,18 @@ class TangkwaCheckIn extends Component {
     }
     handleSubmitClick = () => {
 
-       let  date = moment().format('L'),
+        let date = moment().format('L'),
             time = moment().format('LT')
-            console.log("this is check in date",date , time)
+        console.log("this is check in date", date, time)
 
-      
+
         // axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
         // axios.post('http://172.20.10.4:8000/employee/checkin/', {
-        axios.post('http://127.0.0.1:8000/employee/checkin/', {    
+        axios.post('http://127.0.0.1:8000/employee/checkin/', {
             "staffID": 1,
             "staffName": `Tangkwa`,
-            "date" : date,
-            "time" : time,
+            "date": date,
+            "time": time,
             "status": this.state.status,
             "place": this.state.address
 
@@ -97,9 +97,14 @@ class TangkwaCheckIn extends Component {
         return (
             <div className="App">
                 <FormHeader />
-                <div className ="checkin-row">
-                <div className="tangkwaTitle"><h4>CHECK IN : <img src={check} width="1000" height="200" className="checkpng" onClick={this.handleSetIn} /></h4></div>
-                <div className="tangkwaTitle"><h4>CHECK OUT : <img src={check} width="200" height="200" className="checkpng" onClick={this.handleSetOut} /></h4></div>
+                <div className="flex-container row">
+                <div className = "tkflex-1"></div>
+                <div className = "tkflex-1"><div className="tangkwaTitle">
+                        <button type="submit" value="Check in" className="Checkin-button" onClick={this.handleSetIn}>CHECK IN</button>
+                    </div></div>
+                    
+                  <div className = "tkflex-1"><div className="tangkwaTitle"><button type="submit" value="Check in" className="Checkin-button" onClick={this.handleSetOut}>CHECK OUT</button></div></div>  
+                  <div className = "tkflex-1"></div>
                 </div>
                 {this.state.showLocated && <div>
                     <p>{this.state.address}</p>
