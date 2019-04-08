@@ -57,7 +57,7 @@ class TangkwaStatisticsDetail extends Component {
 
     handleDelete() {
         axios.post("http://127.0.0.1:8000/employee/deleteuser/",{     
-            "staffId": _.last(window.location.pathname.split('/')),         
+            "staffId": 2,         
         }, {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {

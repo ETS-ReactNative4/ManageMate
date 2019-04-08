@@ -105,9 +105,9 @@ class TangkwaCheckIn extends Component {
                     <p>{this.state.address}</p>
                     <img src={"https://maps.googleapis.com/maps/api/staticmap?center=" + this.state.latitude + "," + this.state.longitude + "&zoom=13&size=800x400&key=AIzaSyAT-CDzRnWD-A28ZTrwheqtprVitpvDKlw"} className="googleMap" ></img>
                 </div>}
-                <div>
+                <div className="confirm-row">
                     <button type="submit" value="Check in" className="Submit" onClick={this.handleSubmitClick}>Submit</button>
-                    <button type="submit" value="Check out" className="Cancel">Cancel</button>
+                    <button type="submit" value="Check out" className="Cancel-button">Cancel</button>
                 </div>
             </div>
         );
