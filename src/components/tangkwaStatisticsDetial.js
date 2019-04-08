@@ -5,6 +5,7 @@ import { addHistory } from '../action'
 import { connect } from 'react-redux'
 import _ from 'lodash';
 import axios from 'axios';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import moment from 'moment'
 class TangkwaStatisticsDetail extends Component {
     constructor(props) {
@@ -13,19 +14,19 @@ class TangkwaStatisticsDetail extends Component {
         console.log("staff id by split", staffId)
         const person = _.find(props.profile, item => item.staffId == staffId)
         console.log("person by _.find", person)
-        console.log("hi",props.staff)
+        console.log("hi", props.staff)
         this.state = {
             person,
-            peoplein : [],
-            peopleout : []
-            
+            peoplein: [],
+            peopleout: []
+
         }
     }
     componentDidMount() {
-        axios.get(`http://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=${_.last(window.location.pathname.split('/'))}`)
-        // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
+        axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=1`)
+            // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
-                console.log(res.data)
+                console.log("ddddd",res.data)
                 const person1 = res.data.filter(person1 => {
                     return person1.Status === "in"
                 })
@@ -34,9 +35,9 @@ class TangkwaStatisticsDetail extends Component {
                     return person2.Status == "out"
                 })
                 this.setState({ peopleout: person2 })
-                console.log("in",this.state.peopleout)
+                console.log("in", this.state.peopleout)
 
-})
+            })
             .catch((error) => {
                 console.log('this is error', error)
                 // handle error here
@@ -53,11 +54,34 @@ class TangkwaStatisticsDetail extends Component {
             return role = "Normal User"
         }
     }
+
+    handleDelete() {
+        axios.post("http://127.0.0.1:8000/employee/deleteuser/",{     
+            "staffId": 2,         
+        }, {
+                onUploadProgress: ProgressEvent => {
+                    if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
+                        alert("Delete Successful")
+                    }
+                }
+            })
+            .then(res => {
+                console.log('log approve', res);
+                console.log('log approve', res.data);
+            })
+    }
     render() {
         const { person } = this.state
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4><b>DETAIL</b></h4></div>
+                <div className="row flex-container">
+                    <div className="tk1flex-0"></div>
+                    <div className="tk1flex-1"></div>
+                    <div className="tk1flex-1"></div>
+                    <div className="tk1flex-1"></div>
+                    <div className="tk1flex-1"><Link to= {`EditUserDetail/${this.state.person.staffId}`} > <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">EDIT</button></Link></div>
+                </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-1"><p><b>FIRSTNAME :</b> {this.state.person.firstnameEn}</p></div>
@@ -129,33 +153,38 @@ class TangkwaStatisticsDetail extends Component {
 
                 <div className="flex-container row margindetail">
                     <div className="tkflex-1">
-                        
+
                         <div className="row flex-container tangkwaSetTable">
                             <div className="tkflex-1"><p><b>DATE</b></p></div>
                             <div className="tkflex-1"><p><b>CLOCK IN</b></p></div>
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
-                       {this.state.peoplein.map (peoplein => (<div className="row flex-container tangkwaSetData">
+                        {this.state.peoplein.map(peoplein => (<div className="row flex-container tangkwaSetData">
                             <div className="tkflex-1"><p>{moment(peoplein.time).format('DD-MM-YYYY')}</p></div>
                             <div className="tkflex-1"><p>{moment(peoplein.time).format('HH:')}</p></div>
                             <div className="tkflex-1"><p>{peoplein.place}</p></div>
-                       </div>))}
+                        </div>))}
                     </div>
                     <div className="tkflex-1">
-                        
+
                         <div className="row flex-container tangkwaSetTable">
                             <div className="tkflex-1"><p><b>DATE</b></p></div>
                             <div className="tkflex-1"><p><b>CLOCK OUT</b></p></div>
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
-                        {this.state.peopleout.map (peopleout => (<div className="row flex-container tangkwaSetData">
+                        {this.state.peopleout.map(peopleout => (<div className="row flex-container tangkwaSetData">
                             <div className="tkflex-1"><p>{moment(peopleout.time).format('DD-MM-YYYY')}</p></div>
                             <div className="tkflex-1"><p>{moment(peopleout.time).format('HH:mm')}</p></div>
                             <div className="tkflex-1"><p>{peopleout.place}</p></div>
                         </div>))}
                     </div>
                 </div>
-                
+                <div className="tangkwaTitle" >
+
+                    <button type="submit" value="Submit" onClick={this.handleDelete} className="DeleteAccount">DELETE ACCOUNT</button>
+
+                </div>
+
             </div>
         );
     }
@@ -164,7 +193,7 @@ const mapStateToProps = state => {
     console.log('state in', state.staff)
     return {
         profile: state.history,
-        staff : state.staff
+        staff: state.staff
     }
 }
 export default connect(mapStateToProps)(TangkwaStatisticsDetail)

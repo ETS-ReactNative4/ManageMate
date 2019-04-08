@@ -36,15 +36,12 @@ class TangkwaCreateProj extends Component {
     }
     handleSubmit = async event => {
         if (window.confirm("Are you sure to create new Project?")) {
-            axios.post('https://managemate.azurewebsites.net/ProjectInfo', {
-                "projectID": 0,
-                "createByStaffID": "1",
-                "projectName": this.state.projectName,
-                "projectDetail": this.state.detail,
-                "projectStatus": "ready",
+            axios.post('http://127.0.0.1:8000/employee/addproject/', {
+                "staffID": 1,
+                "ProjectName": this.state.projectName,
+                "Comment": this.state.detail,
+                "Status": "ready",
                 "member": "string",
-                "startDateTime": "2019-02-24T08:28:10.038Z",
-                "endDateTime": "2019-02-24T08:28:10.038Z"
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {

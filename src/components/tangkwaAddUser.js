@@ -20,7 +20,7 @@ class TangkwaAddUser extends Component {
             lwp: '',
             personal: '',
             lfwos: '',
-            username : '',
+            username : "",
             password : ''
         }
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);

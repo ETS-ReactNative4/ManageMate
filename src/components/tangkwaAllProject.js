@@ -13,7 +13,7 @@ class TangkwaAllProject extends Component {
         }
     }
     componentDidMount() {
-        axios.get('https://managemate.azurewebsites.net/GetProjectInfo')
+        axios.get('http://127.0.0.1:8000/employee/getproject/')
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
@@ -48,10 +48,10 @@ class TangkwaAllProject extends Component {
                             <Link to={`ProjectsDetail/${people.projectID}`}  ><p>{people.projectID}</p></Link>
                         </div>
                         <div className="tkflex-2">
-                            <div><p><b>{people.projectName}</b></p></div>
+                            <div><p><b>{people.ProjectName}</b></p></div>
                         </div>
                         <div className={`${people.projectStatus == 'Done' ? 'tangkwaSetApprove tkflex-1' : people.projectStatus == 'Ready' ? 'tangkwaSetPending tkflex-1' : 'tangkwaSetReady tkflex-1'}`}>
-                            <p>{people.projectStatus}</p>
+                            <p>{people.Status}</p>
                         </div>
                     </div>
                 </div>))}

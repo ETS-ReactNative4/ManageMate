@@ -257,7 +257,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        browserHistory.push('/MyleaveHistory')
+                        // browserHistory.push('/MyleaveHistory')
 
                     }
 
@@ -342,8 +342,9 @@ class RequestForm extends React.Component {
                     </div>
                 </div>
 
-                <div>
-                        <button className="submit-button" onClick={this.handleCheckSubmit} className ="Submit">Send</button>
+                <div className="confirm-row">
+                        <button className="submit-button" onClick={this.handleCheckSubmit} className ="Submit">SEND</button>
+                        <Link to={'/'}><button  className ="Cancel-button">CANCEL</button></Link>
                 </div>
 
 

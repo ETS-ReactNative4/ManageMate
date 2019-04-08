@@ -25,6 +25,8 @@ import MyCalendar from './components/MyCalendar'
 import OfficeCreateEvent from './components/OfficecreateEvent'
 import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
 import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
+import CheckInchoice from './components/checkinchoice'
+import EditUserDetail from './components/EditUserDetail'
 
 class MainLayout extends Component {
   render() {
@@ -47,19 +49,9 @@ class MainLayout extends Component {
               <div className="dropdown2">
                 <button className="dropbtn2">CALENDAR</button>
                 <div className="dropdown-content2">
-                  <a href="/calendar">CALENDAR</a>
-                  <a href="/myCalendar">MY CALENDAR</a>
                 </div>
               </div>
 
-              <div className="dropdown3">
-                <button className="dropbtn3">WITHDRAW</button>
-                <div className="dropdown-content3">
-                  <a href="/WithdrawRequest">WITHDRAW</a>
-                  <a href="/MywithdrawHistory">MY WITHDRAW</a>
-                  <a href="/withdrawApprove">APPROVE</a>
-                </div>
-              </div>
 
               <div className="dropdown4">
                 <button className="dropbtn4">CLOCK IN</button>
@@ -86,6 +78,7 @@ class MainLayout extends Component {
                   <a href="/createProject">CREATE PROJECTS</a>
                 </div>
               </div>
+              
 
             </div>
           </div>
@@ -138,6 +131,8 @@ class App extends Component {
             <Route path='AddUser' component={TangkwaAddUser} />
             <Route path='OfficecreateEvent' component={OfficeCreateEvent}/>
             <Route path='MyCalendarCreateEvent' component={MyCalendarCreateEvent}/>
+            <Route path='checkInChoice' component={CheckInchoice}/>
+            <Route path='EditUserDetail/:formId' component={EditUserDetail}/>
             
           </Route>
       </Router>
