@@ -49,8 +49,6 @@ class MainLayout extends Component {
               <div className="dropdown2">
                 <button className="dropbtn2">CALENDAR</button>
                 <div className="dropdown-content2">
-                  <a href="/calendar">CALENDAR</a>
-                  <a href="/myCalendar">MY CALENDAR</a>
                 </div>
               </div>
 
@@ -80,6 +78,7 @@ class MainLayout extends Component {
                   <a href="/createProject">CREATE PROJECTS</a>
                 </div>
               </div>
+              
 
             </div>
           </div>

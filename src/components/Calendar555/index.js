@@ -233,6 +233,7 @@ export default class Calendar extends React.Component {
         //console.log("blanks: ", blanks);
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
+            
             let className = (d == this.currentDay() ? "day current-day" : "day");
             //console.log("555",this.state.data)
             let selectedClass = (d == this.mapDay(d, this.state.data) ? " selected-day " : " ");

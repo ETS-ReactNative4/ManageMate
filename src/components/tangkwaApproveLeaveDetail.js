@@ -55,7 +55,7 @@ class TangkwaApproveLeaveDetail extends Component {
     handleSetFalse = () => {
         this.setState({ set: false })
         console.log("set", this.state.set)
-        if (window.confirm("Are you sure you want to Approve?")) {
+        if (window.confirm("Are you sure you want to Reject?")) {
             // axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
                 axios.post("http://127.0.0.1:8000/employee/updateleave/",{     
             "status": 'Rejected',
@@ -221,7 +221,7 @@ class TangkwaApproveLeaveDetail extends Component {
                         </div>
                         {this.handleCheckSet(people.LeaveStatus) && <div className="tangkwaTitle">
                             <button type="submit" value="Submit" onClick={this.handleSetTrue} className="Submit">APPROVE</button>
-                            <button type="submit" value="Cancel" onClick={this.handleSetFalse} className="Cancel">REJECT</button>
+                            <button type="submit" value="Cancel" onClick={this.handleSetFalse} className="Cancel-button">REJECT</button>
                         </div>}
                     </div>))}
             </div>
