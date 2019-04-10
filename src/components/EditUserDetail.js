@@ -36,8 +36,9 @@ class EditUserDetail extends Component {
             lfwos: '',
             lfwosRemain: '',
             staffId: '',
-
+check : parseInt(_.last(window.location.pathname.split('/')))
         }
+        console.log("check",this.state.check)
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -61,28 +62,30 @@ class EditUserDetail extends Component {
         axios.get(`http://127.0.0.1:8000/employee/getemployee/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
-                console.log(res.data)
-                this.setState({ firstnameEN: res.data[0].firstnameEN })
-                this.setState({ lastnameEN: res.data[0].lastnameEN })
-                this.setState({ email: res.data[0].email })
-                this.setState({ username: res.data[0].username })
-                this.setState({ password: res.data[0].password })
-                this.setState({ telNo: res.data[0].tellNo })
-                this.setState({ bankNo: res.data[0].lastnameEN })
-                this.setState({ bankName: res.data[0].lastnameEN })
-                this.setState({ role: res.data[0].role })
-                this.setState({ staffId: res.data[0].staffID })
-                this.setState({ sick: res.data[0].sickQuo })
-                this.setState({ sickRemain: res.data[0].sickRemain })
-                this.setState({ annual: res.data[0].annualQuo })
-                this.setState({ annualRemain: res.data[0].annualRemain })
-                this.setState({ lwp: res.data[0].lwpQuo })
-                this.setState({ lwpRemain: res.data[0].lwpRemain })
-                this.setState({ personal: res.data[0].personalQuo })
-                this.setState({ personalRemain: res.data[0].personalRemain })
-                this.setState({ lfwos: res.data[0].lfwosQuo })
-                this.setState({ lfwosRemain: res.data[0].lfwosRemain })
-                this.setState({ staffId: res.data[0].staffID })
+                console.log("dljsfffffffff",res.data)
+                const person = _.find(res.data, item => item.staffID == parseInt(_.last(window.location.pathname.split('/'))))
+                console.log("pppeeerrrsssoonnn",person)
+                this.setState({ firstnameEN: person.firstnameEN })
+                this.setState({ lastnameEN: person.lastnameEN })
+                this.setState({ email: person.email })
+                this.setState({ username: person.username })
+                this.setState({ password: person.password })
+                this.setState({ telNo: person.tellNo })
+                this.setState({ bankNo: person.lastnameEN })
+                this.setState({ bankName: person.lastnameEN })
+                this.setState({ role: person.role })
+                this.setState({ staffId: person.staffID })
+                this.setState({ sick: person.sickQuo })
+                this.setState({ sickRemain: person.sickRemain })
+                this.setState({ annual: person.annualQuo })
+                this.setState({ annualRemain: person.annualRemain })
+                this.setState({ lwp: person.lwpQuo })
+                this.setState({ lwpRemain: person.lwpRemain })
+                this.setState({ personal: person.personalQuo })
+                this.setState({ personalRemain: person.personalRemain })
+                this.setState({ lfwos: person.lfwosQuo })
+                this.setState({ lfwosRemain: person.lfwosRemain })
+                this.setState({ staffId: person.staffID })
 
 
 
@@ -241,7 +244,7 @@ class EditUserDetail extends Component {
                     <div className="tk1flex-05"><p><b>USERNAME : </b></p></div>
                     <div className="tk1flex-1"><input type="text" value={this.state.username} onChange={this.handleChangeusername} className="setForAddUser2" /></div>
                     <div className="tk1flex-05"><p><b>PASSWORD : </b></p></div>
-                    <div className="tk1flex-1"><input type="text" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser2" /></div>
+                    <div className="tk1flex-1"><input type="password" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser2" /></div>
                     <div className="tk1flex-1"><p><b></b></p></div>
                 </div>
                 <div className="row flex-container">
@@ -257,7 +260,7 @@ class EditUserDetail extends Component {
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-05"><p><b>POSITION :</b></p></div>
                     <div className="tk1flex-1">
-                        <select onChange={this.handleChangePosition} value={this.state.role}>
+                        <select onChange={this.handleChangePosition} value={this.state.role} className = "position-filter">
                             <option value="">Please Select</option>
                             <option value="1">Super User</option>
                             <option value="2">HR</option>

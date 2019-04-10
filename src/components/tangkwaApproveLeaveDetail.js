@@ -13,6 +13,7 @@ class TangkwaApproveLeaveDetail extends Component {
         this.state = {
             people: [],
             set: '',
+            profile : props.person
         }
     }
     componentDidMount() {
@@ -37,7 +38,7 @@ class TangkwaApproveLeaveDetail extends Component {
             axios.post("http://127.0.0.1:8000/employee/updateleave/",{ 
                 "status": 'Approved',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
-                "approverId": "1",
+                "approverId": this.state.profile.employee[0].id,
             }, {
                     onUploadProgress: ProgressEvent => {
                         if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
@@ -231,7 +232,9 @@ class TangkwaApproveLeaveDetail extends Component {
 const mapStateToProps = state => {
     console.log('state chaeck stat', state.history)
     return {
-        profile: state.history
+        profile: state.history,
+        person: state.profile
     }
 }
 export default connect(mapStateToProps)(TangkwaApproveLeaveDetail)
+

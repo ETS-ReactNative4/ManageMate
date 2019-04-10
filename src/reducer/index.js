@@ -32,5 +32,10 @@ export default (state = inttialState, action) => {
         ...state,
         project: action.payload.project
       }
+      case 'ADD_PROFILE':
+      return {
+        ...state,
+        profile: action.payload.profile
+      }
     }
 }

@@ -23,7 +23,7 @@ class TangkwaStatisticsDetail extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=1`)
+        axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.person.staffId}`)
             // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
                 console.log("ddddd",res.data)
@@ -160,8 +160,8 @@ class TangkwaStatisticsDetail extends Component {
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
                         {this.state.peoplein.map(peoplein => (<div className="row flex-container tangkwaSetData">
-                            <div className="tkflex-1"><p>{moment(peoplein.time).format('DD-MM-YYYY')}</p></div>
-                            <div className="tkflex-1"><p>{moment(peoplein.time).format('HH:')}</p></div>
+                            <div className="tkflex-1"><p>{peoplein.Date}</p></div>
+                            <div className="tkflex-1"><p>{peoplein.Time}</p></div>
                             <div className="tkflex-1"><p>{peoplein.place}</p></div>
                         </div>))}
                     </div>
@@ -173,8 +173,8 @@ class TangkwaStatisticsDetail extends Component {
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
                         </div>
                         {this.state.peopleout.map(peopleout => (<div className="row flex-container tangkwaSetData">
-                            <div className="tkflex-1"><p>{moment(peopleout.time).format('DD-MM-YYYY')}</p></div>
-                            <div className="tkflex-1"><p>{moment(peopleout.time).format('HH:mm')}</p></div>
+                            <div className="tkflex-1"><p>{peopleout.Date}</p></div>
+                            <div className="tkflex-1"><p>{peopleout.Time}</p></div>
                             <div className="tkflex-1"><p>{peopleout.place}</p></div>
                         </div>))}
                     </div>

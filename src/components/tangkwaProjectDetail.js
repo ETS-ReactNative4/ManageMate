@@ -16,7 +16,7 @@ class TangkwaProjectDetail extends Component {
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
-                console.log("ttt", this.state.people)
+                console.log("ttt11", this.state.people)
             })
             .catch((error) => {
                 console.log('this is error', error)

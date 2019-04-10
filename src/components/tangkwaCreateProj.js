@@ -4,6 +4,7 @@ import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import add from '../Image/add1.jpg'
 import axios from 'axios';
+import { connect } from 'react-redux'
 const FormHeader = props => {
     return (
         <React.Fragment>
@@ -22,6 +23,7 @@ class TangkwaCreateProj extends Component {
         this.state = {
             projectName: '',
             detail: '',
+            profile : props.profile
         }
         this.handleChangeProjectName = this.handleChangeProjectName.bind(this);
         this.handleChangeDetail = this.handleChangeDetail.bind(this);
@@ -37,7 +39,7 @@ class TangkwaCreateProj extends Component {
     handleSubmit = async event => {
         if (window.confirm("Are you sure to create new Project?")) {
             axios.post('http://127.0.0.1:8000/employee/addproject/', {
-                "staffID": 1,
+                "staffID": this.state.profile.employee[0].id,
                 "ProjectName": this.state.projectName,
                 "Comment": this.state.detail,
                 "Status": "ready",
@@ -92,4 +94,12 @@ class TangkwaCreateProj extends Component {
         );
     }
 }
-export default TangkwaCreateProj;
+
+
+const mapStateToProps = state => {
+    console.log('state chaeck stat1', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaCreateProj)

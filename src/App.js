@@ -27,85 +27,23 @@ import MyCalendarCreateEvent from './components/myCalendarCreateEvent'
 import TangkwaAllProjDetail from './components/tangkwaAllProjDetail'
 import CheckInchoice from './components/checkinchoice'
 import EditUserDetail from './components/EditUserDetail'
+import Login from './components/Login'
+import UserProfile from './components/UserProfile'
 
-class MainLayout extends Component {
-  render() {
-    return (
-      <div className="App"> 
-        <header className="background">
-          <h1 className="hero-logo">
-            MANAGEMATE
-          </h1>
-          <div className="main-nav">
-            <div className="row flex-container">
-              <div className="dropdown">
-                <button className="dropbtn">LEAVE</button>
-                <div className="dropdown-content">
-                  <a href="/requestform">LEAVE</a>
-                  <a href="/MyleaveHistory">MY LEAVE</a>
-                  <a href="/Approve">APPROVE</a>
-                </div>
-              </div>
-              <div className="dropdown2">
-                <button className="dropbtn2">CALENDAR</button>
-                <div className="dropdown-content2">
-                </div>
-              </div>
-
-
-              <div className="dropdown4">
-                <button className="dropbtn4">CLOCK IN</button>
-                <div className="dropdown-content4">
-                  <a href="/CheckIn">CLOCK IN,OUT</a>
-                  <a href="/MyClockIn">MY CLOCK IN</a>
-
-                </div>
-              </div>
-
-              <div className="dropdown5">
-                <button className="dropbtn5">STATISTICS</button>
-                <div className="dropdown-content5">
-                  <a href="/Statistics">STATISTICS</a>
-                  <a href="/AddUser">ADD USERS</a>
-                </div>
-              </div>
-
-              <div className="dropdown6">
-                <button className="dropbtn6">PROJECTS</button>
-                <div className="dropdown-content6">
-                  <a href="/Allproject">ALL PROJECTS</a>
-                  <a href="/Myprojects">MY PROJECTS</a>
-                  <a href="/createProject">CREATE PROJECTS</a>
-                </div>
-              </div>
-              
-
-            </div>
-          </div>
-          <div className="mini-background">
-            {this.props.children}
-
-          </div>
-        </header>
-        <header className="background">
-
-        </header>
-        <header className="background">
-
-        </header>
-
-      </div>
-    );
-  }
-}
+import MainLayout from './components/homepage'
 
 class App extends Component {
+
   render() {
+    
     return (
+      
       <div>
-       
+      
       <Router history={browserHistory}>
+      <Route path='Login' component={Login} />
         <Route path='/' component={MainLayout} >
+        <Route path='userProfile' component={UserProfile} />
           <Route path='MyleaveHistory' component={TangkwaMyLeaveHistory} />
           <Route path='MywithdrawHistory' component={TangkwaMyWithDrawHistory} />
           <Route path='withdrawDetail/:formId' component={TangkwaWithDrawDetail} />
@@ -133,6 +71,7 @@ class App extends Component {
             <Route path='MyCalendarCreateEvent' component={MyCalendarCreateEvent}/>
             <Route path='checkInChoice' component={CheckInchoice}/>
             <Route path='EditUserDetail/:formId' component={EditUserDetail}/>
+          
             
           </Route>
       </Router>
@@ -141,5 +80,5 @@ class App extends Component {
         );
       }
     }
-    
-    export default App;
+  
+export default App

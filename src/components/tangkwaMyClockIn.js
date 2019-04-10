@@ -6,6 +6,7 @@ import add from '../Image/add1.jpg'
 import axios from 'axios';
 import _ from 'lodash'
 import moment from 'moment'
+import { connect } from 'react-redux'
 class TangkwaMyClockIn extends Component {
     constructor(props) {
         super(props);
@@ -13,12 +14,13 @@ class TangkwaMyClockIn extends Component {
         this.state = {
             people: [],
             peoplein: [],
-            peopleout: []
+            peopleout: [],
+            profile : props.profile
         }
     }
     componentDidMount() {
         // axios.get('https://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
-        axios.get(`http://127.0.0.1:8000/employee/getcheckin/`)
+        axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
@@ -74,4 +76,10 @@ class TangkwaMyClockIn extends Component {
         );
     }
 }
-export default TangkwaMyClockIn;
+const mapStateToProps = state => {
+    console.log('state chaeck stat', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaMyClockIn)
