@@ -15,6 +15,8 @@ import DayPicker, { DateUtils } from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import Calendar from './Calendar';
 import axios from 'axios';
+import { addProfile } from '../action'
+import { connect } from 'react-redux'
 
 const FormHeader = props => {
     return (
@@ -78,6 +80,7 @@ const getBase64 = (file) => {
 
 class RequestForm extends React.Component {
     constructor(props) {
+        
         super(props);
         this.state = {
             leavetype: "",
@@ -88,9 +91,11 @@ class RequestForm extends React.Component {
             note: '',
             error : false,
             selectedFile : [] ,
-            CheckTypeFile : false
+            CheckTypeFile : false,
+            profile : props.profile
 
         }
+       
     };
     typehandler = (value) => {
         this.setState({
@@ -200,15 +205,15 @@ class RequestForm extends React.Component {
     }
 
     handleSendData = async event => {
-        
+       
         if (this.state.selectedFile.length == 0){
             console.log("this is send fuction")
             // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             axios.post("http://127.0.0.1:8000/employee/addleave/",{
-            "staffID" : 1,
-            "firstnameEN" : "tangkwa",
-            "lastnameEN" : "tangkwa",
-            "role" :0,
+            "staffID" : this.state.profile.employee[0].id,
+            "firstnameEN" : this.state.profile.employee[0].first_name_EN,
+            "lastnameEN" : this.state.profile.employee[0].last_name_EN,
+            "role" : this.state.profile.employee[0].role,
             "leaveType" : this.state.leavetype,
             "leaveStartDateTime" : this.state.dayStart,
             "leaveEndDateTime" : this.state.dayEnd,
@@ -224,7 +229,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        // browserHistory.push('/MyleaveHistory')
+                        browserHistory.push('/MyleaveHistory')
 
                     }
 
@@ -338,7 +343,6 @@ class RequestForm extends React.Component {
                     <div className="input-file flex2">
 
                     <input type="file" onChange={this.fileChangedHandler}  size="2MB" accept="image" required multiple />
-                    <img id="output"/>
                     </div>
                 </div>
 
@@ -355,5 +359,12 @@ class RequestForm extends React.Component {
         );
     }
 }
-
-export default RequestForm;
+const mapStateToProps = state => {
+    console.log('state in', state.profile)
+    return {
+        profile: state.profile,
+       
+    }
+    
+}
+export default connect(mapStateToProps)(RequestForm)

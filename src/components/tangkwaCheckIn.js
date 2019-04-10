@@ -8,6 +8,7 @@ import loading from '../Image/lg.rotating-balls-spinner.gif'
 import moment from 'moment';
 import clock from '../Image/circular-clock.png';
 import DateComponent from './DateComponent';
+import { connect } from 'react-redux'
 const FormHeader = props => {
     return (
 
@@ -27,14 +28,18 @@ const FormHeader = props => {
     )
 }
 class TangkwaCheckIn extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
+    
         this.state = {
+          
             latitude: 0,
             longitude: 0,
             showLocated: false,
             address: <img src={loading} />,
-            status: ''
+         status: '',
+        profile:props.profile
+       
         }
     }
     componentDidMount() {
@@ -50,8 +55,8 @@ class TangkwaCheckIn extends Component {
         // axios.post('https://managemate.azurewebsites.net/CheckInRequest', {
         // axios.post('http://172.20.10.4:8000/employee/checkin/', {
         axios.post('http://127.0.0.1:8000/employee/checkin/', {
-            "staffID": 1,
-            "staffName": `Tangkwa`,
+            "staffID": this.state.profile.employee[0].id,
+            "staffName": this.state.profile.employee[0].first_name_EN,
             "date": date,
             "time": time,
             "status": this.state.status,
@@ -93,7 +98,9 @@ class TangkwaCheckIn extends Component {
         this.setState({ status: "out" })
     }
     render() {
+      
         console.log("this is state", moment().format())
+        console.log(this.state.profile.employee[0].id)
         return (
             <div className="App">
                 <FormHeader />
@@ -118,4 +125,13 @@ class TangkwaCheckIn extends Component {
         );
     }
 }
-export default TangkwaCheckIn;
+
+
+
+const mapStateToProps = state => {
+    console.log('state chaeck stat1', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaCheckIn)

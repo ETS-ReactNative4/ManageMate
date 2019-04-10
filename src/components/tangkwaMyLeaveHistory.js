@@ -13,9 +13,12 @@ class TangkwaMyLeaveHistory extends Component {
         this.state = {
             people: [],
             staffid: '1',
-            Save: "All"
+            Save: "All",
+            profile : props.profile
         }
+        console.log("ddd",this.state.profile)
     }
+    
     handleSetValue = (event) => {
         console.log(this.state.Save)
         this.setState({ Save: event.target.value })
@@ -23,7 +26,7 @@ class TangkwaMyLeaveHistory extends Component {
     }
     componentDidMount() {
         // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
-        axios.get(`http://127.0.0.1:8000/employee/getleavebystaffid/?staffId=${this.state.staffid}`)
+        axios.get(`http://127.0.0.1:8000/employee/getleavebystaffid/?staffId=${this.state.profile.employee[0].id}`)
             .then(res => {
                 this.setState({ people: res.data })
                 console.log("people", this.state.people)
@@ -34,9 +37,8 @@ class TangkwaMyLeaveHistory extends Component {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4><b>MY LEAVE </b></h4></div>
-                <div className="selecttype">
-             
-                    <select onChange={this.handleSetValue} >
+                <div className="selecttype55">
+             <select onChange={this.handleSetValue} >
                         <option value="All">Show All</option>
                         <option value="Approved">APPROVED</option>
                         <option value="Pending">PENDING</option>
@@ -75,7 +77,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
     console.log('state444', state.myhistory)
     return {
-        people: state.myhistory
+        people: state.myhistory,
+        profile : state.profile
     }
 }
 export default connect(mapStateToProps,

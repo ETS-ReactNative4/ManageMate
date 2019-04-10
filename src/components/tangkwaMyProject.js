@@ -3,16 +3,18 @@ import React, { Component } from 'react';
 import '../App.css';
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 import axios from 'axios';
+import { connect } from 'react-redux'
 class TangkwaMyProject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: []
+            people: [],
+            profile : props.profile
         }
     }
     componentDidMount() {
         // axios.get('https://managemate.azurewebsites.net/GetProjectInfoByStaffID?staffId=1')
-        axios.get(`http://127.0.0.1:8000/employee/getprojectbystaffid/?staffId=1`)
+        axios.get(`http://127.0.0.1:8000/employee/getprojectbystaffid/?staffId=${this.state.profile.employee[0].id}`)
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
@@ -57,4 +59,12 @@ class TangkwaMyProject extends Component {
         );
     }
 }
-export default TangkwaMyProject;
+
+
+const mapStateToProps = state => {
+    console.log('state chaeck stat1', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaMyProject)

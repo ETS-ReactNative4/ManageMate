@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import '../App.css';
 import EventCalendar from './EventCalendar';
 import axios from 'axios'
-
+import { connect } from 'react-redux'
+import { Redirect, browserHistory } from "react-router";
 const FormHeader = props => {
     return (
         <React.Fragment>
@@ -23,7 +24,8 @@ class MyCalendarCreateEvent extends Component {
             min : '',
             hour:'',
             comment: '',
-            date : ''
+            date : '',
+            profile: props.profile
 
         }
 
@@ -57,7 +59,7 @@ class MyCalendarCreateEvent extends Component {
         
             // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             axios.post("http://127.0.0.1:8000/employee/addcalendar/",{
-            "staffID" : 1,
+            "staffID" : this.state.profile.employee[0].id,
             "datetime" : this.state.date,
             "Month" : this.handleSetMonth(this.state.date.substring(5,7)),
             "date" : this.handleSetDate(this.state.date.substring(8,10)),
@@ -69,7 +71,7 @@ class MyCalendarCreateEvent extends Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        // browserHistory.push('/MyleaveHistory')
+                        browserHistory.push('/myCalendar')
 
                     }
 
@@ -241,11 +243,19 @@ class MyCalendarCreateEvent extends Component {
                 </div>
                 <div className = "downdown">
                     <button type="submit" value="Submit" onClick= {this.handleSubmit} className = "Submit">Submit</button>
-                    <button type="submit" value="Cancel" className = "Cancel">Cancel</button>
+                    <button type="submit" value="Cancel" className = "Cancel-button">Cancel</button>
                 </div>
             </div>
         );
     }
 }
 
-export default MyCalendarCreateEvent;
+
+
+const mapStateToProps = state => {
+    console.log('state chaeck stat2', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(MyCalendarCreateEvent)

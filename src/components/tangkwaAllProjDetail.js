@@ -16,7 +16,7 @@ class TangkwaAllProjDetail extends Component {
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
-                console.log("ttt", this.state.people)
+                console.log("ttt11", this.state.people)
             })
             .catch((error) => {
                 console.log('this is error', error)
@@ -93,7 +93,7 @@ class TangkwaAllProjDetail extends Component {
                         </div>
                         <div className="tkflex-1">
                             <div className="pjFrame">
-                                <div><p><b>STATUS : </b>{people.status}</p></div>
+                                <div><p><b>STATUS : </b>{people.Status}</p></div>
                                 <div><p><b>START : </b>{moment(people.startDateTime).format('DD-MM-YYYY')}</p></div>
                                 <div><p><b>DONE : </b>{moment(people.endDateTime).format('DD-MM-YYYY')}</p></div>
                                 <div><p><b>TOTAL : </b></p></div>
