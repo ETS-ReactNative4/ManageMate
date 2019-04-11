@@ -40,7 +40,7 @@ else if(role == 3) {
                 {
                this.checkRole(this.state.profile.employee[0].role) && <div>
                    
-                <Link to='MyCalendarCreateEvent' ><button type="submit" value="event" className="createEvent">CREATE EVENT</button></Link></div>}
+                <Link to='MyCalendarCreateEvent' ><button type="submit" value="event" className="createproj-button">CREATE EVENT</button></Link></div>}
                 <div className="App">
                     <Calendar style={style} width="1200px" data = {this.state.data}
                       />

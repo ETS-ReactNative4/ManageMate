@@ -828,8 +828,7 @@ width:20%;
   border-width : 0px;
   border-radius : 10px;
   margin-left : 2%;
-  width:30%;
-  background-color: #D8D8D8;
+background-color: #D8D8D8;
  }
  .setForAddUser{
   border-width : 0px;
@@ -880,13 +879,17 @@ background-color: #D8D8D8;
 .textarea1{
   border-width : 0px;
   border-radius : 10px;
-width:30%;
-height:100%;
+width:50%;
+height:120px;
 margin-left:11%;
-margin-top:-5%;
+margin-top:-3%;
 background-color: #D8D8D8;
 
 }
+
+
+
+
 .textarea2{
   border-width : 0px;
   border-radius : 10px;
@@ -923,6 +926,24 @@ color :white;
 
  margin-left: 10px;
     margin-right: 10px;
+}
+
+.createproj-button{
+  border-width : 0px;
+  border-radius : 10px;
+ background-color :#FEC600;
+ padding: 10px;
+margin-left: 70%;
+  margin-bottom: 10px;
+}
+.createproj-button:hover{
+  border-width : 0px;
+  border-radius : 10px;
+ background-color :black;
+ padding: 10px;
+margin-left: 70%;
+  margin-bottom: 10px;
+ color : #FEC600;
 }
 .Checkin-button {
 

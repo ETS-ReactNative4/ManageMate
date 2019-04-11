@@ -76,7 +76,7 @@ class MainLayout extends Component {
                   <div className="dropdown-content6">
                     <a href="/Allproject">ALL PROJECTS</a>
                     <a href="/Myprojects">MY PROJECTS</a>
-                    { this.authenSuperUser(this.state.profile.employee[0].role)&&<a href="/createProject">CREATE PROJECTS</a>}
+                
                   </div>
                 </div>
                 

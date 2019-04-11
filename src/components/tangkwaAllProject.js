@@ -9,8 +9,10 @@ class TangkwaAllProject extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: []
+            people: [],
+            profile : props.profile
         }
+        console.log("Profile ----->",this.state.profile)
     }
     componentDidMount() {
         axios.get('http://127.0.0.1:8000/employee/getproject/')
@@ -25,11 +27,25 @@ class TangkwaAllProject extends Component {
                 // handle error here
             })
     }
+    checkRole(role) {
+        console.log("checktype ---->",typeof(role))
+        if (role === "1"){
+            return true
+        }
+        else if (role === "2") {
+            return true
+        }
+        else if (role === "3") {
+            return false
+        }
+    }
     render() {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4>ALL PROJECT</h4></div>
+                {this.checkRole(this.state.profile.employee[0].role) && <Link to ='/createProject'><button className = "createproj-button">CREATE NEW PROJECT</button></Link>}
                 <div className="flex-container">
+               
                     <div className="tangkwaSetProjectTable row">
                         <div className="tkflex-1">
                             <p>PROJECT ID</p>
@@ -65,7 +81,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
     console.log('state...', state.project)
     return {
-        people: state.project
+        people: state.project,
+        profile : state.profile
     }
 }
 export default connect(mapStateToProps,

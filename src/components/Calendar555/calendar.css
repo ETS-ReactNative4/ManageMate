@@ -73,6 +73,8 @@ tr {
     line-height: 28px;
     border-radius: 2%;
     color: black;
+    border-color : gray;
+    
 }
 .month-popup {
     position: absolute;
