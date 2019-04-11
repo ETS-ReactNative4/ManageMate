@@ -5,7 +5,8 @@ import { addHistory } from '../action'
 import { connect } from 'react-redux'
 import _ from 'lodash';
 import axios from 'axios';
-import moment from 'moment'
+import moment from 'moment';
+import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
 class EditUserDetail extends Component {
     constructor(props) {
         super(props);
@@ -71,8 +72,8 @@ check : parseInt(_.last(window.location.pathname.split('/')))
                 this.setState({ username: person.username })
                 this.setState({ password: person.password })
                 this.setState({ telNo: person.tellNo })
-                this.setState({ bankNo: person.lastnameEN })
-                this.setState({ bankName: person.lastnameEN })
+                this.setState({ bankNo: person.bankNo })
+                this.setState({ bankName: person.bankName })
                 this.setState({ role: person.role })
                 this.setState({ staffId: person.staffID })
                 this.setState({ sick: person.sickQuo })
@@ -218,7 +219,7 @@ check : parseInt(_.last(window.location.pathname.split('/')))
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Rejected Successfully")
-                        // browserHistory.push('/Approve')
+                        browserHistory.push('/Statistics')
                     }
                 }
             })
@@ -237,15 +238,7 @@ check : parseInt(_.last(window.location.pathname.split('/')))
                     <div className="tk1flex-1"></div>
                     <div className="tk1flex-1"></div>
                     <div className="tk1flex-1"></div>
-                    <div className="tk1flex-1"> <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">SAVE</button></div>
-                </div>
-                <div className="row flex-container">
-                    <div className="tk1flex-0"></div>
-                    <div className="tk1flex-05"><p><b>USERNAME : </b></p></div>
-                    <div className="tk1flex-1"><input type="text" value={this.state.username} onChange={this.handleChangeusername} className="setForAddUser2" /></div>
-                    <div className="tk1flex-05"><p><b>PASSWORD : </b></p></div>
-                    <div className="tk1flex-1"><input type="password" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser2" /></div>
-                    <div className="tk1flex-1"><p><b></b></p></div>
+                    <div className="tangkwaTitle tk1flex-1"> <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">SAVE</button></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>

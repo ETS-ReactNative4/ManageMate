@@ -8,15 +8,33 @@ class TangkwaAllProjDetail extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: []
+            people: [],
+            profile : props.profile
         }
+        console.log("ttt11", this.state.profile.employee[0].id)
     }
     componentDidMount() {
         axios.get(`http://127.0.0.1:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             .then(res => {
-                const person = res.data
+                const person = res.data.map((user) => {
+                    return {
+                        MemberInProject : user.MemberInProject+",",
+                        ProjectDetail : user.ProjectDetail,
+                        ProjectName : user.ProjectName,
+                        Staffname : user.Staffname,
+                        Status : user.Status,
+                        comment : user.comment,
+                        projectID : user.projectID
+
+                    }
+                })
                 this.setState({ people: person })
-                console.log("ttt11", this.state.people)
+                console.log("person ja =======>",person)
+               
+              
+
+              
+              
             })
             .catch((error) => {
                 console.log('this is error', error)
@@ -26,8 +44,8 @@ class TangkwaAllProjDetail extends Component {
 
     onClickJoinProject = () =>{
         axios.post("http://127.0.0.1:8000/employee/putJoinProject/",{     
-                "staffId": 2,
-                "projectID": this.state.people.projectID,
+                "staffId": this.state.profile.employee[0].id,
+                "projectID": this.state.people[0].projectID,
                
             }, {
                     onUploadProgress: ProgressEvent => {
@@ -44,7 +62,7 @@ class TangkwaAllProjDetail extends Component {
 
     onClickChangeStatusDone = () => {
         axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
-            "projectId": this.state.people.projectID,
+            "projectID": this.state.people[0].projectID,
             "status": "done"
            
         }, {
@@ -61,13 +79,13 @@ class TangkwaAllProjDetail extends Component {
     }
     onClickChangeStatusInprocess = () => {
         axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
-            "projectId": this.state.people.projectID,
+            "projectID": this.state.people[0].projectID,
             "status": "inprocess"
            
         }, {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
-                        alert("Join project successful")
+                        alert("Event Successful")
                     }
                 }
             })
@@ -87,7 +105,7 @@ class TangkwaAllProjDetail extends Component {
                         <div className="tk1flex-2">
                             <div><p><b>PROJECT ID : </b>{people.projectID}</p></div>
                             <div><p><b>PROJECT NAME : </b>{people.ProjectName}</p></div>
-                            <div><p><b>MEMBERS :</b>{this.state.MemId}</p></div>
+                            <div><p><b>MEMBERS :</b>{people.MemberInProject}</p></div>
                             <div><p><b>DETAILS :</b>{people.ProjectDetail}</p></div>
                             <div><p><b>FILES :</b></p></div>
                         </div>
@@ -109,4 +127,10 @@ class TangkwaAllProjDetail extends Component {
         );
     }
 }
-export default TangkwaAllProjDetail;
+const mapStateToProps = state => {
+    console.log('state chaeck stat2', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaAllProjDetail)

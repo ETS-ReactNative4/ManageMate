@@ -239,8 +239,8 @@ export default class Calendar extends React.Component {
             let selectedClass = (d == this.mapDay(d, this.state.data) ? " selected-day " : " ");
             // console.log('func ', d, this.mapDay(d, this.state.data),d == this.mapDay(d, this.state.data))
             daysInMonth.push(
-                <td key={d} className={className + selectedClass} >
-                    <span onClick={(e) => { this.onDayClick(e, d,this.state.data) }}>{d}</span>
+                <td key={d} className={className + selectedClass} onClick={(e) => { this.onDayClick(e, d,this.state.data) }}>
+                    <span onClick={(e) => { this.onDayClick(e, d,this.state.data) }} >{d}</span>
                 </td>
             );
         }
