@@ -37,5 +37,7 @@ export default (state = inttialState, action) => {
         ...state,
         profile: action.payload.profile
       }
+      case 'LOGOUT':
+      return inttialState;
     }
 }

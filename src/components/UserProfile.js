@@ -2,59 +2,114 @@ import React, { Component } from 'react';
 //import logo from './logo.svg';
 import '../App.css';
 import _ from 'lodash'
-import moment from 'moment'
 import axios from 'axios';
 import { connect } from 'react-redux'
-import BigPicture from "react-bigpicture";
 import { Router, Route, IndexRoute, browserHistory, Link } from 'react-router';
+import { setLogout } from '../action';
 class UserProfile extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: [],
+            people: props.history,
             set: '',
-            profile : props.profile,
-            peoplein : [],
-            peopleout : []
+            profile: props.profile,
+            peoplein: [],
+            peopleout: [],
+            user: [],
+            first: "",
+            last: "",
+            ID: "",
+            annualQuo: "",
+            annualRemain: "",
+            bankName: "",
+            bankNo: "",
+            email: "",
+            lfwosQuo: "",
+            lfwosRemain: "",
+            lwpQuo: "",
+            lwpRemain: "",
+            personalQuo: "",
+            personalRemain: "",
+            projectID: "",
+            role: "",
+            sickQuo: "",
+            sickRemain: "",
+            staffID: "",
+            tellno: "",
+
         }
-        console.log("log",this.state.profile)
+
     }
-   
-  setRole(role){
-      if (role === "1") {
-          return "Super User"
-      }
-      else if(role === "2"){
-          return "HR"
-      }
-      else if (role === "3") {
-          return "Normal User"
-      }
-  }
-  componentDidMount() {
-    // axios.get('https://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
-    axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
-        .then(res => {
-            const person = res.data
-            this.setState({ people: person })
-            console.log("clock in", this.state.people)
-            const person1 = res.data.filter(person1 => {
-                return person1.Status === 'in'
+
+    setRole(role) {
+        if (role === "1") {
+            return "Super User"
+        }
+        else if (role === "2") {
+            return "HR"
+        }
+        else if (role === "3") {
+            return "Normal User"
+        }
+    }
+     componentDidMount() {
+        // axios.get('https://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
+        axios.get(`http://127.0.0.1:8000/employee/Statistic/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
+            .then(res => {
+                console.log("datda", res.data[1])
+             const a = res.data[2].map((user) => {
+                    return this.setState({
+                        first: user.firstnameEN,
+                        last: user.lastnameEN,
+                        ID: user.staffID,
+                        annualQuo:  user.annualQuo,
+                        annualRemain: user.annualRemain,
+                        bankName: user.bankName,
+                        bankNo: user.bankNo,
+                        email: user.email,
+                        lfwosQuo: user.lfwosQuo,
+                        lfwosRemain: user.lfwosRemain,
+                        lwpQuo: user.  lwpQuo,
+                        lwpRemain: user.lwpRemain,
+                        personalQuo: user.personalQuo,
+                        personalRemain: user.personalRemain,
+                        projectID: user.projectID,
+                        role: user.role,
+                        sickQuo: user.sickQuo,
+                        sickRemain: user.sickRemain,
+                        staffID: user. staffID,
+                        tellno: user. tellno,
+                    })
+
+
+                })
+                const person = res.data[1]
+                this.setState({ people: person })
+                console.log("clock in", this.state.people)
+                const person1 = res.data[1].filter(person1 => {
+                    return person1.Status === 'in'
+                })
+                this.setState({ peoplein: person1 })
+                const person2 = res.data[1].filter(person2 => {
+                    return person2.Status === 'out'
+                })
+                this.setState({ peopleout: person2 })
+                console.log("first", this.state.first, this.state.last)
             })
-            this.setState({ peoplein: person1 })
-            console.log("peoplein",this.state.peoplein)
-            const person2 = res.data.filter(person2 => {
-                return person2.Status === 'out'
+            .catch((error) => {
+                console.log('this is error', error)
+                // handle error here
             })
-            this.setState({ peopleout: person2 })
-            console.log("peopleout",this.state.peopleout)
-        })
-        .catch((error) => {
-            console.log('this is error', error)
-            // handle error here
-        })
-}
-    
+
+
+    }
+    handleLogout = () => {
+        this.props.setLogout()
+        browserHistory.push('/Login')
+
+
+    }
+
     render() {
         return (
             <div className="App">
@@ -63,43 +118,37 @@ class UserProfile extends Component {
                     <div className="tk1flex-0"></div>
                     <div className="tk1flex-1"></div>
                     <div className="tk1flex-1"></div>
-                    <div className="tk1flex-1"><Link to = '/login'><button type="submit" value="Submit" onClick={this.handleDelete} className="Logout_Account">LOG OUT</button></Link></div>
-                   </div>
+                    <div className="tk1flex-1"><button type="submit" value="Submit" onClick={this.handleLogout} className="Logout_Account">LOG OUT</button></div>
+                </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><p><b>FIRSTNAME : </b>{this.state.profile.employee[0].first_name_EN}</p></div>
-                    <div className="tk1flex-1"><p><b>LASTNAME : </b>{this.state.profile.employee[0].last_name_EN}</p></div>
-                    <div className="tk1flex-1"><p><b>STAFF ID : </b>{this.state.profile.employee[0].id}</p></div>
+                    <div className="tk1flex-1"><p><b>FIRSTNAME : </b>{this.state.first}</p></div>
+                    <div className="tk1flex-1"><p><b>LASTNAME : </b>{this.state.last}</p></div>
+                    <div className="tk1flex-1"><p><b>STAFF ID : </b>{this.state.ID}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-1"><p><b>POSITION : </b>{this.setRole(this.state.profile.employee[0].role)}</p></div>
+                    <div className="tk1flex-1"><p><b>POSITION : </b>{this.setRole(this.state.role)}</p></div>
                     <div className="tk1flex-1"><p></p></div>
-                    <div className="tk1flex-1"><p></p></div>
-                    <div className="tk1flex-1"><p></p></div>
-                </div>
-                <div className="row flex-container">
-                    <div className="tk1flex-0"></div>
-                    <div className="tk1flex-2"><p><b>PROJECTS : </b>22</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-2"><p><b>EMAIL : </b>{this.state.profile.employee[0].email}</p></div>
+                    <div className="tk1flex-2"><p><b>EMAIL : </b>{this.state.email}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-2"><p><b>BANK NAME : </b>{this.state.profile.employee[0].bank_name}</p></div>
+                    <div className="tk1flex-2"><p><b>BANK NAME : </b>{this.state.bankName}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
-                    <div className="tk1flex-2"><p><b>BANK NO. : </b>{this.state.profile.employee[0].bank_no}</p></div>
+                    <div className="tk1flex-2"><p><b>BANK NO. : </b>{this.state.bankNo}</p></div>
                     <div className="tk1flex-1"><p></p></div>
                     <div className="tk1flex-1"><p></p></div>
                 </div>
@@ -110,28 +159,28 @@ class UserProfile extends Component {
                 </div>
                 <div className="row flex-container tangkwaSetData ">
                     <div className="tkflex-1"><p><b>SICK LEAVE</b></p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].sick_quo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].sick_remain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.sickQuo}</p></div>
+                    <div className="tkflex-1"><p>{this.state.sickRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>ANNUAL LEAVE</b></p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].annual_quo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].annual_remain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.annualQuo}</p></div>
+                    <div className="tkflex-1"><p>{this.state.annualRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>LEAVE WITHOUT PAY</b></p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].lwp_quo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].lwp_remain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.lwpQuo}</p></div>
+                    <div className="tkflex-1"><p>{this.state.lwpRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>PERSONAL LEAVE</b></p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].personal_quo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].personal_remain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.personalQuo}</p></div>
+                    <div className="tkflex-1"><p>{this.state.personalRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>LEAVE FOR WORK OUTSIDE</b></p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].lfwos_quo}</p></div>
-                    <div className="tkflex-1"><p>{this.state.profile.employee[0].lfwos_remain}</p></div>
+                    <div className="tkflex-1"><p>{this.state.lfwosQuo}</p></div>
+                    <div className="tkflex-1"><p>{this.state.lfwosRemain}</p></div>
                 </div>
 
                 <div className="flex-container row margindetail">
@@ -141,8 +190,8 @@ class UserProfile extends Component {
                             <div className="tkflex-1"><p><b>DATE</b></p></div>
                             <div className="tkflex-1"><p><b>CLOCK IN</b></p></div>
                             <div className="tkflex-1"><p><b>GPS</b></p></div>
-                        </div> 
-                         {this.state.peoplein.map(peoplein => (<div className="row flex-container tangkwaSetData">
+                        </div>
+                        {this.state.peoplein.map(peoplein => (<div className="row flex-container tangkwaSetData">
                             <div className="tkflex-1"><p>{peoplein.Date}</p></div>
                             <div className="tkflex-1"><p>{peoplein.Time}</p></div>
                             <div className="tkflex-1"><p>{peoplein.place}</p></div>
@@ -160,9 +209,9 @@ class UserProfile extends Component {
                             <div className="tkflex-1"><p>{peopleout.Time}</p></div>
                             <div className="tkflex-1"><p>{peopleout.place}</p></div>
                         </div>))}
-                    </div> 
-                </div> 
-               
+                    </div>
+                </div>
+
 
             </div>
         );
@@ -170,10 +219,14 @@ class UserProfile extends Component {
 }
 
 const mapStateToProps = state => {
-    console.log('state chaeck stat', state.profile)
+    console.log('state chaeck stat', state.history)
     return {
-        profile: state.history,
+        people: state.history,
         profile: state.profile
     }
 }
-export default connect(mapStateToProps)(UserProfile)
+
+const mapDispatchToProps = dispatch => ({
+    setLogout: () => dispatch(setLogout())
+})
+export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

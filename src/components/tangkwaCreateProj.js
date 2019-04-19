@@ -42,7 +42,7 @@ class TangkwaCreateProj extends Component {
                 "staffID": this.state.profile.employee[0].id,
                 "ProjectName": this.state.projectName,
                 "Comment": this.state.detail,
-                "Status": "ready",
+                "Status": "Ready",
                 "member": "string",
             }, {
                     onUploadProgress: ProgressEvent => {

@@ -63,7 +63,7 @@ class TangkwaAllProjDetail extends Component {
     onClickChangeStatusDone = () => {
         axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
-            "status": "done"
+            "status": "Done"
            
         }, {
                 onUploadProgress: ProgressEvent => {
@@ -80,7 +80,7 @@ class TangkwaAllProjDetail extends Component {
     onClickChangeStatusInprocess = () => {
         axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
-            "status": "inprocess"
+            "status": "In process"
            
         }, {
                 onUploadProgress: ProgressEvent => {
@@ -93,6 +93,36 @@ class TangkwaAllProjDetail extends Component {
                 console.log('log approve', res);
                 console.log('log approve', res.data);
             })
+    }
+    checkStatus(status) {
+        if (status === "Done") {
+            return false
+        }
+        else if (status != "Done") {
+            return true
+        }
+    }
+    setRole(role) {
+        if (role === "1") {
+            return true
+        }
+        else if (role === "2") {
+            return true
+        }
+        else if (role === "3") {
+            return false
+        }
+    }
+    checkToDoProj(status) {
+        if (status === "Done") {
+            return false
+        }
+        else if(status === "Ready") {
+            return true
+        }
+        else if (status === "In process" ) {
+            return true
+        }
     }
     
     render() {
@@ -109,19 +139,16 @@ class TangkwaAllProjDetail extends Component {
                             <div><p><b>DETAILS :</b>{people.ProjectDetail}</p></div>
                             <div><p><b>FILES :</b></p></div>
                         </div>
-                        <div className="tkflex-1">
-                            <div className="pjFrame">
+                        <div className="tkflex-1 pjFrame">
+                            <div >
                                 <div><p><b>STATUS : </b>{people.Status}</p></div>
-                                <div><p><b>START : </b>{moment(people.startDateTime).format('DD-MM-YYYY')}</p></div>
-                                <div><p><b>DONE : </b>{moment(people.endDateTime).format('DD-MM-YYYY')}</p></div>
-                                <div><p><b>TOTAL : </b></p></div>
                             </div>
-                            <div>
+                            {this.checkStatus(people.Status) && this.setRole(this.state.profile.employee[0].role) && <div>
                                 <button type="submit" value="Submit" className="pStatusProcess" onClick={this.onClickChangeStatusInprocess}>IN PROCESS</button>
-                                <button type="submit" value="Submit" className="pStatusDone" onClick={this.onClickChangeStatusDone}>DONE</button></div>
+                                <button type="submit" value="Submit" className="pStatusDone" onClick={this.onClickChangeStatusDone}>DONE</button></div>}
                         </div>
                     </div>
-                    <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject" onClick={this.onClickJoinProject}>JOIN PROJECT</button></div>
+                   {this.checkToDoProj(people.Status) && <div className="tangkwaTitle2"><button type="submit" value="Submit" className="joinProject" onClick={this.onClickJoinProject}>JOIN PROJECT</button></div>}
                 </div>))}
             </div>
         );

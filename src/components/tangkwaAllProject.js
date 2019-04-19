@@ -33,7 +33,7 @@ class TangkwaAllProject extends Component {
             return true
         }
         else if (role === "2") {
-            return true
+            return false
         }
         else if (role === "3") {
             return false
@@ -66,7 +66,7 @@ class TangkwaAllProject extends Component {
                         <div className="tkflex-2">
                             <div><p><b>{people.ProjectName}</b></p></div>
                         </div>
-                        <div className={`${people.projectStatus == 'Done' ? 'tangkwaSetApprove tkflex-1' : people.projectStatus == 'Ready' ? 'tangkwaSetPending tkflex-1' : 'tangkwaSetReady tkflex-1'}`}>
+                        <div className={`${people.Status == 'Done' ? 'tangkwaSetApprove tkflex-1' : people.Status == 'Ready' ? 'tangkwaSetPending tkflex-1' : 'tangkwaSetReady tkflex-1'}`}>
                             <p>{people.Status}</p>
                         </div>
                     </div>

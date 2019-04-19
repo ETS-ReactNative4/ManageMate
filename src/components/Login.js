@@ -80,9 +80,10 @@ const mapDispatchToProps = dispatch => ({
     addProfile: (profile) => dispatch(addProfile(profile))
 })
 const mapStateToProps = state => {
-    console.log('state', state.profile)
+    console.log('state55555 ----->', state.profile)
     return {
         people: state.profile
+        
     }
 }
 export default connect(mapStateToProps,
