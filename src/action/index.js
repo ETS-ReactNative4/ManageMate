@@ -40,6 +40,11 @@ export const addProfile = profile => ({
   
 })
 
+export const setLogout = () => ({
+  type: 'LOGOUT',
+  payload: {}
+})
+
 
 
 

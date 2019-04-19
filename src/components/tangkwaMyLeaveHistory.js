@@ -6,7 +6,7 @@ import _ from 'lodash';
 import { connect } from 'react-redux'
 import { addMyHistory } from '../action'
 import moment from 'moment'
-
+import PerfectScrollbar from 'react-perfect-scrollbar'
 class TangkwaMyLeaveHistory extends Component {
     constructor(props) {
         super(props);
@@ -61,6 +61,7 @@ class TangkwaMyLeaveHistory extends Component {
                         return people.leaveStatus === this.state.Save
                     }).map((people) =>
                         <div className="row flex-container tangkwaSetData">
+                        
                             <div className="tkflex-1"><div className={`${people.leaveStatus == 'Approved' ? 'tangkwaSetApprove' : people.leaveStatus == 'Pending' ? 'tangkwaSetPending' : 'tangkwaSetReject'}`}><p><b>{people.leaveStatus}</b></p></div></div>
                             <Link to={`/LeaveDetail/${people.leaveID}`} className="tkflex-1"><div><p>LEV{_.padStart(people.leaveID, 5, '0')}</p></div></Link>
                             <div className="tkflex-2"><p>{people.firstnameEN} {people.lastnameEN}</p></div>

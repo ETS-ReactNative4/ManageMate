@@ -36,7 +36,7 @@ else if(role == 3) {
 
         return (
             <div>
-                <div className="tangkwaTitle"><h4><b>MY CALENDAR</b></h4></div>
+                <div className="tangkwaTitle"><h4><b>CALENDAR</b></h4></div>
                 {
                this.checkRole(this.state.profile.employee[0].role) && <div>
                    

@@ -14,11 +14,10 @@ class TangkwaMyProject extends Component {
     }
     componentDidMount() {
         // axios.get('https://managemate.azurewebsites.net/GetProjectInfoByStaffID?staffId=1')
-        axios.get(`http://127.0.0.1:8000/employee/getprojectbystaffid/?staffId=${this.state.profile.employee[0].id}`)
+        axios.get(`http://127.0.0.1:8000/employee/myproject/?staffId=${this.state.profile.employee[0].id}`)
             .then(res => {
-                const person = res.data
-                this.setState({ people: person })
-                console.log("ttt", this.state.people)
+                console.log("My Project ----->", res.data)
+                this.setState({people : res.data})
             })
             .catch((error) => {
                 console.log('this is error', error)
@@ -48,10 +47,10 @@ class TangkwaMyProject extends Component {
                             <Link to={`ProjectDetail/${user.projectID}`} className="tkflex-2 p" ><p>{user.projectID}</p></Link>
                         </div>
                         <div className="tkflex-2 p">
-                            <div><p><b>{user.projectName}</b></p></div>
+                            <div><p><b>{user.ProjectName}</b></p></div>
                         </div>
                         <div className={`${user.projectStatus == 'Done' ? 'tangkwaSetApprove tkflex-1' : user.projectStatus == 'Ready' ? 'tangkwaSetPending tkflex-1' : 'tangkwaSetReady tkflex-1'}`}>
-                            <p>{user.projectStatus}</p>
+                            <p>{user.Status}</p>
                         </div>
                     </div>
                 </div>))}

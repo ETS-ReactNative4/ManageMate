@@ -37,6 +37,8 @@ const FormHeader = props => {
     )
 }
 
+
+
 const Comment = props => {
     const { onChange, textlimit } = props
     return (
@@ -79,6 +81,7 @@ const getBase64 = (file) => {
 
 
 class RequestForm extends React.Component {
+  
     constructor(props) {
         
         super(props);
@@ -229,7 +232,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        // browserHistory.push('/MyleaveHistory')
+                         browserHistory.push('/MyleaveHistory')
 
                     }
 
@@ -242,11 +245,10 @@ class RequestForm extends React.Component {
         let Base64File =  await this.getBase64(this.state.selectedFile[0])
         // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
         axios.post("http://127.0.0.1:8000/employee/addleave/",{
-            "leaveID" : 0,
-            "staffID" : 1,
-            "firstnameEN" : "tangkwa",
-            "lastnameEN" : "tangkwa",
-            "role" :0,
+            "staffID" : this.state.profile.employee[0].id,
+            "firstnameEN" : this.state.profile.employee[0].first_name_EN,
+            "lastnameEN" : this.state.profile.employee[0].last_name_EN,
+            "role" : this.state.profile.employee[0].role,
             "leaveType" : this.state.leavetype,
             "leaveStartDateTime" : this.state.dayStart,
             "leaveEndDateTime" : this.state.dayEnd,
@@ -262,7 +264,7 @@ class RequestForm extends React.Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Data has been sent!.");
-                        // browserHistory.push('/MyleaveHistory')
+                        browserHistory.push('/MyleaveHistory')
 
                     }
 
@@ -273,7 +275,7 @@ class RequestForm extends React.Component {
         }
     }
 
-
+    
     render() {
         return (
 

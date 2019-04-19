@@ -33,7 +33,6 @@ import UserProfile from './components/UserProfile'
 import MainLayout from './components/homepage'
 
 class App extends Component {
-
   render() {
     
     return (

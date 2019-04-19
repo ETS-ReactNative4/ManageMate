@@ -27,14 +27,14 @@ class TangkwaLeaveDetail extends Component {
         }
     }
     setRole(role) {
-        if (role === "0") {
+        if (role === "3") {
             console.log("55555")
             return role = 'Normal User'
         }
-        if (role === "1") {
+        if (role === "2") {
             return role = 'HR'
         }
-        if (role === "2") {
+        if (role === "1") {
             return role = 'Super User'
         }
 

@@ -55,9 +55,10 @@ class TangkwaStatisticsDetail extends Component {
         }
     }
 
-    handleDelete() {
-        axios.post("http://127.0.0.1:8000/employee/deleteuser/",{     
-            "staffId": this.state.profile.employee[0].id,         
+    handleDelete(staffId) {
+        console.log('wwwwwwwwwwwwwwwwwwwww',staffId)
+        axios.post("http://127.0.0.1:8000/employee/deleteuser/", {     
+            "staffId": staffId,         
         }, {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
@@ -66,11 +67,10 @@ class TangkwaStatisticsDetail extends Component {
                 }
             })
             .then(res => {
-                console.log('log approve', res);
-                console.log('log approve', res.data);
             })
     }
     render() {
+        
         const { person } = this.state
         return (
             <div className="App">
@@ -181,7 +181,7 @@ class TangkwaStatisticsDetail extends Component {
                 </div>
                 <div className="tangkwaTitle" >
 
-                    <button type="submit" value="Submit" onClick={this.handleDelete} className="DeleteAccount">DELETE ACCOUNT</button>
+                    <button type="submit" value="Submit" onClick={() => this.handleDelete(this.state.person.staffId)} className="DeleteAccount">DELETE ACCOUNT</button>
 
                 </div>
 
