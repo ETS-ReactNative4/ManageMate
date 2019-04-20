@@ -18,9 +18,22 @@ class TangkwaStatisticsDetail extends Component {
         this.state = {
             person,
             peoplein: [],
-            peopleout: []
+            peopleout: [],
+            profile : props.person
 
         }
+        if (this.state.profile.role === 2) {
+            console.log("login ss")
+      
+          }
+         else if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้ข่า")
+            browserHistory.push('/myCalendar')
+          }
     }
     componentDidMount() {
         axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.person.staffId}`)
@@ -69,6 +82,16 @@ class TangkwaStatisticsDetail extends Component {
             .then(res => {
             })
     }
+    checkRole(role){
+        console.log("role------>",role === "2")
+
+        if (role === "2") {
+            return true
+        }
+        else {
+            return false
+        }
+    }
     render() {
         
         const { person } = this.state
@@ -80,7 +103,7 @@ class TangkwaStatisticsDetail extends Component {
                     <div className="tk1flex-1"></div>
                     <div className="tk1flex-1"></div>
                     <div className="tk1flex-1"></div>
-                    <div className="tk1flex-1"><Link to= {`EditUserDetail/${this.state.person.staffId}`} > <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">EDIT</button></Link></div>
+                   { this.checkRole(this.state.profile.employee[0].role) && <div className="tk1flex-1"><Link to= {`EditUserDetail/${this.state.person.staffId}`} > <button type="submit" value="Submit" onClick={this.handleCheck} className="Submit">EDIT</button></Link></div>}
                 </div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
@@ -128,7 +151,7 @@ class TangkwaStatisticsDetail extends Component {
                 <div className="row flex-container tangkwaSetData ">
                     <div className="tkflex-1"><p><b>SICK LEAVE</b></p></div>
                     <div className="tkflex-1"><p>{this.state.person.sickQuo}</p></div>
-                    <div className="tkflex-1"><p><b>{this.state.person.sickRemain}</b></p></div>
+                    <div className="tkflex-1"><p><b></b>{this.state.person.sickRemain}</p></div>
                 </div>
                 <div className="row flex-container tangkwaSetData">
                     <div className="tkflex-1"><p><b>ANNUAL LEAVE</b></p></div>
@@ -179,11 +202,11 @@ class TangkwaStatisticsDetail extends Component {
                         </div>))}
                     </div>
                 </div>
-                <div className="tangkwaTitle" >
+                {this.checkRole(this.state.profile.employee[0].role) && <div className="tangkwaTitle" >
 
                     <button type="submit" value="Submit" onClick={() => this.handleDelete(this.state.person.staffId)} className="DeleteAccount">DELETE ACCOUNT</button>
 
-                </div>
+                </div>}
 
             </div>
         );
@@ -193,7 +216,8 @@ const mapStateToProps = state => {
     console.log('state in', state.staff)
     return {
         profile: state.history,
-        staff: state.staff
+        staff: state.staff,
+        person : state.profile
     }
 }
 export default connect(mapStateToProps)(TangkwaStatisticsDetail)

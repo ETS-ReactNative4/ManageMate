@@ -29,6 +29,19 @@ class MyCalendarCreateEvent extends Component {
 
         }
 
+        if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else if (this.state.profile.role === 2) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
+            browserHistory.push('/myCalendar')
+          }
+
         this.handleChangeHour = this.handleChangeHour.bind(this);
         this.handleChangeMin = this.handleChangeMin.bind(this);
         this.handleChangeComment = this.handleChangeComment.bind(this);

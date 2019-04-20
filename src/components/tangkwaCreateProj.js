@@ -25,6 +25,15 @@ class TangkwaCreateProj extends Component {
             detail: '',
             profile : props.profile
         }
+        if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้ข่า")
+            browserHistory.push('/myCalendar')
+          }
+        
         this.handleChangeProjectName = this.handleChangeProjectName.bind(this);
         this.handleChangeDetail = this.handleChangeDetail.bind(this);
     }
@@ -83,7 +92,7 @@ class TangkwaCreateProj extends Component {
                     <div className="tk1flex-2">
                         <div className="tangkwaTitle"><p>PROJECT NAME : <input type="text" value={this.state.projectName} onChange={this.handleChangeProjectName} className="proj" /></p></div>
                         <div><div className="tangkwaTitle1"><p>DETAIL :</p></div><textarea value={this.state.detail} onChange={this.handleChangeDetail} className="textarea1" maxLength="255" type="text" /></div>
-                        <div className="tangkwaTitle"><p>FILE :</p></div>
+                      
                     </div>
                 </div>
                 <div>
