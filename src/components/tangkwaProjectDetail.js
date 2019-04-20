@@ -106,7 +106,7 @@ class TangkwaProjectDetail extends Component {
                         <div><p><b>PROJECT NAME : </b>{people.ProjectName}</p></div>
                         <div><p><b>MEMBERS :</b>{people.MemberInProject}</p></div>
                         <div><p><b>DETAILS :</b>{people.comment}</p></div>
-                        <div><p><b>FILES :</b></p></div>
+                       
                     </div>
                     <div className="tkflex-1 pjFrame">
                         <div><p><b>STATUS : </b>{people.Status}</p></div>

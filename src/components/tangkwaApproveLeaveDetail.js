@@ -15,6 +15,14 @@ class TangkwaApproveLeaveDetail extends Component {
             set: '',
             profile : props.person
         }
+        if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
+            browserHistory.push('/myCalendar')
+          }
     }
     componentDidMount() {
         // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)

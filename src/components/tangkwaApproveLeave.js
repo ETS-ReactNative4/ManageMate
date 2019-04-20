@@ -13,8 +13,17 @@ class TangkwaApproveLeave extends Component {
         this.state = {
             people: [],
             staff : '',
-            Save : "All"
+            Save : "All",
+            profile : props.profile
         }
+        if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
+            browserHistory.push('/myCalendar')
+          }
     }
     handleSetValue = (event) => {
         console.log(this.state.Save)
@@ -89,6 +98,7 @@ const mapStateToProps = state => {
     console.log('state',state)
     return {
         people: state.add,
+        profile : state.profile
     
     }
 }

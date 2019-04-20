@@ -4,6 +4,7 @@ import axios from 'axios';
 import _ from 'lodash'
 import moment from 'moment'
 import { browserHistory } from 'react-router';
+import { connect } from 'react-redux'
 class TangkwaAddUser extends Component {
     constructor(props) {
         super(props);
@@ -21,8 +22,17 @@ class TangkwaAddUser extends Component {
             personal: '',
             lfwos: '',
             username : "",
-            password : ''
+            password : '',
+            profile : props.profile
         }
+        if (this.state.profile.role === 2) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้ข่า")
+            browserHistory.push('/myCalendar')
+          }
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
         this.handleChangeEmail = this.handleChangeEmail.bind(this);
@@ -330,4 +340,12 @@ class TangkwaAddUser extends Component {
         );
     }
 }
-export default TangkwaAddUser;
+
+
+const mapStateToProps = state => {
+    console.log('state chaeck stat1', state.profile)
+    return {
+        profile: state.profile
+    }
+}
+export default connect(mapStateToProps)(TangkwaAddUser)

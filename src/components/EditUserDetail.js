@@ -37,8 +37,17 @@ class EditUserDetail extends Component {
             lfwos: '',
             lfwosRemain: '',
             staffId: '',
+            profile : props.person,
 check : parseInt(_.last(window.location.pathname.split('/')))
         }
+        if (this.state.profile.role === 2) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
+            browserHistory.push('/myCalendar')
+          }
         console.log("check",this.state.check)
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
         this.handleChangeLastName = this.handleChangeLastName.bind(this);
@@ -332,7 +341,8 @@ const mapStateToProps = state => {
     console.log('state in', state.staff)
     return {
         profile: state.history,
-        staff: state.staff
+        staff: state.staff,
+        person :state.profile
     }
 }
 export default connect(mapStateToProps)(EditUserDetail)
