@@ -50,12 +50,12 @@ const Comment = props => {
                 </div>
                 <div className="text-area flex6">
 
-                    <textarea className="textarea" maxLength="255" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
+                    <textarea className="textarea" maxLength="80" type="text" onChange={(event) => onChange('note', event.target.value, event.target.value.length)} />
                     
                     
                 </div>
                 <div className="flex2">
-                    <p className="text-limit">{textlimit}/255</p>
+                    <p className="text-limit">{textlimit}/80</p>
                 </div>
             </div>
         </div>
@@ -330,7 +330,7 @@ class RequestForm extends React.Component {
                         Date
                             <StartdateCalendar  onChange={this.handleChangeMoreDayStart} id1={'dayStart'} />
                     </div>}
-                    {!this.state.isOneday && <div className='text-date2'>
+                    {!this.state.isOneday && <div className='text-date2 dateEnd'>
                         Date end
                             <EnddateCalendar onChange={this.handleChangeMoreDayEnd} id1={'dayEnd'}/>
                     </div>}

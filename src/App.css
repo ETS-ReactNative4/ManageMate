@@ -582,7 +582,7 @@ text-align: left;
   .log-in{
     border-color: #222;
     border-radius : 15px;
-    width : 45%;
+    width : 50%;
   }
   .borderLogin{
     border: 2px solid white;
@@ -967,9 +967,9 @@ color:white;
 border-width : 0px;
 background-color: #E22700;
 border-radius : 10px;
-padding: 10px;
-margin-left: 10px;
-margin-right: 10px;
+padding: 2%;
+margin-left: 40%;
+
 color:white;
 }
 .position-filter{
@@ -980,7 +980,7 @@ color:white;
 .LoginButton{
 border-width : 0px;
 border-radius : 5px;
-width: 20%;
+padding : 2%;
 margin-left:70%;
 background-color : #FEC600;
 }
@@ -1157,12 +1157,21 @@ margin : 10px
 }
 .joinProject{
   border-width : 0px;
-  border-radius : 15px;
-  
-  height:30px;
+  border-radius : 10px;
+  padding: 10px;
  margin-right:10%;
  background-color : #FEC600;
 }
+.joinProject:hover {
+  color: #FEC600;
+  background-color: black;
+  cursor: pointer;
+}
+
+
+
+
+
 .pStatus{
   font-size:17px;
   border-width : 0px;
@@ -1179,6 +1188,7 @@ margin : 10px
  margin-right:1%;
  background-color : #FEC600;
 }
+
 .selecttype{
   padding-left : 77%;
   padding-bottom: 3%;
@@ -1188,9 +1198,14 @@ margin : 10px
   border-radius : 8px;
  margin-right:1%;
  background-color :#3498DB  ;
- padding-left :3%;
- padding-right : 3%;
+padding : 2%;
 margin-top : 3%;
+}
+
+.pStatusProcess:hover {
+  color: #FEC600;
+  background-color: black;
+  cursor: pointer;
 }
 .pStatusDone{
   font-size:17px;
@@ -1198,8 +1213,12 @@ margin-top : 3%;
   border-radius : 8px;
  margin-right:1%;
  background-color : #58D68D;
- padding-left :3%;
- padding-right : 3%;
+ padding : 2%;
+}
+.pStatusDone:hover {
+  color: #FEC600;
+  background-color: black;
+  cursor: pointer;
 }
 
 .flex2{
@@ -1234,4 +1253,15 @@ margin-top : 3%;
 .tk::-webkit-scrollbar-thumb {
   background: red; 
   border-radius: 10px;
+}
+
+
+.dateEnd{
+  margin-right : 48%;
+  }
+
+.Calendarcalendar{
+margin-right : 70%;
+margin-top : -30px;
+
 }

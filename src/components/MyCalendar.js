@@ -42,7 +42,7 @@ else if(role == 3) {
                    
                 <Link to='MyCalendarCreateEvent' ><button type="submit" value="event" className="createproj-button">CREATE EVENT</button></Link></div>}
                 <div className="App">
-                    <Calendar style={style} width="1200px" data = {this.state.data}
+                    <Calendar style={style} width="302px" data = {this.state.data}
                       />
                 </div>
             </div>

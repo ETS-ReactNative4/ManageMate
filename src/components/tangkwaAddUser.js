@@ -30,7 +30,7 @@ class TangkwaAddUser extends Component {
       
           }
           else {
-            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้ข่า")
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
             browserHistory.push('/myCalendar')
           }
         this.handleChangeFirstName = this.handleChangeFirstName.bind(this);
@@ -221,7 +221,7 @@ class TangkwaAddUser extends Component {
                         <p>PASSWORD : </p>
                     </div>
                     <div className="tk1flex-2">
-                        <input type="text" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser" />
+                        <input type="password" value={this.state.password} onChange={this.handleChangepassword} className="setForAddUser" />
                     </div>
                     <div className="tk1flex-2">
                         <p>ANNUAL LEAVE : </p>

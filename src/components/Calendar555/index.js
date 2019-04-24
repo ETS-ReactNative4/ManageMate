@@ -5,6 +5,7 @@ import left from '../../Image/left-arrow.png'
 import right from '../../Image/arrow-point-to-right.png'
 import _ from 'lodash';
 import axios from 'axios';
+import swal from 'sweetalert'
 export default class Calendar extends React.Component {
     state = {
 
@@ -176,7 +177,7 @@ export default class Calendar extends React.Component {
 
         this.props.onDayClick && this.props.onDayClick(e, day);
         const dataFilter = data.filter((data) => {
-            if (n == data.date && data.Month == this.month()) {
+            if (n == data.date && data.Month == this.month() && data.Years === this.year()) {
                 return data
             }
             else {
@@ -186,25 +187,27 @@ export default class Calendar extends React.Component {
         })
         console.log("dataffff",dataFilter)
         if (dataFilter == "") {
-            alert("No event on this day")
+            swal("No event on this day")
         }
         else {
-           dataFilter.map((dataFilter) => {
-               return  alert("date : "+ dataFilter.datetime+
+            dataFilter.map((dataFilter) => {
+               return   swal("date : "+ dataFilter.datetime+
                " time : "+dataFilter.Hours+":"+dataFilter.Minutes+
                " detail : "+dataFilter.comment+
-               " by : "+dataFilter.FirstnameEN)
+             " by : "+dataFilter.FirstnameEN);
+            
            })
+           
         }
        
     }
     mapDay = (today, data) => {
         var num = today;
         var n = num.toString();
-        console.log("month111",this.month())
+        console.log("month111",data.Years === this.year())
         //console.log("Map data",data)
         const dateSelect = data.filter((data) => {
-            if (n == data.date && data.Month == this.month()) {
+            if (n == data.date && data.Month == this.month() && data.Years === this.year()) {
                 // console.log("check same type", (typeof (n) === typeof (data.date)))
                 // console.log("check same value", (n === data.date))
                 // console.log('filter ')
@@ -229,15 +232,12 @@ export default class Calendar extends React.Component {
             </td>
             );
         }
-        console.log("month",typeof(this.month()))
-        //console.log("blanks: ", blanks);
+        console.log("Year---->",this.year())
+       
         let daysInMonth = [];
         for (let d = 1; d <= this.daysInMonth(); d++) {
-            
             let className = (d == this.currentDay() ? "day current-day" : "day");
-            //console.log("555",this.state.data)
             let selectedClass = (d == this.mapDay(d, this.state.data) ? " selected-day " : " ");
-            // console.log('func ', d, this.mapDay(d, this.state.data),d == this.mapDay(d, this.state.data))
             daysInMonth.push(
                 <td key={d} className={className + selectedClass} onClick={(e) => { this.onDayClick(e, d,this.state.data) }}>
                     <span onClick={(e) => { this.onDayClick(e, d,this.state.data) }} >{d}</span>

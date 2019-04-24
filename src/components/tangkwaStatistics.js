@@ -9,8 +9,21 @@ class TangkwaStatistics extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            people: []
+            people: [],
+            profile : props.profile
         }
+        if (this.state.profile.role === 2) {
+            console.log("login ss")
+      
+          }
+          else  if (this.state.profile.role === 1) {
+            console.log("login ss")
+      
+          }
+          else {
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
+            browserHistory.push('/myCalendar')
+          }
     }
     componentDidMount() {
         // axios.get("https://managemate.azurewebsites.net/GetEmployeeInfo")
@@ -65,7 +78,8 @@ const mapDispatchToProps = dispatch => ({
 const mapStateToProps = state => {
     console.log('state', state.history)
     return {
-        people: state.history
+        people: state.history,
+        profile : state.profile
     }
 }
 export default connect(mapStateToProps,
