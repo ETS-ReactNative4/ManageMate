@@ -14,7 +14,7 @@ class TangkwaAllProjDetail extends Component {
         console.log("ttt11", this.state.profile.employee[0].id)
     }
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`http://52.168.175.101:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             .then(res => {
                 const person = res.data.map((user) => {
                     return {

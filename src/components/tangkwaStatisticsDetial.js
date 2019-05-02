@@ -69,8 +69,7 @@ class TangkwaStatisticsDetail extends Component {
     }
 
     handleDelete(staffId) {
-        console.log('wwwwwwwwwwwwwwwwwwwww',staffId)
-        axios.post("http://127.0.0.1:8000/employee/deleteuser/", {     
+        axios.post("http://52.168.175.101:8000/employee/deleteuser/", {     
             "staffId": staffId,         
         }, {
                 onUploadProgress: ProgressEvent => {

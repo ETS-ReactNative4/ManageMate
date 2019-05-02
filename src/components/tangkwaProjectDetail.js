@@ -14,7 +14,7 @@ class TangkwaProjectDetail extends Component {
         }
     }
     componentDidMount() {
-      axios.get(`http://127.0.0.1:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+      axios.get(`http://52.168.175.101:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
       .then(res => {
         const person = res.data.map((user) => {
             return {
@@ -42,7 +42,7 @@ class TangkwaProjectDetail extends Component {
     })
     }
     onClickChangeStatusDone = () => {
-        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "Done"
            
@@ -59,7 +59,7 @@ class TangkwaProjectDetail extends Component {
             })
     }
     onClickChangeStatusInprocess = () => {
-        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "In process"
            

@@ -69,7 +69,7 @@ check : parseInt(_.last(window.location.pathname.split('/')))
         this.handleChangepassword = this.handleChangepassword.bind(this);
     }
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8000/employee/getemployee/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`http://52.168.175.101:8000/employee/getemployee/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
                 console.log("dljsfffffffff",res.data)

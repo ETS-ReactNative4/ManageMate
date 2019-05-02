@@ -28,7 +28,7 @@ class Login extends Component {
         console.log("password", this.state.password)
     }
     handleSubmit = () => {
-        axios.post('http://127.0.0.1:8000/user/login/', {
+        axios.post('http://52.168.175.101:8000/user/login/', {
           "username" : this.state.username,
           "password" : this.state.password
 
