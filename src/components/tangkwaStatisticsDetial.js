@@ -31,12 +31,12 @@ class TangkwaStatisticsDetail extends Component {
       
           }
           else {
-            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้ข่า")
+            alert("คุณไม่สามารถเข้าถึงหน้านี้ได้")
             browserHistory.push('/myCalendar')
           }
     }
     componentDidMount() {
-        axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.person.staffId}`)
+       {this.checkRoleForRender(this.state.profile.role) && axios.get(`http://127.0.0.1:8000/employee/getcheckin/?staffId=${this.state.person.staffId}`)
             // axios.get(`http://127.0.0.1:8000/employee/getdetailemployee/?leaveId=${_.last(window.location.pathname.split('/'))}`)
             .then(res => {
                 console.log("ddddd",res.data)
@@ -55,7 +55,7 @@ class TangkwaStatisticsDetail extends Component {
                 console.log('this is error', error)
                 // handle error here
             })
-    }
+    }}
     setRole = (role) => {
         if (role === "1") {
             return role = "Super User"
@@ -76,6 +76,7 @@ class TangkwaStatisticsDetail extends Component {
                 onUploadProgress: ProgressEvent => {
                     if ((ProgressEvent.loaded / ProgressEvent.total * 100) === 100) {
                         alert("Delete Successful")
+                        browserHistory.push('/statistics')
                     }
                 }
             })
@@ -92,11 +93,24 @@ class TangkwaStatisticsDetail extends Component {
             return false
         }
     }
+    checkRoleForRender(role) {
+        console.log("checkRoleForRender",role)
+        if (role === 1) {
+            return true
+        }
+        else if(role === 2){
+            return true
+        }
+        else {
+            return false
+        }
+    }
     render() {
         
         const { person } = this.state
         return (
             <div className="App">
+               {this.checkRoleForRender(this.state.profile.role) && <div>
                 <div className="tangkwaTitle"><h4><b>DETAIL</b></h4></div>
                 <div className="row flex-container">
                     <div className="tk1flex-0"></div>
@@ -207,6 +221,7 @@ class TangkwaStatisticsDetail extends Component {
                     <button type="submit" value="Submit" onClick={() => this.handleDelete(this.state.person.staffId)} className="DeleteAccount">DELETE ACCOUNT</button>
 
                 </div>}
+               </div>}
 
             </div>
         );

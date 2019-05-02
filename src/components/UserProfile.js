@@ -229,4 +229,5 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => ({
     setLogout: () => dispatch(setLogout())
 })
+
 export default connect(mapStateToProps, mapDispatchToProps)(UserProfile)

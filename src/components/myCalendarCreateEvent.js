@@ -78,7 +78,8 @@ class MyCalendarCreateEvent extends Component {
             "date" : this.handleSetDate(this.state.date.substring(8,10)),
             "Hours" :this.state.hour ,
             "Minutes": this.state.min,
-            "comment" : this.state.comment
+            "comment" : this.state.comment,
+            "Years" : this.state.date.substring(0,4).toString()
 
         }, {
                 onUploadProgress: ProgressEvent => {
@@ -231,26 +232,26 @@ class MyCalendarCreateEvent extends Component {
 
 
     render() {
-        console.log(this.state.date.substring(5,7))
+        console.log(this.state.date.substring(0,4))
         return (
             <div>
                 <FormHeader/>
                 <div className = "row flex-container">
                 <div className = "tk1flex-0"></div>
-                <div className = "tk1flex-3 downdown">TIME : <input type="text" value={this.state.hour} onChange={this.handleChangeHour} className="setTime" /> : <input type="text" value = {this.state.min} onChange={this.handleChangeMin} className="setTime" /> </div>
+                <div className = "tk1flex-3 downdown">TIME : <input type="number" value={this.state.hour} onChange={this.handleChangeHour} className="setTime" /> : <input type="number" value = {this.state.min} onChange={this.handleChangeMin} className="setTime" /> </div>
                 <div className = "tk1flex-1">
                 </div>
                 </div>
                 <div className = "row flex-container">
                 <div className = "tk1flex-0"></div>
-                <div className = "tk1flex-3 downdown">DATE : <EventCalendar onChange = {this.handleChangeDateTime} id ={'date'}/></div>
+                <div className = "tk1flex-3 downdown">DATE : <div  className = "Calendarcalendar"><EventCalendar onChange = {this.handleChangeDateTime} id ={'date'}/></div></div>
 
                 <div className = "tk1flex-1">
                 </div>
                 </div>
                 <div className = "row flex-container">
                 <div className = "tk1flex-0"></div>
-                <div className = "tk1flex-3 downdown">COMMENT : <input type="text" value={this.state.comment} onChange={this.handleChangeComment} className="setForCM" /></div>
+                <div className = "tk1flex-3 downdown">COMMENT : <input type="text" value={this.state.comment} maxLength="80" onChange={this.handleChangeComment} className="setForCM" /></div>
                 <div className = "tk1flex-1">
                 </div>
                 </div>

@@ -7,6 +7,7 @@ import { browserHistory } from 'react-router';
 import axios from 'axios';
 import { connect } from 'react-redux'
 import BigPicture from "react-bigpicture";
+
 class TangkwaApproveLeaveDetail extends Component {
     constructor(props) {
         super(props);
@@ -214,7 +215,7 @@ class TangkwaApproveLeaveDetail extends Component {
                                 <div><p><b>COMMENT : </b>{people.LeaveComment}</p></div>
                                 <div><p><b>FILE : </b></p>
                                 {this.CheckPic(people.LeaveFile1) && <BigPicture
-                            
+                             
                                
                             img src = {people.LeaveFile1}
                         >
@@ -222,6 +223,8 @@ class TangkwaApproveLeaveDetail extends Component {
                         </BigPicture>}
                         
                                 </div>
+                                <div className="tk1flex-0">
+                              <div><p></p></div></div>
                             </div>
                             <div className="tk1flex-1">
                             </div>

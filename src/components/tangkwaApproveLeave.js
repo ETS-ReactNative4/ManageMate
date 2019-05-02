@@ -58,7 +58,7 @@ class TangkwaApproveLeave extends Component {
         return (
             <div className="App">
                 <div className="tangkwaTitle"><h4><b>APPROVE</b></h4></div>
-                <div className="selecttype">
+                <div className="selecttype55">
              
              <select onChange={this.handleSetValue} >
                  <option value="All">Show All</option>
