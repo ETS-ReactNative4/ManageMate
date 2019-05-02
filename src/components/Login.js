@@ -41,7 +41,7 @@ class Login extends Component {
                console.log("log in",this.state.profile)
                const data = this.state.profile
                 this.props.addProfile(data)
-                this.props.router.push('/requestform')
+                this.props.router.push('/myCalendar')
             })
             .catch((error) => {
                 console.log("this error",error)

@@ -191,7 +191,7 @@ export default class Calendar extends React.Component {
         }
         else {
             dataFilter.map((dataFilter) => {
-               return   swal("date : "+ dataFilter.datetime+
+               return   alert("date : "+ dataFilter.datetime+
                " time : "+dataFilter.Hours+":"+dataFilter.Minutes+
                " detail : "+dataFilter.comment+
              " by : "+dataFilter.FirstnameEN);
