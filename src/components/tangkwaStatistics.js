@@ -27,7 +27,7 @@ class TangkwaStatistics extends Component {
     }
     componentDidMount() {
         // axios.get("https://managemate.azurewebsites.net/GetEmployeeInfo")
-        axios.get("http://127.0.0.1:8000/employee/getemployee/")
+        axios.get("http://52.168.175.101:8000/employee/getemployee/")
             .then(res => {
                 console.log(res.data)
                 this.setState({ people: res.data })
