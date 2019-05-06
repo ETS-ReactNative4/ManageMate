@@ -26,7 +26,7 @@ class TangkwaApproveLeaveDetail extends Component {
           }
     }
     componentDidMount() {
-        // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        // axios.get(`http://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
         axios.get(`http://52.168.175.101:8000/employee/getleave/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)    
         .then(res => {
                 const person = res.data
@@ -43,7 +43,7 @@ class TangkwaApproveLeaveDetail extends Component {
         console.log("set", this.state.set)
         console.log()
         if (window.confirm("Are you sure you want to Approve?")) {
-            // axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
+            // axios.put(`http://managemate.azurewebsites.net/api/Leave/SetStatus?status=Approved&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
             axios.post("http://52.168.175.101:8000/employee/updateleave/",{ 
                 "status": 'Approved',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),
@@ -66,7 +66,7 @@ class TangkwaApproveLeaveDetail extends Component {
         this.setState({ set: false })
         console.log("set", this.state.set)
         if (window.confirm("Are you sure you want to Reject?")) {
-            // axios.put(`https://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
+            // axios.put(`http://managemate.azurewebsites.net/api/Leave/SetStatus?status=Rejected&leaveId=${parseInt(_.last(window.location.pathname.split('/')))}&approverId=1`, {
                 axios.post("http://52.168.175.101:8000/employee/updateleave/",{     
             "status": 'Rejected',
                 "leaveId": parseInt(_.last(window.location.pathname.split('/'))),

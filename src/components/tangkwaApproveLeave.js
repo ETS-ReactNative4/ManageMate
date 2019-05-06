@@ -32,7 +32,7 @@ class TangkwaApproveLeave extends Component {
 
     }
     componentDidMount() {
-        // axios.get('https://managemate.azurewebsites.net/api/Leave/GetLeaveInfo')
+        // axios.get('http://managemate.azurewebsites.net/api/Leave/GetLeaveInfo')
         axios.get("http://52.168.175.101:8000/employee/getleaveall/")
             .then(res => {
                 this.setState({ people: res.data })

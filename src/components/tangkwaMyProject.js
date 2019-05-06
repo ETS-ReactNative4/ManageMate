@@ -13,7 +13,7 @@ class TangkwaMyProject extends Component {
         }
     }
     componentDidMount() {
-        // axios.get('https://managemate.azurewebsites.net/GetProjectInfoByStaffID?staffId=1')
+        // axios.get('http://managemate.azurewebsites.net/GetProjectInfoByStaffID?staffId=1')
         axios.get(`http://52.168.175.101:8000/employee/myproject/?staffId=${this.state.profile.employee[0].id}`)
             .then(res => {
                 console.log("My Project ----->", res.data)

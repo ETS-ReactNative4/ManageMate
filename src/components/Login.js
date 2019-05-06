@@ -12,11 +12,11 @@ class Login extends Component {
 
         this.state = {
             staffId: '5',
-            username : '',
-            password : '',
-            profile : ''
+            username: '',
+            password: '',
+            profile: ''
         }
-        this.handleChangeUsername= this.handleChangeUsername.bind(this);
+        this.handleChangeUsername = this.handleChangeUsername.bind(this);
         this.handleChangePassword = this.handleChangePassword.bind(this);
     }
     handleChangeUsername(event) {
@@ -29,46 +29,46 @@ class Login extends Component {
     }
     handleSubmit = () => {
         axios.post('http://52.168.175.101:8000/user/login/', {
-          "username" : this.state.username,
-          "password" : this.state.password
+            "username": this.state.username,
+            "password": this.state.password
 
 
         }, {
             
             })
-            .then( (response) => {
-               this.setState({profile : response.data})
-               console.log("log in",this.state.profile)
-               const data = this.state.profile
+            .then((response) => {
+                this.setState({ profile: response.data })
+                console.log("log in", this.state.profile)
+                const data = this.state.profile
                 this.props.addProfile(data)
                 this.props.router.push('/myCalendar')
             })
             .catch((error) => {
-                console.log("this error",error)
-                alert("Username or Password Incorrect")
+                console.log("this error", error)
+                alert("Username or Password Incorrect" , error.data)
             })
 
-            
+
     }
 
 
     render() {
         return (
             <div>
- <div className="App"> 
-        <header className="background">
-          <h1 className="hero-logo">MANAGEMATE</h1>
-                <div className="borderLogin">
-                <div><p> </p></div>
-                <div><h4>LOGIN</h4></div>
-                <div><p> </p></div>
-                <div><p>USERNAME : <input type="text" value={this.state.username} onChange={this.handleChangeUsername} className="log-in" /></p></div>
-                    <div><p>PASSWORD : <input type="password" value={this.state.password} onChange={this.handleChangePassword} className="log-in" /></p></div>
-                   <button type="submit" value="Submit" className="LoginButton" onClick={this.handleSubmit}>Login</button>
-                   <div><p> </p></div>
+                <div className="App">
+                    <header className="background">
+                        <h1 className="hero-logo">MANAGEMATE</h1>
+                        <div className="borderLogin">
+                            <div><p> </p></div>
+                            <div><h4>LOGIN</h4></div>
+                            <div><p> </p></div>
+                            <div><p>Username : <input type="text" value={this.state.username} onChange={this.handleChangeUsername} className="log-in" /></p></div>
+                            <div><p>Password : <input type="password" value={this.state.password} onChange={this.handleChangePassword} className="log-in" /></p></div>
+                            <button type="submit" value="Submit" className="LoginButton" onClick={this.handleSubmit}>Login</button>
+                            <div><p> </p></div>
+                        </div>
+                    </header>
                 </div>
-          </header> 
-           </div>
             </div>
 
 
@@ -83,7 +83,7 @@ const mapStateToProps = state => {
     console.log('state55555 ----->', state.profile)
     return {
         people: state.profile
-        
+
     }
 }
 export default connect(mapStateToProps,

@@ -70,7 +70,7 @@ class MyCalendarCreateEvent extends Component {
 
     handleSubmit = () => {
         
-            // axios.post('https://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
+            // axios.post('http://managemate.azurewebsites.net/api/Leave/LeaveInfo', {
             axios.post("http://52.168.175.101:8000/employee/addcalendar/",{
             "staffID" : this.state.profile.employee[0].id,
             "datetime" : this.state.date,

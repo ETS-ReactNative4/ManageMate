@@ -14,7 +14,7 @@ class TangkwaWithDrawDetail extends Component {
         }
     }
     componentDidMount() {
-        axios.get(`https://managemate.azurewebsites.net/GetWithdrawInfoByWithDrawID?withdrawId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`http://managemate.azurewebsites.net/GetWithdrawInfoByWithDrawID?withdrawId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
