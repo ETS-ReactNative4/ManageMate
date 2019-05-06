@@ -201,7 +201,7 @@ check : parseInt(_.last(window.location.pathname.split('/')))
     }
 
     handleCheck = () => {
-        axios.post("http://127.0.0.1:8000/employee/putEmployee/", {
+        axios.post("http://52.168.175.101:8000/employee/putEmployee/", {
             "firstnameEN": this.state.firstnameEN,
             "lastnameEN": this.state.lastnameEN,
             "email": this.state.email,
