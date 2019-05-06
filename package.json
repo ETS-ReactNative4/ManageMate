@@ -2,6 +2,10 @@
   "name": "managemate",
   "version": "0.1.0",
   "private": true,
+  "engines" : {
+    "node" : "6.4.1",
+    "npm" : "v10.15.3",
+  },
   "dependencies": {
     "3": "^2.1.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.15",

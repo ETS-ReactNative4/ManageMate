@@ -24,7 +24,7 @@ export default class Calendar extends React.Component {
     }
     async componentDidMount() {
         // axios.get(`https://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByStaffID?staffId=${this.state.staffid}`)
-          axios.get(`http://127.0.0.1:8000/employee/getcalendar/`)
+          axios.get(`http://52.168.175.101:8000/employee/getcalendar/`)
          
             .then(res => {
                 console.log("data",res.data)
