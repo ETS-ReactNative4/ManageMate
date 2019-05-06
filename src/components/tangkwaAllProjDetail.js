@@ -43,7 +43,7 @@ class TangkwaAllProjDetail extends Component {
     }
 
     onClickJoinProject = () =>{
-        axios.post("http://127.0.0.1:8000/employee/putJoinProject/",{     
+        axios.post("http://52.168.175.101:8000/employee/putJoinProject/",{     
                 "staffId": this.state.profile.employee[0].id,
                 "projectID": this.state.people[0].projectID,
                
@@ -61,7 +61,7 @@ class TangkwaAllProjDetail extends Component {
         }
 
     onClickChangeStatusDone = () => {
-        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "Done"
            
@@ -78,7 +78,7 @@ class TangkwaAllProjDetail extends Component {
             })
     }
     onClickChangeStatusInprocess = () => {
-        axios.post("http://127.0.0.1:8000/employee/changeProjectStatus/",{     
+        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "In process"
            
