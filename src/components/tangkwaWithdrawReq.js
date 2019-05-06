@@ -55,7 +55,7 @@ class TangkwaWithdrawReq extends Component {
     }
     handleSubmit = async event => {
         if (window.confirm("Are you sure to sent report?")) {
-            axios.post('https://managemate.azurewebsites.net/WithdrawInfo', {
+            axios.post('http://managemate.azurewebsites.net/WithdrawInfo', {
                 "withdrawID": 0,
                 "staffID": "1",
                 "bankNo": this.state.bankNo,

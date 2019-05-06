@@ -13,7 +13,7 @@ class TangkwaApproveWithdraw extends Component {
         }
     }
     componentDidMount() {
-        axios.get('https://managemate.azurewebsites.net/GetWithdrawInfo')
+        axios.get('http://managemate.azurewebsites.net/GetWithdrawInfo')
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })
