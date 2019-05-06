@@ -15,7 +15,7 @@ class TangkwaAllProject extends Component {
         console.log("Profile ----->",this.state.profile)
     }
     componentDidMount() {
-        axios.get('http://52.168.175.101:8000/employee/getproject/')
+        axios.get('https://managemate.eastus.cloudapp.azure.com:8000/employee/getproject/')
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })

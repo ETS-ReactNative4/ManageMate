@@ -14,7 +14,7 @@ class TangkwaAllProjDetail extends Component {
         console.log("ttt11", this.state.profile.employee[0].id)
     }
     componentDidMount() {
-        axios.get(`http://52.168.175.101:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
+        axios.get(`https://managemate.eastus.cloudapp.azure.com:8000/employee/getprojectbyprojectid/?projectId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             .then(res => {
                 const person = res.data.map((user) => {
                     return {
@@ -43,7 +43,7 @@ class TangkwaAllProjDetail extends Component {
     }
 
     onClickJoinProject = () =>{
-        axios.post("http://52.168.175.101:8000/employee/putJoinProject/",{     
+        axios.post("https://managemate.eastus.cloudapp.azure.com:8000/employee/putJoinProject/",{     
                 "staffId": this.state.profile.employee[0].id,
                 "projectID": this.state.people[0].projectID,
                
@@ -61,7 +61,7 @@ class TangkwaAllProjDetail extends Component {
         }
 
     onClickChangeStatusDone = () => {
-        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
+        axios.post("https://managemate.eastus.cloudapp.azure.com:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "Done"
            
@@ -78,7 +78,7 @@ class TangkwaAllProjDetail extends Component {
             })
     }
     onClickChangeStatusInprocess = () => {
-        axios.post("http://52.168.175.101:8000/employee/changeProjectStatus/",{     
+        axios.post("https://managemate.eastus.cloudapp.azure.com:8000/employee/changeProjectStatus/",{     
             "projectID": this.state.people[0].projectID,
             "status": "In process"
            

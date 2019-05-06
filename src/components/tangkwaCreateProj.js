@@ -47,7 +47,7 @@ class TangkwaCreateProj extends Component {
     }
     handleSubmit = async event => {
         if (window.confirm("Are you sure to create new Project?")) {
-            axios.post('http://52.168.175.101:8000/employee/addproject/', {
+            axios.post('https://managemate.eastus.cloudapp.azure.com:8000/employee/addproject/', {
                 "staffID": this.state.profile.employee[0].id,
                 "ProjectName": this.state.projectName,
                 "Comment": this.state.detail,

@@ -20,7 +20,7 @@ class TangkwaMyClockIn extends Component {
     }
     componentDidMount() {
         // axios.get('http://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
-        axios.get(`http://52.168.175.101:8000/employee/getcheckin/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
+        axios.get(`https://managemate.eastus.cloudapp.azure.com:8000/employee/getcheckin/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
             .then(res => {
                 const person = res.data
                 this.setState({ people: person })

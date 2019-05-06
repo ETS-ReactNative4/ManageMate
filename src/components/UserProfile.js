@@ -54,7 +54,7 @@ class UserProfile extends Component {
     }
      componentDidMount() {
         // axios.get('http://managemate.azurewebsites.net/GetCheckinByStaffID?leaveId=1')
-        axios.get(`http://52.168.175.101:8000/employee/Statistic/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
+        axios.get(`https://managemate.eastus.cloudapp.azure.com:8000/employee/Statistic/?staffId=${this.state.profile.employee[0].id}`) //this.state.profile.employee[0].id
             .then(res => {
                 console.log("datda", res.data[1])
              const a = res.data[2].map((user) => {
