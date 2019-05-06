@@ -18,6 +18,8 @@ class TangkwaLeaveDetail extends Component {
     }
     async componentDidMount() {
         try {
+
+            //test
             // const response = await axios.get(`http://managemate.azurewebsites.net/api/Leave/GetLeaveInfoByLeaveID?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`);
             const response = await axios.get(`http://52.168.175.101:8000/employee/getleave/?leaveId=${parseInt(_.last(window.location.pathname.split('/')))}`)
             await this.setState({ people: response.data });
